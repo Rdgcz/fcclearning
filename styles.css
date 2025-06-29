@@ -1,0 +1,33 @@
+:root {
+      --bg-color: #0d0d1a;
+      --text-color: #e0f7fa;
+      --accent-color: #00f0ff;
+      --accent-secondary: #0066ff;
+      --separator-color: #003d66;
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 1.5rem;
+      --space-lg: 2rem;
+      --space-xl: 3rem;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      min-height: 100vh;
+      margin: 0;
+      padding: var(--space-sm);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+    }
