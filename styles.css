@@ -1,9 +1,25 @@
 :root {
-      --bg-color: #0043b6;
-      --text-color: #e0f7fa;
-      --accent-color: #00f0ff;
-      --accent-secondary: #0066ff;
-      --separator-color: #003d66;
+      /* PALETA 1 */
+        --bg-color: #f8f9fa;               /* Branco levemente acinzentado (fundo suave) */
+        --text-color: #212529;             /* Quase preto (ótimo contraste e legibilidade) */
+        --accent-color: #0d6efd;           /* Azul profissional (destaques primários) */
+        --accent-secondary: #6c757d;       /* Cinza azulado (destaques secundários) */
+        --separator-color: #dee2e6;        /* Cinza muito claro (para divisões sutis) */
+   
+      /* PALETA 2 - MODO ESCURO
+        --bg-color: #212529;
+        --text-color: #f8f9fa;
+        --accent-color: #4dabf7;
+        --accent-secondary: #adb5bd;
+        --separator-color: #495057;  */
+      
+      /* PAÇETA 3 - CRIATIVO
+      --bg-color: #ffffff;
+        --text-color: #2b2d42;
+        --accent-color: #ef233c;*/           /* Vermelho vinho sofisticado */
+        /* --accent-secondary: #8d99ae;       /* Cinza azulado suave */
+        /*--separator-color: #edf2f4; */      /* Cinza quase branco */
+      
       --space-xs: 0.5rem;
       --space-sm: 1rem;
       --space-md: 1.5rem;
