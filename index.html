@@ -1,12 +1,60 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-  <head>
+<!DOCTYPE html> <!-- DECLARAÇÃO DE DOCUMENTO HTML -->
+<html lang="pt-br"> <!-- IDIOMA ORIGINAL DO SITE -->
+  <head> <!-- DEVE CONTER META TAGS PARA TIPO DE CODIFICAÇÃO, ADAPTABILIDADE PARA DIVERSOS TIPOS DE DISPOSITIVOS, LINKS PARA STYLESHEETS E ETC. --> 
+    <meta charset="UTF-8"> <!-- CODIFICAÇÃO -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- ADAPTABILIDADE PARA DIVERSOS DISPOSITIVOS -->
+  <meta name="description" content="Página para aplicação do conhecimento adquirido através do freecodecamp.org">
+  <meta name="keywords" content="frontend, design, ux, ui, desenvolvimento web, freecodecamp">
+  <meta name="author" content="Rodrigo Cezar da Silva">
+  <title>RDGCZ - Aplicação de Conhecimentos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="assets/images/favicon/favicon-32x32.png" type="image/png">
     </head>
+  <style>
+     :root {
+      --bg-color: #0d0d1a;
+      --text-color: #e0f7fa;
+      --accent-color: #00f0ff;
+      --accent-secondary: #0066ff;
+      --separator-color: #003d66;
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 1.5rem;
+      --space-lg: 2rem;
+      --space-xl: 3rem;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      }
 
-  <body>
-    <header>Olá Mundo!</header>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      min-height: 100vh;
+      margin: 0;
+      padding: var(--space-sm);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+    }
     
+    
+  </style>
+  <body>
+    <header>
     <h1>Página para aplicação do conhecimento adquirido através do <span><a href="https://www.freecodecamp.org/" target="_blank">freecodecamp.org</a></span></h1>
+    <p>Olá Mundo!</p>
+    </header>
+    
+    <main>
     <p>Decidi criar esta página para registrar meu progresso na jornada de aprendizado em desenvolvimento web. Enquanto completo o currículo Full Stack do freeCodeCamp, vou aplicar os conhecimentos aqui, transformando esta página num testemunho do meu crescimento profissional.</p>
    <section>
      <h2>HTML - Hyper Text Markup Language</h2>
@@ -332,6 +380,7 @@
         </ul>
       </section>
     </div>
+      </main>
 
     <footer>2025 - RDGCZ - Todos os direitos reservados.</footer>  
   </body>
