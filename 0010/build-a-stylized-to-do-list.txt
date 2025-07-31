@@ -1,0 +1,106 @@
+** start of index.html **
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Styled To-Do List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <ul class="todo-list">
+        <!--Item 1-->
+        <li>
+            <input type="checkbox" id="td1">    
+            <label for="td1">Teach goldfish to do backflips</label>
+            <ul class="sub-item">
+                <li><a href="https://www.google.com/" class="sub-item-link" target="_blank">How to!</a></li>
+            </ul>
+        </li>
+
+        <!--Item 2 -->
+        <li>
+            <input type="checkbox" id="td1">    
+            <label for="td1">Practice 'air guitar' like a rockstar in the mirror</label>
+            <ul class="sub-item">
+                <li><a href="https://www.google.com/" class="sub-item-link" target="_blank">AC/DC style</a></li>
+            </ul>
+        </li>
+
+        <!--Item 3 -->
+        <li>
+            <input type="checkbox" id="td1">    
+            <label for="td1">Convince the dog it's actually a llama</label>
+            <ul class="sub-item">
+                <li><a href="https://www.google.com/" class="sub-item-link" target="_blank">What is a llamas?</a></li>
+            </ul>
+        </li>
+
+        <!--Item 4 -->
+        <li>
+            <input type="checkbox" id="td1">    
+            <label for="td1">Try to high-five a ghost</label>
+            <ul class="sub-item">
+                <li><a href="https://www.google.com/" class="sub-item-link" target="_blank">Ghost? Really?</a></li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>
+
+** end of index.html **
+
+** start of styles.css **
+
+/* Base styles */
+.todo-list {
+    list-style-type: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+}
+
+.todo-list li {
+    background: #FF00FF;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.sub-item {
+    list-style-type: none;
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+/* Link styles */
+.sub-item-link {
+    color: #4a6baf; /* Default color */
+    text-decoration: none; /* No underline */
+    transition: all 0.3s ease;
+}
+
+.sub-item-link:visited {
+    color: #8a4baf; /* Visited color */
+}
+
+.sub-item-link:hover {
+    color: #af4a4a; /* Hover color */
+}
+
+.sub-item-link:focus {
+    outline: 2px solid #4aaf5e; /* Focus outline */
+    outline-offset: 2px;
+}
+
+.sub-item-link:active {
+    color: #af4a4a; /* Active/click color */
+    transform: scale(0.98);
+}
+
+** end of styles.css **
+

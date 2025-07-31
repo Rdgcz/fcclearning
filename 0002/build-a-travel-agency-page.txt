@@ -1,0 +1,47 @@
+** start of index.html **
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Travel Agency Page</title>
+    <meta name="description" content="Discover your dream vacation with our expert travel agency! Book flights, hotels, and customized tours at the best prices. Luxury getaways, family trips & adventure tours await!">
+    </head>
+  <body>
+    <h1>Americas, Europe, Africa, Asia and Oceania. It's with us!</h1>
+    <p>Welcome to Wild Horizon Expeditions, where extraordinary adventures begin! Whether you crave sun-kissed beaches, thrilling safaris, or luxurious city escapes, we craft personalized travel experiences just for you. Discover handpicked destinations, exclusive deals, and seamless planning — your dream vacation is just a click away.</p>
+    <h2>Packages</h2>
+    <p>At Wild Horizon Expeditions, we offer handcrafted travel packages designed for every explorer. Dive into tropical all-inclusive resorts, embark on thrilling adventure tours, or indulge in luxurious European escapes. Whether you're planning a romantic honeymoon, a family-friendly vacation, or a solo backpacking journey, we have the perfect itinerary for you. Enjoy exclusive deals, seamless bookings, and 24/7 support — your dream trip starts here!</p>
+    <ul>
+      <li><a href="https://www.freecodecamp.org/learn" target="_blank">Group Travels</a></li>
+      <li><a href="https://www.freecodecamp.org/learn" target="_blank">Private Tours</a></li>
+    </ul>
+  <h2>Top Itineraries</h2>
+  <figure>
+    <a href="https://www.freecodecamp.org/learn" target="_blank">
+    <img src="https://cdn.freecodecamp.org/curriculum/labs/colosseo.jpg" alt="Roman Colosseum">
+    </a>
+      <figcaption>The Roman Colosseum</figcaption>
+  </figure>
+  <figure>
+    <a href="https://www.freecodecamp.org/learn" target="_blank">
+    <img src="https://cdn.freecodecamp.org/curriculum/labs/alps.jpg" alt="The Alps">
+    </a>
+      <figcaption>
+        The Alps
+        </figcaption>
+  </figure>
+   <figure>
+    <a href="https://www.freecodecamp.org/learn" target="_blank">
+    <img src="https://cdn.freecodecamp.org/curriculum/labs/sea.jpg" alt="The sea">
+     </a>
+      <figcaption>
+        The Sea
+        </figcaption>
+  </figure>
+  </body>
+</html>
+
+
+** end of index.html **
+

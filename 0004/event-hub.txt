@@ -1,0 +1,56 @@
+** start of index.html **
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Event Hub</title>
+</head>
+
+<body>
+    <header>
+        <h1>Event Hub</h1>
+        <nav>
+            <ul>
+                <li><a href="#upcoming-events">Upcoming Events</a></li>
+                <li><a href="#past-events">Past Events</a></li>
+            </nav>
+            </header>
+    <main>
+        <section id=upcoming-events>
+            <h2>Upcoming Events</h2>
+            <article>
+            <h3>Event Title 1</h3>
+            <p>Event description</p>
+            <p>Date: MM-DD-YYYY HH:MM</p>
+            </article>
+            <article>
+                <h3>Event Title 2</h3>
+                <p>Event description</p>
+                <p>Date: MM-DD-YYYY HH:MM</p>
+            </section>
+        <section id="past-events">
+            <h2>Past Events</h2>
+            <article>
+                <h3>Past Event Title 1</h3>
+                <p>Past Event 1 description</p>
+                <p>Date: MM-DD-YYYY HH:MM</p>
+                <img src="https://cdn.freecodecamp.org/curriculum/labs/past-event1.jpg" alt="image 1 description">
+                </article>
+                <article>
+                    <h3>Past Event Title 2</h3>
+                    <p>Past Event 2 Description</p>
+                    <p>Date: MM-DD-YYYY HH:HH</p>
+                    <img src="https://cdn.freecodecamp.org/curriculum/labs/past-event2.jpg" alt="image2 description">
+                    </article>
+            </section>    
+        </main>
+        </header>
+
+</body>
+
+</html>
+
+** end of index.html **
+

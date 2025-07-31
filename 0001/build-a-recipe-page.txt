@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fried Egg Recipe</title>
+</head>
+<body>
+  <h1>FRIED EGG RECIPE</h1>
+  <p>This simple fried egg recipe is a quick and versatile dish perfect for any meal. Using just a fresh egg, a touch of oil or butter, and basic seasonings, it guides you through achieving your ideal yolk texture—whether runny, creamy, or fully set. With tips to enhance flavor and serving suggestions like pairing with toast or avocado, it’s a foolproof way to enjoy a crispy-edged, golden fried egg in minutes. Perfect for breakfast, lunch, or a hearty snack!</p>
+  <h2>Ingredients</h2>
+  <ul>
+    <li>1 fresh egg</li>
+    <li>1 teaspoon of oil, olive oil, or butter (for frying)</li>
+    <li>Salt to taste</li>
+    <li>Black pepper to taste (optional)</li>
+  <h2>Instructions</h2>
+    <ol>
+      <li>Heat the skillet: Place a non-stick skillet over medium heat and add the oil, olive oil, or butter. Let it heat for 1 minute (do not let it smoke).</li>
+      <li>Crack the egg: Carefully crack the egg into a small plate (to avoid shells falling into the skillet) or directly into the hot skillet.</li>
+      <li>Fry the egg: Cook over medium heat until the egg white is set and opaque, but the yolk remains liquid (about 2-3 minutes).</li>
+      <li>Season: Remove the egg with a spatula, transfer to a plate, and season with salt and pepper to taste.</li>
+  <img src="https://i0.wp.com/espetinhodesucesso.com/wp-content/uploads/2024/10/Como-fazer-ovo-frito-na-agua.jpg?resize=800%2C450&ssl=1"  alt="Two fried eggs">  
+</body>
+</html>
+
+** end of index.html **
+
