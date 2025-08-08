@@ -1,0 +1,1679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive CSS guide covering basics, selectors, layout, responsive design, animations and more">
+    <meta name="keywords" content="CSS, stylesheets, web design, responsive design, animations, flexbox, grid">
+    <meta name="author" content="CSS Guide">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Comprehensive CSS Guide">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://example.com/css-guide">
+    <meta property="og:image" content="https://example.com/images/css-guide-preview.jpg">
+
+    <link rel="stylesheet" href="../styles.css">
+    
+    <title>Comprehensive CSS Guide</title>
+</head>
+<body>
+    <header>
+        <h1>Comprehensive CSS Guide</h1>
+        <p>Everything you need to know about CSS from basics to advanced concepts</p>
+    </header>
+    
+    <main>
+        <nav>
+            <a href="../index.html">Back to Homepage</a> | Comprehensive CSS Guide
+        </nav>
+        
+        <section id="css-basics">
+            <h2>CSS Basics</h2>
+            
+            <article>
+                <h3>What is CSS?</h3>
+                <p>CSS (Cascading Style Sheets) is a stylesheet language used to describe the presentation of a document written in HTML or XML. CSS describes how elements should be rendered on screen, on paper, in speech, or on other media.</p>
+                
+                <div class="note">
+                    <p><strong>Note:</strong> CSS is not a programming language; it's a style sheet language that defines how HTML elements are displayed.</p>
+                </div>
+            </article>
+            
+            <article>
+                <h3>CSS Syntax</h3>
+                <p>CSS consists of style rules that are interpreted by the browser and then applied to the corresponding elements in your document.</p>
+                
+                <pre><code>selector {
+    property: value;
+    /* This is a CSS comment */
+}</code></pre>
+                
+                <ul>
+                    <li><strong>Selector</strong> - Points to the HTML element you want to style</li>
+                    <li><strong>Property</strong> - The style attribute you want to change</li>
+                    <li><strong>Value</strong> - The value you want to assign to the property</li>
+                    <li><strong>Declaration</strong> - Each property/value pair is a declaration</li>
+                    <li><strong>Declaration block</strong> - Contains one or more declarations</li>
+                </ul>
+            </article>
+            
+            <article>
+                <h3>Ways to Include CSS</h3>
+                
+                <h4>1. Inline Styles</h4>
+                <pre><code>&lt;p style="color: blue; font-size: 16px;"&gt;This is a paragraph.&lt;/p&gt;</code></pre>
+                
+                <h4>2. Internal Stylesheet</h4>
+                <pre><code>&lt;head&gt;
+    &lt;style&gt;
+        p {
+            color: blue;
+            font-size: 16px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;</code></pre>
+                
+                <h4>3. External Stylesheet (Recommended)</h4>
+                <pre><code>&lt;head&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;</code></pre>
+                
+                <div class="note">
+                    <p><strong>Best Practice:</strong> External stylesheets are preferred as they separate content from presentation and can be cached by browsers.</p>
+                </div>
+            </article>
+            
+            <article>
+                <h3>CSS Comments</h3>
+                <p>Comments are used to explain your code and are ignored by browsers.</p>
+                
+                <pre><code>/* This is a single-line comment */
+
+/*
+This is a
+multi-line
+comment
+*/</code></pre>
+            </article>
+        </section>
+        
+        <section id="selectors-specificity">
+            <h2>Selectors and Specificity</h2>
+            
+            <article>
+                <h3>Basic Selectors</h3>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Selector</th>
+                            <th>Example</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Element</td>
+                            <td><code>p</code></td>
+                            <td>Selects all &lt;p&gt; elements</td>
+                        </tr>
+                        <tr>
+                            <td>Class</td>
+                            <td><code>.intro</code></td>
+                            <td>Selects all elements with class="intro"</td>
+                        </tr>
+                        <tr>
+                            <td>ID</td>
+                            <td><code>#header</code></td>
+                            <td>Selects the element with id="header"</td>
+                        </tr>
+                        <tr>
+                            <td>Universal</td>
+                            <td><code>*</code></td>
+                            <td>Selects all elements</td>
+                        </tr>
+                        <tr>
+                            <td>Grouping</td>
+                            <td><code>h1, h2, h3</code></td>
+                            <td>Selects all &lt;h1&gt;, &lt;h2&gt;, and &lt;h3&gt; elements</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+            
+            <article>
+                <h3>Combinators</h3>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Selector</th>
+                            <th>Example</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Descendant</td>
+                            <td><code>div p</code></td>
+                            <td>Selects all &lt;p&gt; elements inside &lt;div&gt; elements</td>
+                        </tr>
+                        <tr>
+                            <td>Child</td>
+                            <td><code>div > p</code></td>
+                            <td>Selects all &lt;p&gt; elements where the parent is a &lt;div&gt; element</td>
+                        </tr>
+                        <tr>
+                            <td>Adjacent Sibling</td>
+                            <td><code>div + p</code></td>
+                            <td>Selects the first &lt;p&gt; element that is placed immediately after &lt;div&gt; elements</td>
+                        </tr>
+                        <tr>
+                            <td>General Sibling</td>
+                            <td><code>div ~ p</code></td>
+                            <td>Selects all &lt;p&gt; elements that are siblings of &lt;div&gt; elements</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+            
+            <article>
+                <h3>Attribute Selectors</h3>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Selector</th>
+                            <th>Example</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>[attribute]</code></td>
+                            <td><code>[target]</code></td>
+                            <td>Selects all elements with a target attribute</td>
+                        </tr>
+                        <tr>
+                            <td><code>[attribute=value]</code></td>
+                            <td><code>[target="_blank"]</code></td>
+                            <td>Selects all elements with target="_blank"</td>
+                        </tr>
+                        <tr>
+                            <td><code>[attribute~=value]</code></td>
+                            <td><code>[title~="flower"]</code></td>
+                            <td>Selects all elements with a title attribute containing "flower"</td>
+                        </tr>
+                        <tr>
+                            <td><code>[attribute|=value]</code></td>
+                            <td><code>[lang|="en"]</code></td>
+                            <td>Selects all elements with a lang attribute value starting with "en"</td>
+                        </tr>
+                        <tr>
+                            <td><code>[attribute^=value]</code></td>
+                            <td><code>a[href^="https"]</code></td>
+                            <td>Selects every &lt;a&gt; element whose href attribute value begins with "https"</td>
+                        </tr>
+                        <tr>
+                            <td><code>[attribute$=value]</code></td>
+                            <td><code>a[href$=".pdf"]</code></td>
+                            <td>Selects every &lt;a&gt; element whose href attribute value ends with ".pdf"</td>
+                        </tr>
+                        <tr>
+                            <td><code>[attribute*=value]</code></td>
+                            <td><code>a[href*="example"]</code></td>
+                            <td>Selects every &lt;a&gt; element whose href attribute value contains "example"</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+            
+            <article>
+                <h3>Pseudo-classes and Pseudo-elements</h3>
+                
+                <h4>Common Pseudo-classes</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Selector</th>
+                            <th>Example</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>:hover</code></td>
+                            <td><code>a:hover</code></td>
+                            <td>Selects links on mouse hover</td>
+                        </tr>
+                        <tr>
+                            <td><code>:active</code></td>
+                            <td><code>a:active</code></td>
+                            <td>Selects the active link</td>
+                        </tr>
+                        <tr>
+                            <td><code>:visited</code></td>
+                            <td><code>a:visited</code></td>
+                            <td>Selects visited links</td>
+                        </tr>
+                        <tr>
+                            <td><code>:focus</code></td>
+                            <td><code>input:focus</code></td>
+                            <td>Selects input element with focus</td>
+                        </tr>
+                        <tr>
+                            <td><code>:first-child</code></td>
+                            <td><code>p:first-child</code></td>
+                            <td>Selects first child &lt;p&gt; element</td>
+                        </tr>
+                        <tr>
+                            <td><code>:nth-child()</code></td>
+                            <td><code>li:nth-child(odd)</code></td>
+                            <td>Selects every odd &lt;li&gt; element</td>
+                        </tr>
+                        <tr>
+                            <td><code>:not()</code></td>
+                            <td><code>:not(p)</code></td>
+                            <td>Selects every element that is not a &lt;p&gt;</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h4>Common Pseudo-elements</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Selector</th>
+                            <th>Example</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>::before</code></td>
+                            <td><code>p::before</code></td>
+                            <td>Inserts content before &lt;p&gt; elements</td>
+                        </tr>
+                        <tr>
+                            <td><code>::after</code></td>
+                            <td><code>p::after</code></td>
+                            <td>Inserts content after &lt;p&gt; elements</td>
+                        </tr>
+                        <tr>
+                            <td><code>::first-letter</code></td>
+                            <td><code>p::first-letter</code></td>
+                            <td>Selects first letter of &lt;p&gt; elements</td>
+                        </tr>
+                        <tr>
+                            <td><code>::first-line</code></td>
+                            <td><code>p::first-line</code></td>
+                            <td>Selects first line of &lt;p&gt; elements</td>
+                        </tr>
+                        <tr>
+                            <td><code>::selection</code></td>
+                            <td><code>::selection</code></td>
+                            <td>Selects portion of element selected by user</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+            
+            <article>
+                <h3>Specificity and Cascade</h3>
+                <p>Specificity determines which CSS rule is applied by browsers when multiple rules could apply to the same element.</p>
+                
+                <h4>Specificity Hierarchy</h4>
+                <ol>
+                    <li><strong>Inline styles</strong> - Highest specificity (1,0,0,0)</li>
+                    <li><strong>IDs</strong> - (0,1,0,0)</li>
+                    <li><strong>Classes, attributes and pseudo-classes</strong> - (0,0,1,0)</li>
+                    <li><strong>Elements and pseudo-elements</strong> - (0,0,0,1)</li>
+                </ol>
+                
+                <h4>Calculating Specificity</h4>
+                <p>Count the number of each selector type in a given selector, then concatenate these numbers to get the specificity value.</p>
+                
+                <pre><code>#nav .list li a:hover  /* 0,1,2,2 */
+/* 0 IDs, 1 class, 2 elements, 1 pseudo-class */</code></pre>
+                
+                <div class="note">
+                    <p><strong>Important Rules:</strong> 
+                    <br>1. !important overrides all other declarations
+                    <br>2. Inline styles override external stylesheets
+                    <br>3. More specific selectors override less specific ones
+                    <br>4. Last rule wins if specificity is equal</p>
+                </div>
+            </article>
+        </section>
+        
+        <section id="box-model">
+            <h2>Box Model</h2>
+            
+            <article>
+                <h3>Understanding the Box Model</h3>
+                <p>Every element in CSS is represented as a rectangular box with the following properties:</p>
+                
+                <ul>
+                    <li><strong>Content</strong> - The actual content of the box (text, image, etc.)</li>
+                    <li><strong>Padding</strong> - Clears an area around the content (transparent)</li>
+                    <li><strong>Border</strong> - A border that goes around the padding and content</li>
+                    <li><strong>Margin</strong> - Clears an area outside the border (transparent)</li>
+                </ul>
+                
+                <div style="text-align: center; margin: 20px 0;">
+                    <img src="https://www.w3schools.com/css/box-model.gif" alt="CSS Box Model Diagram" style="max-width: 400px;">
+                </div>
+                
+                <pre><code>div {
+    width: 300px;
+    padding: 20px;
+    border: 5px solid gray;
+    margin: 10px;
+}</code></pre>
+            </article>
+            
+            <article>
+                <h3>Box-Sizing Property</h3>
+                <p>The <code>box-sizing</code> property defines how the width and height of an element are calculated.</p>
+                
+                <h4>content-box (default)</h4>
+                <pre><code>box-sizing: content-box;
+/* Width and height only include content */
+/* Total width = width + padding + border */</code></pre>
+                
+                <h4>border-box</h4>
+                <pre><code>box-sizing: border-box;
+/* Width and height include content, padding and border */
+/* Total width = width (includes padding and border) */</code></pre>
+                
+                <div class="note">
+                    <p><strong>Best Practice:</strong> Many developers set <code>box-sizing: border-box</code> on all elements for more intuitive sizing:</p>
+                    <pre><code>* {
+    box-sizing: border-box;
+}</code></pre>
+                </div>
+            </article>
+            
+            <article>
+                <h3>Margin Collapse</h3>
+                <p>Vertical margins between adjacent elements collapse into a single margin (the largest of the two).</p>
+                
+                <pre><code>h1 {
+    margin-bottom: 20px;
+}
+
+p {
+    margin-top: 15px;
+}
+/* Actual margin between h1 and p will be 20px (not 35px) */</code></pre>
+                
+                <p>Margins collapse in these situations:</p>
+                <ul>
+                    <li>Adjacent siblings</li>
+                    <li>Empty content (no content, padding, or border)</li>
+                    <li>Parent and first/last child</li>
+                </ul>
+            </article>
+            
+            <article>
+                <h3>Display Property</h3>
+                <p>The <code>display</code> property specifies the display behavior of an element.</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Value</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>inline</code></td>
+                            <td>Default for span, a, etc. Width/height ignored</td>
+                        </tr>
+                        <tr>
+                            <td><code>block</code></td>
+                            <td>Default for div, p, etc. Starts on new line</td>
+                        </tr>
+                        <tr>
+                            <td><code>inline-block</code></td>
+                            <td>Like inline but width/height respected</td>
+                        </tr>
+                        <tr>
+                            <td><code>none</code></td>
+                            <td>Element is completely removed</td>
+                        </tr>
+                        <tr>
+                            <td><code>flex</code></td>
+                            <td>Block-level flex container</td>
+                        </tr>
+                        <tr>
+                            <td><code>inline-flex</code></td>
+                            <td>Inline-level flex container</td>
+                        </tr>
+                        <tr>
+                            <td><code>grid</code></td>
+                            <td>Block-level grid container</td>
+                        </tr>
+                        <tr>
+                            <td><code>inline-grid</code></td>
+                            <td>Inline-level grid container</td>
+                        </tr>
+                        <tr>
+                            <td><code>table</code></td>
+                            <td>Behaves like &lt;table&gt;</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+            
+            <article>
+                <h3>Visibility Property</h3>
+                <p>The <code>visibility</code> property specifies whether an element is visible or not.</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Value</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>visible</code></td>
+                            <td>Default. Element is visible</td>
+                        </tr>
+                        <tr>
+                            <td><code>hidden</code></td>
+                            <td>Element is invisible but still takes up space</td>
+                        </tr>
+                        <tr>
+                            <td><code>collapse</code></td>
+                            <td>For table rows/columns only. Removes space</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="note">
+                    <p><strong>Note:</strong> <code>display: none</code> removes the element from the document flow entirely, while <code>visibility: hidden</code> hides the element but maintains its space.</p>
+                </div>
+            </article>
+        </section>
+        
+        <section id="typography">
+            <h2>Typography</h2>
+            
+            <article>
+                <h3>Font Properties</h3>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>font-family</code></td>
+                            <td>Specifies the font for an element</td>
+                            <td><code>font-family: Arial, sans-serif;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>font-size</code></td>
+                            <td>Specifies the size of the font</td>
+                            <td><code>font-size: 16px;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>font-weight</code></td>
+                            <td>Specifies the weight of the font</td>
+                            <td><code>font-weight: bold;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>font-style</code></td>
+                            <td>Specifies the style of the font</td>
+                            <td><code>font-style: italic;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>font-variant</code></td>
+                            <td>Specifies small-caps font</td>
+                            <td><code>font-variant: small-caps;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>line-height</code></td>
+                            <td>Specifies the space between lines</td>
+                            <td><code>line-height: 1.5;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>font</code> (shorthand)</td>
+                            <td>Shorthand for multiple font properties</td>
+                            <td><code>font: italic bold 16px/1.5 Arial;</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+            
+            <article>
+                <h3>Text Properties</h3>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>color</code></td>
+                            <td>Sets the color of text</td>
+                            <td><code>color: #333;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>text-align</code></td>
+                            <td>Aligns text horizontally</td>
+                            <td><code>text-align: center;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>text-decoration</code></td>
+                            <td>Adds decoration to text</td>
+                            <td><code>text-decoration: underline;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>text-transform</code></td>
+                            <td>Controls text capitalization</td>
+                            <td><code>text-transform: uppercase;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>text-indent</code></td>
+                            <td>Indents first line of text</td>
+                            <td><code>text-indent: 20px;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>letter-spacing</code></td>
+                            <td>Space between characters</td>
+                            <td><code>letter-spacing: 2px;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>word-spacing</code></td>
+                            <td>Space between words</td>
+                            <td><code>word-spacing: 5px;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>white-space</code></td>
+                            <td>Controls text wrapping</td>
+                            <td><code>white-space: nowrap;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>text-shadow</code></td>
+                            <td>Adds shadow to text</td>
+                            <td><code>text-shadow: 2px 2px 4px #000;</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+            
+            <article>
+                <h3>Web Fonts</h3>
+                <p>CSS allows you to use fonts that are not installed on the user's computer.</p>
+                
+                <h4>Using Google Fonts</h4>
+                <pre><code>&lt;!-- In HTML head --&gt;
+&lt;link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"&gt;
+
+/* In CSS */
+body {
+    font-family: 'Roboto', sans-serif;
+}</code></pre>
+                
+                <h4>Using @font-face</h4>
+                <pre><code>@font-face {
+    font-family: 'MyFont';
+    src: url('myfont.woff2') format('woff2'),
+         url('myfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'MyFont', sans-serif;
+}</code></pre>
+            </article>
+            
+            <article>
+                <h3>Vertical Rhythm</h3>
+                <p>Vertical rhythm is a concept that helps maintain consistent spacing between elements.</p>
+                
+                <pre><code>/* Base font size and line height */
+html {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Margin bottom equals line height */
+h1, h2, h3, p, ul, ol {
+    margin-bottom: 1.5rem;
+}
+
+/* Headings with multiples of line height */
+h1 { font-size: 2rem; line-height: 1.5; margin-bottom: 1.5rem; }
+h2 { font-size: 1.5rem; line-height: 2; margin-bottom: 1.5rem; }</code></pre>
+            </article>
+        </section>
+        
+        <section id="colors-backgrounds">
+            <h2>Colors and Backgrounds</h2>
+            
+            <article>
+                <h3>Color Values</h3>
+                <p>CSS supports several ways to specify colors:</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Example</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Named colors</td>
+                            <td><code>red</code></td>
+                            <td>Predefined color names</td>
+                        </tr>
+                        <tr>
+                            <td>HEX</td>
+                            <td><code>#ff0000</code> or <code>#f00</code></td>
+                            <td>Hexadecimal notation</td>
+                        </tr>
+                        <tr>
+                            <td>RGB</td>
+                            <td><code>rgb(255, 0, 0)</code></td>
+                            <td>Red, Green, Blue values (0-255)</td>
+                        </tr>
+                        <tr>
+                            <td>RGBA</td>
+                            <td><code>rgba(255, 0, 0, 0.5)</code></td>
+                            <td>RGB with alpha transparency (0-1)</td>
+                        </tr>
+                        <tr>
+                            <td>HSL</td>
+                            <td><code>hsl(0, 100%, 50%)</code></td>
+                            <td>Hue, Saturation, Lightness</td>
+                        </tr>
+                        <tr>
+                            <td>HSLA</td>
+                            <td><code>hsla(0, 100%, 50%, 0.5)</code></td>
+                            <td>HSL with alpha transparency (0-1)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+            
+            <article>
+                <h3>Background Properties</h3>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>background-color</code></td>
+                            <td>Sets the background color</td>
+                            <td><code>background-color: #fff;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>background-image</code></td>
+                            <td>Sets one or more background images</td>
+                            <td><code>background-image: url("image.jpg");</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>background-repeat</code></td>
+                            <td>Sets if/how background repeats</td>
+                            <td><code>background-repeat: no-repeat;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>background-position</code></td>
+                            <td>Sets starting position of image</td>
+                            <td><code>background-position: center top;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>background-size</code></td>
+                            <td>Specifies size of background image</td>
+                            <td><code>background-size: cover;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>background-attachment</code></td>
+                            <td>Sets if image scrolls with page</td>
+                            <td><code>background-attachment: fixed;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>background</code> (shorthand)</td>
+                            <td>Shorthand for multiple properties</td>
+                            <td><code>background: #fff url("image.jpg") no-repeat center;</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+            
+            <article>
+                <h3>Gradients</h3>
+                <p>CSS gradients let you display smooth transitions between two or more colors.</p>
+                
+                <h4>Linear Gradient</h4>
+                <pre><code>background: linear-gradient(to right, red, yellow);</code></pre>
+                
+                <h4>Radial Gradient</h4>
+                <pre><code>background: radial-gradient(circle, red, yellow, green);</code></pre>
+                
+                <h4>Conic Gradient</h4>
+                <pre><code>background: conic-gradient(red, yellow, green);</code></pre>
+                
+                <h4>Repeating Gradients</h4>
+                <pre><code>background: repeating-linear-gradient(45deg, red, red 10px, blue 10px, blue 20px);</code></pre>
+            </article>
+            
+            <article>
+                <h3>Opacity</h3>
+                <p>The <code>opacity</code> property sets the opacity level for an element (0.0 - 1.0).</p>
+                
+                <pre><code>div {
+    opacity: 0.5; /* Semi-transparent */
+}</code></pre>
+                
+                <div class="note">
+                    <p><strong>Note:</strong> <code>opacity</code> affects the entire element and its contents, while <code>rgba()</code> or <code>hsla()</code> only affect the background color.</p>
+                </div>
+            </article>
+        </section>
+        
+        <section id="layout">
+            <h2>Layout</h2>
+            
+            <article>
+                <h3>Positioning</h3>
+                <p>The <code>position</code> property specifies the type of positioning method used for an element.</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Value</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>static</code></td>
+                            <td>Default. Elements render in order of document flow</td>
+                        </tr>
+                        <tr>
+                            <td><code>relative</code></td>
+                            <td>Positioned relative to its normal position</td>
+                        </tr>
+                        <tr>
+                            <td><code>absolute</code></td>
+                            <td>Positioned relative to nearest positioned ancestor</td>
+                        </tr>
+                        <tr>
+                            <td><code>fixed</code></td>
+                            <td>Positioned relative to viewport (stays on screen)</td>
+                        </tr>
+                        <tr>
+                            <td><code>sticky</code></td>
+                            <td>Switches between relative and fixed based on scroll</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h4>Positioning Properties</h4>
+                <pre><code>div {
+    position: relative;
+    top: 20px;
+    left: 30px;
+}</code></pre>
+                
+                <p>Properties: <code>top</code>, <code>right</code>, <code>bottom</code>, <code>left</code>, <code>z-index</code></p>
+            </article>
+            
+            <article>
+                <h3>Floats</h3>
+                <p>The <code>float</code> property specifies how an element should float.</p>
+                
+                <pre><code>img {
+    float: left;
+    margin-right: 20px;
+}</code></pre>
+                
+                <h4>Clearing Floats</h4>
+                <pre><code>.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}</code></pre>
+                
+                <div class="note">
+                    <p><strong>Note:</strong> While floats were traditionally used for layouts, modern CSS now prefers Flexbox and Grid for layout purposes.</p>
+                </div>
+            </article>
+            
+            <article>
+                <h3>Flexbox</h3>
+                <p>Flexbox is a one-dimensional layout method for laying out items in rows or columns.</p>
+                
+                <h4>Flex Container Properties</h4>
+                <pre><code>.container {
+    display: flex;
+    flex-direction: row; /* or column */
+    flex-wrap: wrap; /* or nowrap */
+    justify-content: center; /* main axis alignment */
+    align-items: center; /* cross axis alignment */
+    align-content: center; /* multi-line alignment */
+    gap: 10px; /* space between items */
+}</code></pre>
+                
+                <h4>Flex Item Properties</h4>
+                <pre><code>.item {
+    order: 1; /* change visual order */
+    flex-grow: 1; /* ability to grow */
+    flex-shrink: 1; /* ability to shrink */
+    flex-basis: 100px; /* default size */
+    align-self: center; /* individual alignment */
+}</code></pre>
+                
+                <h4>Flex Shorthand</h4>
+                <pre><code>.item {
+    flex: 1 1 100px; /* grow shrink basis */
+}</code></pre>
+            </article>
+            
+            <article>
+                <h3>CSS Grid</h3>
+                <p>CSS Grid is a two-dimensional layout system for the web.</p>
+                
+                <h4>Grid Container Properties</h4>
+                <pre><code>.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* 3 equal columns */
+    grid-template-rows: 100px auto; /* 2 rows */
+    gap: 20px; /* space between items */
+    grid-template-areas:
+        "header header header"
+        "sidebar main main";
+}</code></pre>
+                
+                <h4>Grid Item Properties</h4>
+                <pre><code>.item {
+    grid-column: 1 / 3; /* start at line 1, end at line 3 */
+    grid-row: 1; /* row 1 */
+    grid-area: header; /* named area */
+    justify-self: center; /* alignment within cell */
+    align-self: center;
+}</code></pre>
+                
+                <h4>Grid Functions</h4>
+                <pre><code>repeat(3, 1fr) /* 3 equal columns */
+minmax(200px, 1fr) /* flexible with minimum */
+fit-content(400px) /* fits content up to max */</code></pre>
+            </article>
+            
+            <article>
+                <h3>Multi-column Layout</h3>
+                <p>CSS multi-column layout allows easy definition of multiple text columns.</p>
+                
+                <pre><code>.multi-column {
+    column-count: 3;
+    column-gap: 20px;
+    column-rule: 1px solid #ccc;
+}</code></pre>
+                
+                <h4>Properties</h4>
+                <ul>
+                    <li><code>column-count</code> - Number of columns</li>
+                    <li><code>column-width</code> - Ideal column width</li>
+                    <li><code>column-gap</code> - Space between columns</li>
+                    <li><code>column-rule</code> - Rule between columns</li>
+                    <li><code>column-span</code> - Make element span all columns</li>
+                </ul>
+            </article>
+        </section>
+        
+        <section id="responsive">
+            <h2>Responsive Design</h2>
+            
+            <article>
+                <h3>Viewport Meta Tag</h3>
+                <p>Essential for responsive design on mobile devices.</p>
+                
+                <pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></pre>
+                
+                <h4>Viewport Properties</h4>
+                <ul>
+                    <li><code>width=device-width</code> - Sets width to device width</li>
+                    <li><code>initial-scale=1.0</code> - Sets initial zoom level</li>
+                    <li><code>minimum-scale=1.0</code> - Minimum zoom level</li>
+                    <li><code>maximum-scale=1.0</code> - Maximum zoom level</li>
+                    <li><code>user-scalable=no</code> - Prevents zooming (not recommended)</li>
+                </ul>
+            </article>
+            
+            <article>
+                <h3>Media Queries</h3>
+                <p>Media queries allow you to apply CSS styles depending on device characteristics.</p>
+                
+                <pre><code>/* Default styles for mobile */
+body {
+    font-size: 14px;
+}
+
+/* Tablet styles */
+@media (min-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+}
+
+/* Desktop styles */
+@media (min-width: 1024px) {
+    body {
+        font-size: 18px;
+    }
+}</code></pre>
+                
+                <h4>Common Breakpoints</h4>
+                <pre><code>/* Small devices (phones, 576px and up) */
+@media (min-width: 576px) { ... }
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { ... }
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { ... }
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { ... }</code></pre>
+            </article>
+            
+            <article>
+                <h3>Responsive Units</h3>
+                <p>CSS offers several units for responsive sizing.</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Unit</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>px</code></td>
+                            <td>Pixels (1px = 1/96th of 1in)</td>
+                        </tr>
+                        <tr>
+                            <td><code>%</code></td>
+                            <td>Percentage of parent element</td>
+                        </tr>
+                        <tr>
+                            <td><code>em</code></td>
+                            <td>Relative to font-size of element</td>
+                        </tr>
+                        <tr>
+                            <td><code>rem</code></td>
+                            <td>Relative to font-size of root element</td>
+                        </tr>
+                        <tr>
+                            <td><code>vw</code></td>
+                            <td>1% of viewport width</td>
+                        </tr>
+                        <tr>
+                            <td><code>vh</code></td>
+                            <td>1% of viewport height</td>
+                        </tr>
+                        <tr>
+                            <td><code>vmin</code></td>
+                            <td>1% of viewport's smaller dimension</td>
+                        </tr>
+                        <tr>
+                            <td><code>vmax</code></td>
+                            <td>1% of viewport's larger dimension</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+            
+            <article>
+                <h3>Responsive Images</h3>
+                <p>Techniques for ensuring images work well on all devices.</p>
+                
+                <h4>Basic Responsive Image</h4>
+                <pre><code>img {
+    max-width: 100%;
+    height: auto;
+}</code></pre>
+                
+                <h4>Art Direction with picture element</h4>
+                <pre><code>&lt;picture&gt;
+    &lt;source media="(min-width: 800px)" srcset="large.jpg"&gt;
+    &lt;source media="(min-width: 500px)" srcset="medium.jpg"&gt;
+    &lt;img src="small.jpg" alt="Description"&gt;
+&lt;/picture&gt;</code></pre>
+                
+                <h4>Resolution Switching with srcset</h4>
+                <pre><code>&lt;img src="small.jpg" 
+     srcset="medium.jpg 1000w, large.jpg 2000w" 
+     sizes="(max-width: 600px) 100vw, 50vw" 
+     alt="Description"&gt;</code></pre>
+            </article>
+            
+            <article>
+                <h3>Mobile-First Approach</h3>
+                <p>Designing for mobile first, then enhancing for larger screens.</p>
+                
+                <pre><code>/* Base styles (mobile) */
+.container {
+    padding: 10px;
+}
+
+/* Medium screens */
+@media (min-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+}
+
+/* Large screens */
+@media (min-width: 1024px) {
+    .container {
+        padding: 30px;
+    }
+}</code></pre>
+                
+                <div class="note">
+                    <p><strong>Benefits:</strong> 
+                    <br>1. Forces focus on core content
+                    <br>2. Results in better performance on mobile
+                    <br>3. Progressive enhancement approach
+                    <br>4. Often simpler to implement</p>
+                </div>
+            </article>
+        </section>
+        
+        <section id="transforms-transitions-animations">
+            <h2>Transforms, Transitions & Animations</h2>
+            
+            <article>
+                <h3>Transforms</h3>
+                <p>The <code>transform</code> property applies 2D or 3D transformations to an element.</p>
+                
+                <h4>2D Transforms</h4>
+                <pre><code>transform: translate(50px, 100px); /* Move */
+transform: rotate(20deg); /* Rotate */
+transform: scale(2, 3); /* Scale */
+transform: skew(20deg, 10deg); /* Skew */
+transform: matrix(1, -0.3, 0, 1, 0, 0); /* Combine */</code></pre>
+                
+                <h4>3D Transforms</h4>
+                <pre><code>transform: rotateX(180deg);
+transform: rotateY(180deg);
+transform: rotateZ(90deg);
+transform: translate3d(10px, 20px, 30px);
+transform: perspective(500px);</code></pre>
+            </article>
+            
+            <article>
+                <h3>Transitions</h3>
+                <p>Transitions allow you to change property values smoothly over a given duration.</p>
+                
+                <pre><code>div {
+    transition: all 0.3s ease;
+    /* Shorthand: property duration timing-function delay */
+}
+
+div:hover {
+    background-color: blue;
+}</code></pre>
+                
+                <h4>Transition Properties</h4>
+                <ul>
+                    <li><code>transition-property</code> - Which properties to transition</li>
+                    <li><code>transition-duration</code> - How long transition takes</li>
+                    <li><code>transition-timing-function</code> - Speed curve</li>
+                    <li><code>transition-delay</code> - When transition starts</li>
+                </ul>
+                
+                <h4>Timing Functions</h4>
+                <pre><code>transition-timing-function: ease; /* default */
+transition-timing-function: linear;
+transition-timing-function: ease-in;
+transition-timing-function: ease-out;
+transition-timing-function: ease-in-out;
+transition-timing-function: cubic-bezier(0.1, 0.7, 1.0, 0.1);</code></pre>
+            </article>
+            
+            <article>
+                <h3>Animations</h3>
+                <p>CSS animations allow animation of most HTML elements without JavaScript.</p>
+                
+                <h4>Keyframes</h4>
+                <pre><code>@keyframes example {
+    0%   {background-color: red;}
+    50%  {background-color: yellow;}
+    100% {background-color: blue;}
+}</code></pre>
+                
+                <h4>Animation Properties</h4>
+                <pre><code>div {
+    animation-name: example;
+    animation-duration: 4s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 1s;
+    animation-iteration-count: 3;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+    /* Shorthand: name duration timing-function delay iteration-count direction fill-mode */
+}</code></pre>
+            </article>
+            
+            <article>
+                <h3>Performance Considerations</h3>
+                <p>Some properties are more performant to animate than others.</p>
+                
+                <h4>Best Properties to Animate</h4>
+                <ul>
+                    <li><code>transform</code> (translate, scale, rotate)</li>
+                    <li><code>opacity</code></li>
+                </ul>
+                
+                <h4>Avoid Animating</h4>
+                <ul>
+                    <li><code>width</code>, <code>height</code></li>
+                    <li><code>margin</code>, <code>padding</code></li>
+                    <li><code>top</code>, <code>left</code>, <code>right</code>, <code>bottom</code></li>
+                </ul>
+                
+                <div class="note">
+                    <p><strong>Tip:</strong> Use <code>will-change</code> to hint to browsers which properties will change for optimization:</p>
+                    <pre><code>div {
+    will-change: transform, opacity;
+}</code></pre>
+                </div>
+            </article>
+        </section>
+        
+        <section id="advanced">
+            <h2>Advanced CSS</h2>
+            
+            <article>
+                <h3>Variables (Custom Properties)</h3>
+                <p>CSS variables allow you to store values for reuse throughout a document.</p>
+                
+                <pre><code>:root {
+    --primary-color: #3498db;
+    --padding: 15px;
+}
+
+.element {
+    color: var(--primary-color);
+    padding: var(--padding);
+}</code></pre>
+                
+                <h4>Features</h4>
+                <ul>
+                    <li>Scoped to selector (use <code>:root</code> for global)</li>
+                    <li>Can be modified with JavaScript</li>
+                    <li>Fallback values: <code>var(--color, blue)</code></li>
+                    <li>Can be used in <code>calc()</code></li>
+                </ul>
+            </article>
+            
+            <article>
+                <h3>Filters</h3>
+                <p>The <code>filter</code> property applies graphical effects like blur or color shift.</p>
+                
+                <pre><code>img {
+    filter: blur(5px);
+    filter: brightness(150%);
+    filter: contrast(200%);
+    filter: grayscale(50%);
+    filter: hue-rotate(90deg);
+    filter: invert(100%);
+    filter: opacity(50%);
+    filter: saturate(200%);
+    filter: sepia(100%);
+    filter: drop-shadow(5px 5px 5px #333);
+    /* Multiple filters */
+    filter: contrast(175%) brightness(103%);
+}</code></pre>
+            </article>
+            
+            <article>
+                <h3>Blend Modes</h3>
+                <p>Blend modes define how elements should blend with the content below them.</p>
+                
+                <h4>Background Blend Modes</h4>
+                <pre><code>div {
+    background-image: url('image1.jpg'), url('image2.jpg');
+    background-blend-mode: multiply;
+}</code></pre>
+                
+                <h4>Mix Blend Modes</h4>
+                <pre><code>div {
+    mix-blend-mode: screen;
+}</code></pre>
+                
+                <h4>Common Blend Modes</h4>
+                <ul>
+                    <li><code>normal</code>, <code>multiply</code>, <code>screen</code></li>
+                    <li><code>overlay</code>, <code>darken</code>, <code>lighten</code></li>
+                    <li><code>color-dodge</code>, <code>color-burn</code></li>
+                    <li><code>hard-light</code>, <code>soft-light</code></li>
+                    <li><code>difference</code>, <code>exclusion</code></li>
+                    <li><code>hue</code>, <code>saturation</code>, <code>color</code>, <code>luminosity</code></li>
+                </ul>
+            </article>
+            
+            <article>
+                <h3>Clipping and Masking</h3>
+                
+                <h4>Clip-path</h4>
+                <pre><code>clip-path: circle(50% at 50% 50%);
+clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+clip-path: url(#myClip); /* SVG clip path */</code></pre>
+                
+                <h4>Mask</h4>
+                <pre><code>mask-image: url('mask.png');
+mask-mode: alpha;
+mask-position: center;
+mask-repeat: no-repeat;
+mask-size: cover;</code></pre>
+            </article>
+            
+            <article>
+                <h3>Feature Queries</h3>
+                <p>Feature queries (<code>@supports</code>) test if a browser supports a CSS feature.</p>
+                
+                <pre><code>@supports (display: grid) {
+    /* CSS rules for browsers that support grid */
+}
+
+@supports not (display: grid) {
+    /* Fallback for browsers that don't support grid */
+}
+
+@supports (display: grid) and (shape-outside: circle()) {
+    /* Multiple feature test */
+}</code></pre>
+            </article>
+        </section>
+        
+        <section id="methodologies">
+            <h2>CSS Methodologies</h2>
+            
+            <article>
+                <h3>BEM (Block, Element, Modifier)</h3>
+                <p>A naming convention that makes CSS more maintainable.</p>
+                
+                <h4>Naming Convention</h4>
+                <pre><code>.block {} /* Standalone component */
+.block__element {} /* Part of block */
+.block--modifier {} /* Different state of block */</code></pre>
+                
+                <h4>Example</h4>
+                <pre><code>&lt;div class="card card--featured"&gt;
+    &lt;img class="card__image" src="..."&gt;
+    &lt;h3 class="card__title"&gt;Title&lt;/h3&gt;
+    &lt;p class="card__text"&gt;...&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+            </article>
+            
+            <article>
+                <h3>OOCSS (Object-Oriented CSS)</h3>
+                <p>Separates structure from skin and container from content.</p>
+                
+                <h4>Principles</h4>
+                <ol>
+                    <li><strong>Separate structure from skin</strong> - Keep layout and design separate</li>
+                    <li><strong>Separate container from content</strong> - Make elements reusable</li>
+                </ol>
+                
+                <h4>Example</h4>
+                <pre><code>&lt;div class="media"&gt;
+    &lt;img class="media__image" src="..."&gt;
+    &lt;div class="media__body"&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </article>
+            
+            <article>
+                <h3>SMACSS (Scalable and Modular Architecture)</h3>
+                <p>Categorizes CSS rules to make them more modular.</p>
+                
+                <h4>Categories</h4>
+                <ul>
+                    <li><strong>Base</strong> - Default styles (html, body, a, etc.)</li>
+                    <li><strong>Layout</strong> - Major layout components</li>
+                    <li><strong>Module</strong> - Reusable components</li>
+                    <li><strong>State</strong> - How modules look in different states</li>
+                    <li><strong>Theme</strong> - Look-and-feel (optional)</li>
+                </ul>
+            </article>
+            
+            <article>
+                <h3>ITCSS (Inverted Triangle CSS)</h3>
+                <p>Organizes CSS from generic to explicit, low to high specificity.</p>
+                
+                <h4>Layers</h4>
+                <ol>
+                    <li><strong>Settings</strong> - Variables, config</li>
+                    <li><strong>Tools</strong> - Mixins, functions</li>
+                    <li><strong>Generic</strong> - Reset, normalize</li>
+                    <li><strong>Elements</strong> - Unclassed HTML elements</li>
+                    <li><strong>Objects</strong> - Design patterns (OOCSS)</li>
+                    <li><strong>Components</strong> - UI components</li>
+                    <li><strong>Utilities</strong> - Helper classes</li>
+                </ol>
+            </article>
+        </section>
+        
+        <section id="preprocessors">
+            <h2>CSS Preprocessors</h2>
+            
+            <article>
+                <h3>SASS/SCSS</h3>
+                <p>Syntactically Awesome Style Sheets (SASS) is a CSS preprocessor with two syntaxes:</p>
+                
+                <h4>SCSS (Sassy CSS)</h4>
+                <pre><code>$primary-color: #333;
+
+body {
+    color: $primary-color;
+
+    .container {
+        width: 100%;
+    }
+}</code></pre>
+                
+                <h4>SASS (Indented Syntax)</h4>
+                <pre><code>$primary-color: #333
+
+body
+    color: $primary-color
+    
+    .container
+        width: 100%</code></pre>
+                
+                <h4>Features</h4>
+                <ul>
+                    <li>Variables</li>
+                    <li>Nesting</li>
+                    <li>Mixins</li>
+                    <li>Inheritance</li>
+                    <li>Operators</li>
+                    <li>Functions</li>
+                    <li>Control directives</li>
+                    <li>Modules</li>
+                </ul>
+            </article>
+            
+            <article>
+                <h3>LESS</h3>
+                <p>Leaner Style Sheets (LESS) is another popular CSS preprocessor.</p>
+                
+                <pre><code>@primary-color: #333;
+
+body {
+    color: @primary-color;
+    
+    .container {
+        width: 100%;
+    }
+}</code></pre>
+                
+                <h4>Features</h4>
+                <ul>
+                    <li>Variables</li>
+                    <li>Mixins</li>
+                    <li>Nested rules</li>
+                    <li>Operations</li>
+                    <li>Functions</li>
+                    <li>Namespaces</li>
+                    <li>Scope</li>
+                </ul>
+            </article>
+            
+            <article>
+                <h3>PostCSS</h3>
+                <p>A tool for transforming CSS with JavaScript plugins.</p>
+                
+                <h4>Common Plugins</h4>
+                <ul>
+                    <li><strong>Autoprefixer</strong> - Adds vendor prefixes</li>
+                    <li><strong>CSSnano</strong> - Minifies CSS</li>
+                    <li><strong>PostCSS Preset Env</strong> - Future CSS syntax</li>
+                    <li><strong>Stylelint</strong> - Lints CSS</li>
+                </ul>
+                
+                <h4>Example</h4>
+                <pre><code>/* Input */
+:root {
+    --mainColor: #123456;
+}
+
+body {
+    color: var(--mainColor);
+    display: flex;
+}
+
+/* Output (with Autoprefixer) */
+body {
+    color: #123456;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}</code></pre>
+            </article>
+        </section>
+        
+        <section id="frameworks">
+            <h2>CSS Frameworks</h2>
+            
+            <article>
+                <h3>Bootstrap</h3>
+                <p>The most popular CSS framework for responsive, mobile-first projects.</p>
+                
+                <h4>Features</h4>
+                <ul>
+                    <li>Responsive grid system</li>
+                    <li>Extensive component library</li>
+                    <li>Customizable with SASS</li>
+                    <li>JavaScript plugins</li>
+                </ul>
+                
+                <h4>Example</h4>
+                <pre><code>&lt;div class="container"&gt;
+    &lt;div class="row"&gt;
+        &lt;div class="col-md-6"&gt;Column 1&lt;/div&gt;
+        &lt;div class="col-md-6"&gt;Column 2&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </article>
+            
+            <article>
+                <h3>Tailwind CSS</h3>
+                <p>A utility-first CSS framework for rapidly building custom designs.</p>
+                
+                <h4>Features</h4>
+                <ul>
+                    <li>Utility classes for everything</li>
+                    <li>No opinion about design</li>
+                    <li>PurgeCSS built-in</li>
+                    <li>Highly customizable</li>
+                </ul>
+                
+                <h4>Example</h4>
+                <pre><code>&lt;div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl"&gt;
+    &lt;div class="md:flex"&gt;
+        &lt;div class="p-8"&gt;
+            &lt;div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold"&gt;Case study&lt;/div&gt;
+            &lt;a href="#" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline"&gt;Finding customers for your new business&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </article>
+            
+            <article>
+                <h3>Foundation</h3>
+                <p>A responsive front-end framework with advanced features.</p>
+                
+                <h4>Features</h4>
+                <ul>
+                    <li>Flexbox-based grid</li>
+                    <li>Accessible components</li>
+                    <li>Motion UI for animations</li>
+                    <li>Email framework</li>
+                </ul>
+            </article>
+            
+            <article>
+                <h3>Bulma</h3>
+                <p>A modern CSS framework based on Flexbox.</p>
+                
+                <h4>Features</h4>
+                <ul>
+                    <li>Pure CSS (no JavaScript)</li>
+                    <li>Simple syntax</li>
+                    <li>Modular (import only what you need)</li>
+                    <li>Responsive design</li>
+                </ul>
+            </article>
+        </section>
+        
+        <section id="best-practices">
+            <h2>CSS Best Practices</h2>
+            
+            <article>
+                <h3>Organization and Structure</h3>
+                
+                <ul>
+                    <li>Follow a consistent naming convention (BEM, SMACSS, etc.)</li>
+                    <li>Organize CSS in logical sections (reset, typography, components, etc.)</li>
+                    <li>Use comments to separate sections</li>
+                    <li>Keep selectors short and specific</li>
+                    <li>Avoid overly specific selectors (don't nest too deep)</li>
+                    <li>Group related properties together (positioning, box model, typography, etc.)</li>
+                </ul>
+            </article>
+            
+            <article>
+                <h3>Performance</h3>
+                
+                <ul>
+                    <li>Minify CSS for production</li>
+                    <li>Use efficient selectors (avoid universal selectors)</li>
+                    <li>Reduce redundancy with inheritance and utility classes</li>
+                    <li>Use CSS sprites for multiple small images</li>
+                    <li>Consider critical CSS for above-the-fold content</li>
+                    <li>Use <code>will-change</code> for elements you plan to animate</li>
+                    <li>Limit use of expensive properties like <code>box-shadow</code> and <code>border-radius</code></li>
+                </ul>
+            </article>
+            
+            <article>
+                <h3>Maintainability</h3>
+                
+                <ul>
+                    <li>Use CSS variables for theming and consistency</li>
+                    <li>Keep styles modular and component-based</li>
+                    <li>Avoid !important (use specificity instead)</li>
+                    <li>Document complex CSS with comments</li>
+                    <li>Use a preprocessor for large projects</li>
+                    <li>Implement a style guide or design system</li>
+                    <li>Use linting tools to enforce consistency</li>
+                </ul>
+            </article>
+            
+            <article>
+                <h3>Accessibility</h3>
+                
+                <ul>
+                    <li>Ensure sufficient color contrast</li>
+                    <li>Don't rely solely on color to convey information</li>
+                    <li>Use relative units (em, rem) for font sizes</li>
+                    <li>Style focus states for keyboard navigation</li>
+                    <li>Test with screen readers and keyboard-only navigation</li>
+                    <li>Consider prefers-reduced-motion for animations</li>
+                    <li>Use semantic HTML as a base for styling</li>
+                </ul>
+            </article>
+        </section>
+        
+        <section id="resources">
+            <h2>CSS Resources</h2>
+            
+            <article>
+                <h3>Learning Resources</h3>
+                
+                <ul>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener">MDN CSS Documentation</a></li>
+                    <li><a href="https://www.w3schools.com/css/" target="_blank" rel="noopener">W3Schools CSS Tutorial</a></li>
+                    <li><a href="https://css-tricks.com/" target="_blank" rel="noopener">CSS-Tricks</a></li>
+                    <li><a href="https://web.dev/learn/css/" target="_blank" rel="noopener">web.dev CSS Course</a></li>
+                    <li><a href="https://www.freecodecamp.org/learn/responsive-web-design/" target="_blank" rel="noopener">freeCodeCamp Responsive Web Design</a></li>
+                </ul>
+            </article>
+            
+            <article>
+                <h3>Tools</h3>
+                
+                <ul>
+                    <li><a href="https://autoprefixer.github.io/" target="_blank" rel="noopener">Autoprefixer</a> - Add vendor prefixes</li>
+                    <li><a href="https://caniuse.com/" target="_blank" rel="noopener">Can I Use</a> - Browser support tables</li>
+                    <li><a href="https://cssgradient.io/" target="_blank" rel="noopener">CSS Gradient Generator</a></li>
+                    <li><a href="https://flexboxfroggy.com/" target="_blank" rel="noopener">Flexbox Froggy</a> - Learn Flexbox</li>
+                    <li><a href="https://cssgridgarden.com/" target="_blank" rel="noopener">Grid Garden</a> - Learn CSS Grid</li>
+                </ul>
+            </article>
+            
+            <article>
+                <h3>Validation and Optimization</h3>
+                
+                <ul>
+                    <li><a href="https://jigsaw.w3.org/css-validator/" target="_blank" rel="noopener">W3C CSS Validator</a></li>
+                    <li><a href="https://purifycss.online/" target="_blank" rel="noopener">PurifyCSS</a> - Remove unused CSS</li>
+                    <li><a href="https://cssminifier.com/" target="_blank" rel="noopener">CSS Minifier</a></li>
+                    <li><a href="https://developer.chrome.com/docs/lighthouse/overview/" target="_blank" rel="noopener">Lighthouse</a> - Performance auditing</li>
+                </ul>
+            </article>
+            
+            <article>
+                <h3>Inspiration</h3>
+                
+                <ul>
+                    <li><a href="https://codepen.io/" target="_blank" rel="noopener">CodePen</a></li>
+                    <li><a href="https://dribbble.com/" target="_blank" rel="noopener">Dribbble</a></li>
+                    <li><a href="https://www.awwwards.com/" target="_blank" rel="noopener">Awwwards</a></li>
+                    <li><a href="https://cssnectar.com/" target="_blank" rel="noopener">CSS Nectar</a></li>
+                </ul>
+            </article>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Comprehensive CSS Guide. All rights reserved.</p>
+        <p>This guide is for educational purposes only.</p>
+        <address>
+            Contact: <a href="mailto:rdgcz10@gmail.com">rdgcz10@gmail.com</a>
+        </address>
+        <a href="#top">^^ Back to top ^^</a>
+    </footer>
+</body>
+</html>

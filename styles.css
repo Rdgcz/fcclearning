@@ -1,6 +1,6 @@
 /* Base Styles - Applies to both pages */
 :root {
-  --primary-color: #2c3e50;
+  --primary-color: #115191;
   --secondary-color: #3498db;
   --accent-color: #2980b9;
   --text-color: #333;
@@ -38,8 +38,8 @@ body {
 
 /* Typography - Shared styles */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Orbitron', sans-serif;
-  color: var(--primary-color);
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--gray-dark);
   margin-bottom: 1rem;
 }
 
@@ -68,7 +68,7 @@ a:hover {
 /* Layout Components - Shared */
 header {
   background-color: var(--primary-color);
-  color: var(--light-text);
+  color: white;
   padding: 2rem;
   text-align: center;
   margin-bottom: 2rem;
