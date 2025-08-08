@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive HTML guide covering basics, semantic elements, forms, accessibility and more">
+    <meta name="keywords" content="HTML, web development, semantic HTML, forms, accessibility">
+    <meta name="author" content="HTML Guide">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Comprehensive HTML Guide">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://example.com/html-guide">
+    <meta property="og:image" content="https://example.com/images/html-guide-preview.jpg">
+    
+    <title>Comprehensive HTML Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        
+        header, footer {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        
+        code {
+            background-color: #f0f0f0;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        
+        pre {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+        }
+        
+        form {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+        
+        .note {
+            background-color: #e7f3fe;
+            border-left: 6px solid #2196F3;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        
+        .warning {
+            background-color: #ffebee;
+            border-left: 6px solid #f44336;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Comprehensive HTML Guide</h1>
+        <p>Everything you need to know about HTML from basics to advanced concepts</p>
+    </header>
+    
+    <main>
+        <section id="html-basics">
+            <h2>HTML Basics</h2>
+            
+            <article>
+                <h3>What is HTML?</h3>
+                <p>HTML (HyperText Markup Language) is the standard markup language for creating web pages. It describes the structure of web pages using markup.</p>
+                
+                <div class="note">
+                    <p><strong>Note:</strong> HTML is not a programming language; it's a markup language that defines the structure of your content.</p>
+                </div>
+            </article>
+            
+            <article>
+                <h3>HTML Document Structure</h3>
+                <p>Every HTML document should follow this basic structure:</p>
+                
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Page content goes here --&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                
+                <ul>
+                    <li><code>&lt;!DOCTYPE html&gt;</code> - Declares the document type and HTML version</li>
+                    <li><code>&lt;html&gt;</code> - The root element of an HTML page</li>
+                    <li><code>&lt;head&gt;</code> - Contains meta information about the document</li>
+                    <li><code>&lt;body&gt;</code> - Contains the visible page content</li>
+                </ul>
+            </article>
+            
+            <article>
+                <h3>HTML Elements and Tags</h3>
+                <p>HTML elements are the building blocks of HTML pages, represented by tags.</p>
+                
+                <h4>Basic Syntax:</h4>
+                <pre><code>&lt;tagname&gt;Content goes here...&lt;/tagname&gt;</code></pre>
+                
+                <h4>Void Elements (Self-closing tags):</h4>
+                <pre><code>&lt;img src="image.jpg" alt="Description"&gt;
+&lt;br&gt;
+&lt;input type="text"&gt;</code></pre>
+                
+                <div class="note">
+                    <p><strong>Note:</strong> While <code>&lt;img&gt;</code> and <code>&lt;br&gt;</code> are valid with or without a trailing slash (<code>/</code>), the slash is optional in HTML5.</p>
+                </div>
+            </article>
+            
+            <article>
+                <h3>Common HTML Elements</h3>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Element</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code></td>
+                            <td>Heading elements (h1 is most important)</td>
+                            <td><code>&lt;h1&gt;Main Heading&lt;/h1&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;p&gt;</code></td>
+                            <td>Paragraph</td>
+                            <td><code>&lt;p&gt;This is a paragraph.&lt;/p&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;a&gt;</code></td>
+                            <td>Anchor (link)</td>
+                            <td><code>&lt;a href="https://example.com"&gt;Link&lt;/a&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;img&gt;</code></td>
+                            <td>Image</td>
+                            <td><code>&lt;img src="image.jpg" alt="Description"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;li&gt;</code></td>
+                            <td>Unordered list, Ordered list, List item</td>
+                            <td><code>&lt;ul&gt;&lt;li&gt;Item 1&lt;/li&gt;&lt;/ul&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;div&gt;</code></td>
+                            <td>Division/section</td>
+                            <td><code>&lt;div&gt;Content&lt;/div&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;span&gt;</code></td>
+                            <td>Inline container</td>
+                            <td><code>&lt;span&gt;Inline content&lt;/span&gt;</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+            
+            <article>
+                <h3>HTML Attributes</h3>
+                <p>Attributes provide additional information about HTML elements.</p>
+                
+                <h4>Common Attributes:</h4>
+                <ul>
+                    <li><code>id</code> - Specifies a unique id for an element</li>
+                    <li><code>class</code> - Specifies one or more class names for an element</li>
+                    <li><code>src</code> - Specifies the source for embedded content</li>
+                    <li><code>href</code> - Specifies the URL for links</li>
+                    <li><code>alt</code> - Specifies alternative text for images</li>
+                    <li><code>style</code> - Specifies inline CSS</li>
+                    <li><code>title</code> - Specifies extra information about an element</li>
+                </ul>
+                
+                <h4>Boolean Attributes:</h4>
+                <p>Boolean attributes don't need a value. Their presence implies true, their absence implies false.</p>
+                <pre><code>&lt;input type="checkbox" checked&gt;
+&lt;button disabled&gt;Click me&lt;/button&gt;</code></pre>
+            </article>
+        </section>
+        
+        <section id="semantic-html">
+            <h2>Semantic HTML</h2>
+            
+            <article>
+                <h3>What is Semantic HTML?</h3>
+                <p>Semantic HTML introduces meaning to the web page rather than just presentation. It makes web pages more informative and adaptable.</p>
+                
+                <div class="note">
+                    <p><strong>Benefits:</strong> Better accessibility, improved SEO, easier to maintain, and more consistent code.</p>
+                </div>
+            </article>
+            
+            <article>
+                <h3>Semantic Elements</h3>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Element</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>&lt;header&gt;</code></td>
+                            <td>Represents introductory content or navigational aids</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;nav&gt;</code></td>
+                            <td>Contains navigation links</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;main&gt;</code></td>
+                            <td>Contains the main content of the document</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;article&gt;</code></td>
+                            <td>Represents self-contained composition</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;section&gt;</code></td>
+                            <td>Represents a standalone section</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;aside&gt;</code></td>
+                            <td>Represents content only indirectly related to the main content</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;footer&gt;</code></td>
+                            <td>Represents a footer for its nearest sectioning content</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;figure&gt;</code> and <code>&lt;figcaption&gt;</code></td>
+                            <td>Represents self-contained content with an optional caption</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;time&gt;</code></td>
+                            <td>Represents a specific period in time</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;mark&gt;</code></td>
+                            <td>Represents text highlighted for reference purposes</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h4>Example of Semantic Structure:</h4>
+                <pre><code>&lt;header&gt;
+    &lt;h1&gt;Website Title&lt;/h1&gt;
+    &lt;nav&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;About&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+    &lt;article&gt;
+        &lt;h2&gt;Article Title&lt;/h2&gt;
+        &lt;p&gt;Article content...&lt;/p&gt;
+    &lt;/article&gt;
+    
+    &lt;aside&gt;
+        &lt;h3&gt;Related Links&lt;/h3&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Link 1&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/aside&gt;
+&lt;/main&gt;
+
+&lt;footer&gt;
+    &lt;p&gt;Copyright &copy; 2023&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+            </article>
+            
+            <article>
+                <h3>Semantic Text Elements</h3>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Element</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>&lt;em&gt;</code></td>
+                            <td>Emphasized text (typically italic)</td>
+                            <td><code>This is &lt;em&gt;important&lt;/em&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;strong&gt;</code></td>
+                            <td>Important text (typically bold)</td>
+                            <td><code>&lt;strong&gt;Warning!&lt;/strong&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;blockquote&gt;</code></td>
+                            <td>Block-level quotation</td>
+                            <td><code>&lt;blockquote cite="source"&gt;Quote&lt;/blockquote&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;q&gt;</code></td>
+                            <td>Inline quotation</td>
+                            <td><code>He said &lt;q&gt;Hello&lt;/q&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;cite&gt;</code></td>
+                            <td>Title of a work</td>
+                            <td><code>&lt;cite&gt;The Great Gatsby&lt;/cite&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;abbr&gt;</code></td>
+                            <td>Abbreviation or acronym</td>
+                            <td><code>&lt;abbr title="World Wide Web"&gt;WWW&lt;/abbr&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;code&gt;</code></td>
+                            <td>Computer code</td>
+                            <td><code>&lt;code&gt;console.log()&lt;/code&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;pre&gt;</code></td>
+                            <td>Preformatted text</td>
+                            <td><code>&lt;pre&gt;Formatted text&lt;/pre&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;kbd&gt;</code></td>
+                            <td>Keyboard input</td>
+                            <td><code>Press &lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;C&lt;/kbd&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;var&gt;</code></td>
+                            <td>Variable</td>
+                            <td><code>&lt;var&gt;x&lt;/var&gt; = 5</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;samp&gt;</code></td>
+                            <td>Sample output</td>
+                            <td><code>&lt;samp&gt;Hello World&lt;/samp&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;time&gt;</code></td>
+                            <td>Date/time</td>
+                            <td><code>&lt;time datetime="2023-10-05"&gt;Oct 5&lt;/time&gt;</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+        </section>
+        
+        <section id="forms">
+            <h2>HTML Forms</h2>
+            
+            <article>
+                <h3>Basic Form Structure</h3>
+                <p>Forms are used to collect user input and send it to a server for processing.</p>
+                
+                <pre><code>&lt;form action="/submit" method="POST"&gt;
+    &lt;!-- Form controls go here --&gt;
+&lt;/form&gt;</code></pre>
+                
+                <ul>
+                    <li><code>action</code> - Specifies where to send the form data</li>
+                    <li><code>method</code> - Specifies the HTTP method (GET or POST)</li>
+                    <li><code>enctype</code> - Specifies how form data should be encoded (important for file uploads)</li>
+                </ul>
+            </article>
+            
+            <article>
+                <h3>Form Controls</h3>
+                
+                <h4>Text Input</h4>
+                <pre><code>&lt;label for="name"&gt;Name:&lt;/label&gt;
+&lt;input type="text" id="name" name="name" required&gt;</code></pre>
+                
+                <h4>Email Input</h4>
+                <pre><code>&lt;label for="email"&gt;Email:&lt;/label&gt;
+&lt;input type="email" id="email" name="email" required&gt;</code></pre>
+                
+                <h4>Password Input</h4>
+                <pre><code>&lt;label for="password"&gt;Password:&lt;/label&gt;
+&lt;input type="password" id="password" name="password" required&gt;</code></pre>
+                
+                <h4>Radio Buttons</h4>
+                <pre><code>&lt;fieldset&gt;
+    &lt;legend&gt;Gender&lt;/legend&gt;
+    &lt;label&gt;&lt;input type="radio" name="gender" value="male"&gt; Male&lt;/label&gt;
+    &lt;label&gt;&lt;input type="radio" name="gender" value="female"&gt; Female&lt;/label&gt;
+&lt;/fieldset&gt;</code></pre>
+                
+                <h4>Checkboxes</h4>
+                <pre><code>&lt;label&gt;&lt;input type="checkbox" name="subscribe" checked&gt; Subscribe to newsletter&lt;/label&gt;</code></pre>
+                
+                <h4>Select Dropdown</h4>
+                <pre><code>&lt;label for="country"&gt;Country:&lt;/label&gt;
+&lt;select id="country" name="country"&gt;
+    &lt;option value="us"&gt;United States&lt;/option&gt;
+    &lt;option value="ca"&gt;Canada&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+                
+                <h4>Textarea</h4>
+                <pre><code>&lt;label for="message"&gt;Message:&lt;/label&gt;
+&lt;textarea id="message" name="message" rows="4"&gt;&lt;/textarea&gt;</code></pre>
+                
+                <h4>Buttons</h4>
+                <pre><code>&lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;button type="reset"&gt;Reset&lt;/button&gt;
+&lt;button type="button"&gt;Regular Button&lt;/button&gt;</code></pre>
+            </article>
+            
+            <article>
+                <h3>Form Attributes</h3>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Attribute</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>required</code></td>
+                            <td>Specifies that an input field must be filled out</td>
+                        </tr>
+                        <tr>
+                            <td><code>placeholder</code></td>
+                            <td>Specifies a short hint that describes the expected value</td>
+                        </tr>
+                        <tr>
+                            <td><code>pattern</code></td>
+                            <td>Specifies a regular expression that the input's value is checked against</td>
+                        </tr>
+                        <tr>
+                            <td><code>min</code>, <code>max</code></td>
+                            <td>Specifies the minimum and maximum values for number inputs</td>
+                        </tr>
+                        <tr>
+                            <td><code>step</code></td>
+                            <td>Specifies the legal number intervals for number inputs</td>
+                        </tr>
+                        <tr>
+                            <td><code>autocomplete</code></td>
+                            <td>Specifies whether a form should have autocomplete on or off</td>
+                        </tr>
+                        <tr>
+                            <td><code>readonly</code></td>
+                            <td>Specifies that an input field is read-only</td>
+                        </tr>
+                        <tr>
+                            <td><code>disabled</code></td>
+                            <td>Specifies that an input field should be disabled</td>
+                        </tr>
+                        <tr>
+                            <td><code>multiple</code></td>
+                            <td>Specifies that the user is allowed to enter more than one value</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+            
+            <article>
+                <h3>HTML5 Input Types</h3>
+                <p>HTML5 introduced several new input types for better input control and validation:</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>color</code></td>
+                            <td>Color picker</td>
+                            <td><code>&lt;input type="color"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>date</code></td>
+                            <td>Date picker</td>
+                            <td><code>&lt;input type="date"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>datetime-local</code></td>
+                            <td>Date and time without timezone</td>
+                            <td><code>&lt;input type="datetime-local"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>email</code></td>
+                            <td>Email address</td>
+                            <td><code>&lt;input type="email"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>file</code></td>
+                            <td>File upload</td>
+                            <td><code>&lt;input type="file"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>month</code></td>
+                            <td>Month and year</td>
+                            <td><code>&lt;input type="month"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>number</code></td>
+                            <td>Numeric input</td>
+                            <td><code>&lt;input type="number" min="1" max="10"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>range</code></td>
+                            <td>Slider control</td>
+                            <td><code>&lt;input type="range" min="0" max="100"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>search</code></td>
+                            <td>Search field</td>
+                            <td><code>&lt;input type="search"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>tel</code></td>
+                            <td>Telephone number</td>
+                            <td><code>&lt;input type="tel"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>time</code></td>
+                            <td>Time input</td>
+                            <td><code>&lt;input type="time"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>url</code></td>
+                            <td>URL input</td>
+                            <td><code>&lt;input type="url"&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>week</code></td>
+                            <td>Week and year</td>
+                            <td><code>&lt;input type="week"&gt;</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+        </section>
+        
+        <section id="multimedia">
+            <h2>Multimedia in HTML</h2>
+            
+            <article>
+                <h3>Images</h3>
+                <p>The <code>&lt;img&gt;</code> element is used to embed images in web pages.</p>
+                
+                <pre><code>&lt;img src="image.jpg" alt="Description" width="500" height="300"&gt;</code></pre>
+                
+                <ul>
+                    <li><code>src</code> - Specifies the path to the image</li>
+                    <li><code>alt</code> - Provides alternative text for screen readers and when images can't be displayed</li>
+                    <li><code>width</code> and <code>height</code> - Specify dimensions (in pixels)</li>
+                    <li><code>loading</code> - Can be set to "lazy" for lazy loading</li>
+                </ul>
+                
+                <div class="warning">
+                    <p><strong>Important:</strong> Always include the <code>alt</code> attribute for accessibility. Use an empty string (<code>alt=""</code>) for decorative images.</p>
+                </div>
+            </article>
+            
+            <article>
+                <h3>Responsive Images</h3>
+                <p>HTML provides ways to serve different images based on device characteristics.</p>
+                
+                <h4>srcset Attribute</h4>
+                <pre><code>&lt;img src="small.jpg" 
+     srcset="medium.jpg 1000w, large.jpg 2000w" 
+     alt="Responsive image"&gt;</code></pre>
+                
+                <h4>picture Element</h4>
+                <pre><code>&lt;picture&gt;
+    &lt;source media="(min-width: 800px)" srcset="large.jpg"&gt;
+    &lt;source media="(min-width: 500px)" srcset="medium.jpg"&gt;
+    &lt;img src="small.jpg" alt="Responsive image"&gt;
+&lt;/picture&gt;</code></pre>
+            </article>
+            
+            <article>
+                <h3>Audio</h3>
+                <p>The <code>&lt;audio&gt;</code> element is used to embed sound content.</p>
+                
+                <pre><code>&lt;audio controls&gt;
+    &lt;source src="audio.mp3" type="audio/mpeg"&gt;
+    &lt;source src="audio.ogg" type="audio/ogg"&gt;
+    Your browser does not support the audio element.
+&lt;/audio&gt;</code></pre>
+                
+                <h4>Attributes:</h4>
+                <ul>
+                    <li><code>controls</code> - Shows audio controls (play, pause, volume)</li>
+                    <li><code>autoplay</code> - Audio will play as soon as it's ready</li>
+                    <li><code>loop</code> - Audio will start over when finished</li>
+                    <li><code>muted</code> - Audio will be muted initially</li>
+                    <li><code>preload</code> - Specifies if and how the audio should be loaded when the page loads</li>
+                </ul>
+            </article>
+            
+            <article>
+                <h3>Video</h3>
+                <p>The <code>&lt;video&gt;</code> element is used to embed video content.</p>
+                
+                <pre><code>&lt;video width="320" height="240" controls&gt;
+    &lt;source src="movie.mp4" type="video/mp4"&gt;
+    &lt;source src="movie.ogg" type="video/ogg"&gt;
+    Your browser does not support the video tag.
+&lt;/video&gt;</code></pre>
+                
+                <h4>Attributes:</h4>
+                <ul>
+                    <li><code>controls</code> - Shows video controls</li>
+                    <li><code>autoplay</code> - Video will play as soon as it's ready</li>
+                    <li><code>loop</code> - Video will start over when finished</li>
+                    <li><code>muted</code> - Video will be muted initially</li>
+                    <li><code>poster</code> - Specifies an image to show while the video is downloading</li>
+                    <li><code>preload</code> - Specifies if and how the video should be loaded when the page loads</li>
+                </ul>
+            </article>
+            
+            <article>
+                <h3>Iframes</h3>
+                <p>The <code>&lt;iframe&gt;</code> element is used to embed another HTML page.</p>
+                
+                <pre><code>&lt;iframe src="https://example.com" 
+        title="Example Site" 
+        width="800" 
+        height="600"&gt;
+&lt;/iframe&gt;</code></pre>
+                
+                <h4>Common Uses:</h4>
+                <ul>
+                    <li>Embedding videos from YouTube, Vimeo, etc.</li>
+                    <li>Embedding maps from Google Maps</li>
+                    <li>Embedding social media content</li>
+                    <li>Embedding third-party widgets</li>
+                </ul>
+                
+                <h4>Security Considerations:</h4>
+                <ul>
+                    <li>Use the <code>sandbox</code> attribute to restrict what the iframe can do</li>
+                    <li>Consider using the <code>allow</code> attribute to specify permissions</li>
+                    <li>Be cautious with third-party content due to security risks</li>
+                </ul>
+            </article>
+        </section>
+        
+        <section id="tables">
+            <h2>HTML Tables</h2>
+            
+            <article>
+                <h3>Basic Table Structure</h3>
+                <p>Tables are used to display tabular data.</p>
+                
+                <pre><code>&lt;table&gt;
+    &lt;caption&gt;Monthly Savings&lt;/caption&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Month&lt;/th&gt;
+            &lt;th&gt;Savings&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;January&lt;/td&gt;
+            &lt;td&gt;$100&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+    &lt;tfoot&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Total&lt;/td&gt;
+            &lt;td&gt;$100&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+                
+                <h4>Table Elements:</h4>
+                <ul>
+                    <li><code>&lt;table&gt;</code> - Defines the table</li>
+                    <li><code>&lt;caption&gt;</code> - Defines a table caption</li>
+                    <li><code>&lt;thead&gt;</code> - Groups the header content</li>
+                    <li><code>&lt;tbody&gt;</code> - Groups the body content</li>
+                    <li><code>&lt;tfoot&gt;</code> - Groups the footer content</li>
+                    <li><code>&lt;tr&gt;</code> - Defines a table row</li>
+                    <li><code>&lt;th&gt;</code> - Defines a header cell</li>
+                    <li><code>&lt;td&gt;</code> - Defines a standard cell</li>
+                </ul>
+            </article>
+            
+            <article>
+                <h3>Table Attributes</h3>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Attribute</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>colspan</code></td>
+                            <td>Specifies the number of columns a cell should span</td>
+                        </tr>
+                        <tr>
+                            <td><code>rowspan</code></td>
+                            <td>Specifies the number of rows a cell should span</td>
+                        </tr>
+                        <tr>
+                            <td><code>scope</code></td>
+                            <td>Specifies whether a header cell is for a column, row, or group</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h4>Example with colspan and rowspan:</h4>
+                <pre><code>&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th rowspan="2"&gt;Name&lt;/th&gt;
+        &lt;th colspan="2"&gt;Contact&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Phone&lt;/th&gt;
+        &lt;th&gt;Email&lt;/th&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+            </article>
+            
+            <article>
+                <h3>Accessible Tables</h3>
+                <p>For complex tables, use these techniques to improve accessibility:</p>
+                
+                <ul>
+                    <li>Use <code>&lt;th&gt;</code> elements for headers</li>
+                    <li>Add <code>scope</code> attributes to headers (<code>scope="col"</code> or <code>scope="row"</code>)</li>
+                    <li>Use <code>&lt;caption&gt;</code> to describe the table's purpose</li>
+                    <li>For complex relationships, use <code>headers</code> and <code>id</code> attributes</li>
+                </ul>
+                
+                <div class="warning">
+                    <p><strong>Note:</strong> Avoid using tables for layout purposes. Tables should only be used for tabular data.</p>
+                </div>
+            </article>
+        </section>
+        
+        <section id="links">
+            <h2>Links and Navigation</h2>
+            
+            <article>
+                <h3>Anchor Elements</h3>
+                <p>The <code>&lt;a&gt;</code> element creates hyperlinks to other resources.</p>
+                
+                <pre><code>&lt;a href="https://example.com" target="_blank" rel="noopener"&gt;Visit Example&lt;/a&gt;</code></pre>
+                
+                <h4>Attributes:</h4>
+                <ul>
+                    <li><code>href</code> - Specifies the URL of the page the link goes to</li>
+                    <li><code>target</code> - Specifies where to open the linked document</li>
+                    <li><code>rel</code> - Specifies the relationship between the current and linked document</li>
+                    <li><code>download</code> - Specifies that the target will be downloaded when clicked</li>
+                </ul>
+            </article>
+            
+            <article>
+                <h3>Link Targets</h3>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Value</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>_self</code></td>
+                            <td>Default. Opens in the same frame/tab</td>
+                        </tr>
+                        <tr>
+                            <td><code>_blank</code></td>
+                            <td>Opens in a new window or tab</td>
+                        </tr>
+                        <tr>
+                            <td><code>_parent</code></td>
+                            <td>Opens in the parent frame</td>
+                        </tr>
+                        <tr>
+                            <td><code>_top</code></td>
+                            <td>Opens in the full body of the window</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="note">
+                    <p><strong>Security Tip:</strong> When using <code>target="_blank"</code>, add <code>rel="noopener noreferrer"</code> to prevent security vulnerabilities.</p>
+                </div>
+            </article>
+            
+            <article>
+                <h3>Link Relationships (rel attribute)</h3>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Value</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>alternate</code></td>
+                            <td>Alternate version of the document</td>
+                        </tr>
+                        <tr>
+                            <td><code>author</code></td>
+                            <td>Link to the author of the document</td>
+                        </tr>
+                        <tr>
+                            <td><code>bookmark</code></td>
+                            <td>Permanent URL for bookmarking</td>
+                        </tr>
+                        <tr>
+                            <td><code>external</code></td>
+                            <td>References external document</td>
+                        </tr>
+                        <tr>
+                            <td><code>help</code></td>
+                            <td>Link to help document</td>
+                        </tr>
+                        <tr>
+                            <td><code>license</code></td>
+                            <td>Link to copyright information</td>
+                        </tr>
+                        <tr>
+                            <td><code>next</code></td>
+                            <td>Next document in a series</td>
+                        </tr>
+                        <tr>
+                            <td><code>nofollow</code></td>
+                            <td>Not endorsed by this page's author</td>
+                        </tr>
+                        <tr>
+                            <td><code>noopener</code></td>
+                            <td>Prevents new tab from accessing window.opener</td>
+                        </tr>
+                        <tr>
+                            <td><code>noreferrer</code></td>
+                            <td>Prevents referrer information from being sent</td>
+                        </tr>
+                        <tr>
+                            <td><code>prev</code></td>
+                            <td>Previous document in a series</td>
+                        </tr>
+                        <tr>
+                            <td><code>search</code></td>
+                            <td>Link to search tool for the document</td>
+                        </tr>
+                        <tr>
+                            <td><code>tag</code></td>
+                            <td>Tag applying to the current document</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+            
+            <article>
+                <h3>Fragment Identifiers</h3>
+                <p>Links can point to specific sections within a page using fragment identifiers.</p>
+                
+                <pre><code>&lt;!-- Link to section --&gt;
+&lt;a href="#section-id"&gt;Go to Section&lt;/a&gt;
+
+&lt;!-- Target section --&gt;
+&lt;h2 id="section-id"&gt;Section Title&lt;/h2&gt;</code></pre>
+                
+                <p>You can also link to specific sections on other pages:</p>
+                <pre><code>&lt;a href="otherpage.html#section-id"&gt;Go to Section on Other Page&lt;/a&gt;</code></pre>
+            </article>
+            
+            <article>
+                <h3>Link States</h3>
+                <p>Links can be styled differently based on their state:</p>
+                
+                <ul>
+                    <li><code>:link</code> - A normal, unvisited link</li>
+                    <li><code>:visited</code> - A link the user has visited</li>
+                    <li><code>:hover</code> - A link when the user mouses over it</li>
+                    <li><code>:active</code> - A link the moment it is clicked</li>
+                    <li><code>:focus</code> - A link when it has keyboard focus</li>
+                </ul>
+                
+                <pre><code>a:link { color: blue; }
+a:visited { color: purple; }
+a:hover { text-decoration: underline; }
+a:active { color: red; }
+a:focus { outline: 2px solid orange; }</code></pre>
+            </article>
+        </section>
+        
+        <section id="meta">
+            <h2>Meta Tags and SEO</h2>
+            
+            <article>
+                <h3>Common Meta Tags</h3>
+                <p>Meta tags provide metadata about the HTML document.</p>
+                
+                <pre><code>&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;meta name="description" content="Free web tutorials"&gt;
+&lt;meta name="keywords" content="HTML, CSS, JavaScript"&gt;
+&lt;meta name="author" content="John Doe"&gt;
+&lt;meta http-equiv="refresh" content="30"&gt;</code></pre>
+                
+                <h4>Important Meta Tags:</h4>
+                <ul>
+                    <li><code>charset</code> - Specifies the character encoding</li>
+                    <li><code>viewport</code> - Controls layout on mobile browsers</li>
+                    <li><code>description</code> - Used by search engines for page description</li>
+                    <li><code>keywords</code> - Specifies keywords for search engines</li>
+                    <li><code>author</code> - Specifies the author of the page</li>
+                    <li><code>refresh</code> - Refreshes the page after specified seconds</li>
+                    <li><code>robots</code> - Controls search engine crawling and indexing</li>
+                </ul>
+            </article>
+            
+            <article>
+                <h3>Open Graph Protocol</h3>
+                <p>Open Graph meta tags control how content appears when shared on social media.</p>
+                
+                <pre><code>&lt;meta property="og:title" content="Page Title"&gt;
+&lt;meta property="og:type" content="website"&gt;
+&lt;meta property="og:url" content="https://example.com/page"&gt;
+&lt;meta property="og:image" content="https://example.com/image.jpg"&gt;
+&lt;meta property="og:description" content="Description of page"&gt;
+&lt;meta property="og:site_name" content="Site Name"&gt;
+&lt;meta property="og:locale" content="en_US"&gt;</code></pre>
+            </article>
+            
+            <article>
+                <h3>Twitter Cards</h3>
+                <p>Twitter-specific meta tags for enhanced display when shared on Twitter.</p>
+                
+                <pre><code>&lt;meta name="twitter:card" content="summary_large_image"&gt;
+&lt;meta name="twitter:site" content="@username"&gt;
+&lt;meta name="twitter:creator" content="@author"&gt;
+&lt;meta name="twitter:title" content="Page Title"&gt;
+&lt;meta name="twitter:description" content="Page Description"&gt;
+&lt;meta name="twitter:image" content="https://example.com/image.jpg"&gt;</code></pre>
+            </article>
+            
+            <article>
+                <h3>Favicons</h3>
+                <p>Favicons are small icons displayed in browser tabs and bookmarks.</p>
+                
+                <pre><code>&lt;link rel="icon" href="favicon.ico" type="image/x-icon"&gt;
+&lt;link rel="apple-touch-icon" href="apple-touch-icon.png"&gt;
+&lt;link rel="manifest" href="site.webmanifest"&gt;</code></pre>
+                
+                <p>Modern favicon setup includes multiple sizes and formats:</p>
+                <pre><code>&lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;
+&lt;link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"&gt;
+&lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;
+&lt;link rel="manifest" href="/site.webmanifest"&gt;
+&lt;link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"&gt;</code></pre>
+            </article>
+        </section>
+        
+        <section id="accessibility">
+            <h2>Accessibility (a11y)</h2>
+            
+            <article>
+                <h3>WCAG Principles</h3>
+                <p>Web Content Accessibility Guidelines (WCAG) are based on four principles:</p>
+                
+                <ol>
+                    <li><strong>Perceivable</strong> - Information must be presentable in ways users can perceive</li>
+                    <li><strong>Operable</strong> - Interface components must be operable</li>
+                    <li><strong>Understandable</strong> - Information and operation must be understandable</li>
+                    <li><strong>Robust</strong> - Content must be robust enough to be interpreted reliably</li>
+                </ol>
+            </article>
+            
+            <article>
+                <h3>Semantic HTML for Accessibility</h3>
+                <p>Using semantic HTML elements improves accessibility:</p>
+                
+                <ul>
+                    <li>Use proper heading structure (<code>h1</code>-<code>h6</code>)</li>
+                    <li>Use <code>&lt;nav&gt;</code> for navigation</li>
+                    <li>Use <code>&lt;main&gt;</code> for main content</li>
+                    <li>Use <code>&lt;article&gt;</code> for self-contained content</li>
+                    <li>Use <code>&lt;section&gt;</code> for thematic grouping</li>
+                    <li>Use <code>&lt;aside&gt;</code> for tangential content</li>
+                    <li>Use <code>&lt;footer&gt;</code> for footer information</li>
+                </ul>
+            </article>
+            
+            <article>
+                <h3>ARIA (Accessible Rich Internet Applications)</h3>
+                <p>ARIA attributes enhance accessibility when semantic HTML isn't sufficient.</p>
+                
+                <h4>Common ARIA Attributes:</h4>
+                <ul>
+                    <li><code>role</code> - Defines the type of element (e.g., <code>role="navigation"</code>)</li>
+                    <li><code>aria-label</code> - Provides a label for an element</li>
+                    <li><code>aria-labelledby</code> - References another element that labels this one</li>
+                    <li><code>aria-hidden</code> - Hides an element from screen readers</li>
+                    <li><code>aria-live</code> - Indicates dynamic content that should be announced</li>
+                    <li><code>aria-current</code> - Indicates the current item in a set</li>
+                </ul>
+                
+                <h4>Example:</h4>
+                <pre><code>&lt;button aria-label="Close"&gt;X&lt;/button&gt;
+&lt;nav role="navigation" aria-label="Main"&gt;...&lt;/nav&gt;
+&lt;div role="alert" aria-live="assertive"&gt;Error message&lt;/div&gt;</code></pre>
+            </article>
+            
+            <article>
+                <h3>Accessibility Best Practices</h3>
+                
+                <ul>
+                    <li>Always provide text alternatives for non-text content (<code>alt</code> attributes)</li>
+                    <li>Ensure sufficient color contrast (minimum 4.5:1 for normal text)</li>
+                    <li>Don't rely solely on color to convey information</li>
+                    <li>Make all functionality available from a keyboard</li>
+                    <li>Give users enough time to read and use content</li>
+                    <li>Help users navigate and find content</li>
+                    <li>Make text readable and understandable</li>
+                    <li>Make content appear and operate in predictable ways</li>
+                    <li>Help users avoid and correct mistakes</li>
+                    <li>Ensure compatibility with current and future user tools</li>
+                </ul>
+            </article>
+            
+            <article>
+                <h3>Testing Accessibility</h3>
+                
+                <h4>Automated Tools:</h4>
+                <ul>
+                    <li>WAVE (Web Accessibility Evaluation Tool)</li>
+                    <li>axe DevTools</li>
+                    <li>Lighthouse (built into Chrome DevTools)</li>
+                    <li>HTML_CodeSniffer</li>
+                </ul>
+                
+                <h4>Manual Testing:</h4>
+                <ul>
+                    <li>Keyboard navigation testing</li>
+                    <li>Screen reader testing (NVDA, VoiceOver, JAWS)</li>
+                    <li>Zoom testing (200% zoom)</li>
+                    <li>Color contrast checking</li>
+                </ul>
+            </article>
+        </section>
+        
+        <section id="best-practices">
+            <h2>HTML Best Practices</h2>
+            
+            <article>
+                <h3>General Best Practices</h3>
+                
+                <ul>
+                    <li>Always declare the document type (<code>&lt;!DOCTYPE html&gt;</code>)</li>
+                    <li>Use semantic HTML elements</li>
+                    <li>Close all HTML elements properly</li>
+                    <li>Use lowercase for element and attribute names</li>
+                    <li>Quote attribute values</li>
+                    <li>Include <code>alt</code> attributes for images</li>
+                    <li>Define the language of the document (<code>lang</code> attribute)</li>
+                    <li>Use UTF-8 character encoding</li>
+                    <li>Keep CSS and JavaScript in separate files</li>
+                    <li>Validate your HTML using the W3C validator</li>
+                </ul>
+            </article>
+            
+            <article>
+                <h3>Performance Considerations</h3>
+                
+                <ul>
+                    <li>Minify HTML, CSS, and JavaScript</li>
+                    <li>Optimize images (correct format, compression, dimensions)</li>
+                    <li>Use lazy loading for images and iframes (<code>loading="lazy"</code>)</li>
+                    <li>Preload critical resources</li>
+                    <li>Use efficient CSS selectors</li>
+                    <li>Defer non-critical JavaScript</li>
+                    <li>Implement caching strategies</li>
+                    <li>Use CDNs for common libraries</li>
+                </ul>
+            </article>
+            
+            <article>
+                <h3>Security Best Practices</h3>
+                
+                <ul>
+                    <li>Use HTTPS</li>
+                    <li>Implement Content Security Policy (CSP)</li>
+                    <li>Use Subresource Integrity (SRI) for CDN resources</li>
+                    <li>Sanitize user input to prevent XSS</li>
+                    <li>Use <code>rel="noopener noreferrer"</code> with <code>target="_blank"</code></li>
+                    <li>Set secure cookie attributes (<code>Secure</code>, <code>HttpOnly</code>, <code>SameSite</code>)</li>
+                    <li>Implement CSRF protection</li>
+                    <li>Use security headers (X-Frame-Options, X-XSS-Protection, etc.)</li>
+                </ul>
+            </article>
+            
+            <article>
+                <h3>Mobile Considerations</h3>
+                
+                <ul>
+                    <li>Use the viewport meta tag</li>
+                    <li>Design for touch interactions (adequate touch targets)</li>
+                    <li>Optimize for vertical space</li>
+                    <li>Consider mobile performance (limited bandwidth, processing power)</li>
+                    <li>Test on real devices</li>
+                    <li>Implement responsive design</li>
+                    <li>Consider mobile-first approach</li>
+                    <li>Optimize for portrait and landscape modes</li>
+                </ul>
+            </article>
+        </section>
+        
+        <section id="resources">
+            <h2>HTML Resources</h2>
+            
+            <article>
+                <h3>Learning Resources</h3>
+                
+                <ul>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener">MDN HTML Documentation</a></li>
+                    <li><a href="https://www.w3schools.com/html/" target="_blank" rel="noopener">W3Schools HTML Tutorial</a></li>
+                    <li><a href="https://web.dev/learn/html/" target="_blank" rel="noopener">web.dev HTML Course</a></li>
+                    <li><a href="https://html.spec.whatwg.org/" target="_blank" rel="noopener">HTML Living Standard</a></li>
+                    <li><a href="https://www.freecodecamp.org/learn/responsive-web-design/" target="_blank" rel="noopener">freeCodeCamp Responsive Web Design</a></li>
+                </ul>
+            </article>
+            
+            <article>
+                <h3>Validation Tools</h3>
+                
+                <ul>
+                    <li><a href="https://validator.w3.org/" target="_blank" rel="noopener">W3C Markup Validation Service</a></li>
+                    <li><a href="https://validator.w3.org/nu/" target="_blank" rel="noopener">W3C Nu Html Checker</a></li>
+                </ul>
+            </article>
+            
+            <article>
+                <h3>Accessibility Tools</h3>
+                
+                <ul>
+                    <li><a href="https://wave.webaim.org/" target="_blank" rel="noopener">WAVE Web Accessibility Evaluation Tool</a></li>
+                    <li><a href="https://www.deque.com/axe/" target="_blank" rel="noopener">axe Accessibility Testing Tools</a></li>
+                    <li><a href="https://developer.chrome.com/docs/lighthouse/accessibility/" target="_blank" rel="noopener">Lighthouse Accessibility Audits</a></li>
+                </ul>
+            </article>
+            
+            <article>
+                <h3>Performance Tools</h3>
+                
+                <ul>
+                    <li><a href="https://developer.chrome.com/docs/lighthouse/performance/" target="_blank" rel="noopener">Lighthouse Performance Audits</a></li>
+                    <li><a href="https://web.dev/measure/" target="_blank" rel="noopener">Web Vitals Measurement Tool</a></li>
+                    <li><a href="https://pagespeed.web.dev/" target="_blank" rel="noopener">PageSpeed Insights</a></li>
+                </ul>
+            </article>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Comprehensive HTML Guide. All rights reserved.</p>
+        <p>This guide is for educational purposes only.</p>
+        <address>
+            Contact: <a href="mailto:rdgcz10@gmail.com">rdgcz10@gmail.com</a>
+        </address>
+        <a href="#top">Voltar ao topo</a>
+    </footer>
+</body>
+</html>
