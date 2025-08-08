@@ -1,0 +1,62 @@
+** start of index.html **
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Build an Event Flyer Page</title>
+</head>
+<header>
+  <img src="https://live.staticflickr.com/4089/5051540562_b0c06d0f3f_b.jpg" alt="Green alien close look">
+  <h1>"Intergalactic Code Invasion" Hackathon</h1>
+  </header>
+
+<body>
+  <main>
+    <section>
+      <h2>Your Code is Bad… And We’re Here to Fix It (Or Abduct It)</h2>
+      </section>
+      <hr>
+    <section>
+      <h2>Earthlings Welcome (But We’re Judging You)</h2>
+      </section>
+  </main>
+
+</body>
+
+</html>
+
+** end of index.html **
+
+** start of styles.css **
+
+body {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin: 0 auto;
+  width: 90vw;
+  min-height: calc(100vh - 100px);
+  max-width: 900px;
+}
+
+hr {
+  width: 80%;
+  margin: 20px auto;
+  border: 2px solid green;
+}
+
+section {
+  width: 85%;
+  margin: 0 auto;
+  padding: 15px 0;
+}
+
+img {
+  max-height: 300px;
+}
+
+** end of styles.css **
+
