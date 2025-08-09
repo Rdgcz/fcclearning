@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Pseudo-classes & Pseudo-elements Reference</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        code {
+            background-color: #f0f0f0;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        .note {
+            background-color: #e7f5fe;
+            border-left: 4px solid #3498db;
+            padding: 10px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CSS Pseudo-classes & Pseudo-elements Reference</h1>
+    </header>
+    
+    <main>
+        <section>
+            <article>
+                <h2>1. What Are Pseudo-classes?</h2>
+                <p>A pseudo-class is a keyword added to a selector that specifies a special state of the selected element.</p>
+                <p>They let you style elements based on user interaction, form validation state, document structure, or other conditions without adding extra classes or IDs in HTML.</p>
+            </article>
+            
+            <article>
+                <h2>2. User Action Pseudo-classes</h2>
+                <p>These pseudo-classes apply styles based on user interactions, improving the user experience.</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pseudo-class</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>:active</code></td>
+                            <td>Matches an element while it is being activated (e.g., between mousedown and mouseup).</td>
+                            <td><code>button:active { background: red; }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>:hover</code></td>
+                            <td>Matches when the user hovers over an element.</td>
+                            <td><code>a:hover { color: blue; }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>:focus</code></td>
+                            <td>Matches when an element has focus (e.g., clicked into or navigated via keyboard).</td>
+                            <td><code>input:focus { border: 2px solid blue; }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>:focus-within</code></td>
+                            <td>Matches an element if it or any of its descendants have focus.</td>
+                            <td><code>form:focus-within { background: #f0f0f0; }</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+            
+            <article>
+                <h2>3. Form & Input State Pseudo-classes</h2>
+                <p>Used to style form elements based on their state or validation.</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pseudo-class</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>:enabled</code></td>
+                            <td>Matches inputs that are currently enabled.</td>
+                            <td><code>input:enabled { background: white; }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>:disabled</code></td>
+                            <td>Matches inputs that are disabled.</td>
+                            <td><code>button:disabled { opacity: 0.5; }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>:checked</code></td>
+                            <td>Matches checked checkboxes, radio buttons, or selected &lt;option&gt;.</td>
+                            <td><code>input:checked + label { color: green; }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>:valid</code></td>
+                            <td>Matches inputs whose value satisfies validation constraints.</td>
+                            <td><code>input:valid { border: 2px solid green; }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>:invalid</code></td>
+                            <td>Matches inputs whose value fails validation.</td>
+                            <td><code>input:invalid { border: 2px solid red; }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>:in-range</code></td>
+                            <td>Matches inputs whose value is within a specified min/max.</td>
+                            <td><code>input:in-range { background: lightgreen; }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>:out-of-range</code></td>
+                            <td>Matches inputs whose value is outside min/max.</td>
+                            <td><code>input:out-of-range { background: pink; }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>:required</code></td>
+                            <td>Matches inputs with the required attribute.</td>
+                            <td><code>input:required { border-left: 4px solid orange; }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>:optional</code></td>
+                            <td>Matches inputs without required.</td>
+                            <td><code>input:optional { border-left: 4px solid gray; }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>:-webkit-autofill</code></td>
+                            <td>Styles fields filled automatically by the browser. (Vendor-specific)</td>
+                            <td><code>input:-webkit-autofill { background: yellow; }</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+            
+            <article>
+                <h2>4. Link & Location Pseudo-classes</h2>
+                <p>These target links or elements related to navigation.</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pseudo-class</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>:any-link</code></td>
+                            <td>Matches :link and :visited together.</td>
+                            <td><code>a:any-link { color: blue; }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>:link</code></td>
+                            <td>Matches unvisited links.</td>
+                            <td><code>a:link { color: blue; }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>:visited</code></td>
+                            <td>Matches visited links.</td>
+                            <td><code>a:visited { color: purple; }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>:local-link</code></td>
+                            <td>(Low support) Matches links to the same document.</td>
+                            <td><code>a:local-link { font-weight: bold; }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>:target</code></td>
+                            <td>Matches an element targeted by a URL fragment (#id).</td>
+                            <td><code>section:target { background: yellow; }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>:target-within</code></td>
+                            <td>Matches an element if it or its descendants are the URL fragment target.</td>
+                            <td><code>div:target-within { outline: 2px solid red; }</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+            
+            <article>
+                <h2>5. Tree-Structural Pseudo-classes</h2>
+                <p>Used to style elements based on their position in the DOM tree.</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pseudo-class</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>:root</code></td>
+                            <td>Matches the root element (&lt;html&gt; in HTML).</td>
+                            <td><code>:root { --main-color: #333; }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>:empty</code></td>
+                            <td>Matches elements with no children (including text nodes).</td>
+                            <td><code>p:empty { display: none; }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>:first-child</code></td>
+                            <td>Matches the first child of a parent.</td>
+                            <td><code>li:first-child { font-weight: bold; }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>:last-child</code></td>
+                            <td>Matches the last child of a parent.</td>
+                            <td><code>li:last-child { color: red; }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>:only-child</code></td>
+                            <td>Matches an element that is the only child of its parent.</td>
+                            <td><code>p:only-child { font-style: italic; }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>:first-of-type</code></td>
+                            <td>Matches the first element of its type in a parent.</td>
+                            <td><code>p:first-of-type { text-transform: uppercase; }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>:last-of-type</code></td>
+                            <td>Matches the last element of its type in a parent.</td>
+                            <td><code>p:last-of-type { color: orange; }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>:only-of-type</code></td>
+                            <td>Matches an element that is the only one of its type in a parent.</td>
+                            <td><code>h1:only-of-type { text-align: center; }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>:nth-child(n)</code></td>
+                            <td>Matches the nth child regardless of type.</td>
+                            <td><code>li:nth-child(2) { color: blue; }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>:nth-last-child(n)</code></td>
+                            <td>Matches the nth child counting from the end.</td>
+                            <td><code>li:nth-last-child(1) { color: red; }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>:nth-of-type(n)</code></td>
+                            <td>Matches the nth element of its type.</td>
+                            <td><code>p:nth-of-type(2) { background: yellow; }</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+            
+            <article>
+                <h2>6. Functional Pseudo-classes</h2>
+                <p>Allow more complex selectors by accepting arguments.</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pseudo-class</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>:is()</code></td>
+                            <td>Matches if element satisfies any selector in a list.</td>
+                            <td><code>p:is(.intro, .highlight) { color: red; }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>:where()</code></td>
+                            <td>Same as :is() but specificity is always 0.</td>
+                            <td><code>:where(h1, h2, h3) { margin: 0; }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>:has()</code></td>
+                            <td>Matches an element if it contains elements matching a selector.</td>
+                            <td><code>article:has(h2) { border: 1px solid pink; }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>:not()</code></td>
+                            <td>Matches elements that do not match the selector.</td>
+                            <td><code>p:not(.special) { color: gray; }</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+            
+            <article>
+                <h2>7. Pseudo-elements</h2>
+                <p>Pseudo-elements let you style specific parts of an element's content.</p>
+                <p>They use :: (double colon) in modern CSS, but single colon : is still supported for older browsers.</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pseudo-element</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>::before</code></td>
+                            <td>Inserts generated content before the element's content.</td>
+                            <td><code>p::before { content: "★ "; }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>::after</code></td>
+                            <td>Inserts generated content after the element's content.</td>
+                            <td><code>p::after { content: " ★"; }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>::first-letter</code></td>
+                            <td>Styles the first letter of the element.</td>
+                            <td><code>p::first-letter { font-size: 2em; }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>::marker</code></td>
+                            <td>Styles list item markers (bullets, numbers).</td>
+                            <td><code>li::marker { color: red; }</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+            
+            <article class="note">
+                <h2>Quick Notes</h2>
+                <ul>
+                    <li><strong>Pseudo-class</strong> = element state<br>
+                    Example: <code>a:hover</code> → styles link when hovered.</li>
+                    
+                    <li><strong>Pseudo-element</strong> = part of element<br>
+                    Example: <code>p::first-letter</code> → styles only the first letter.</li>
+                    
+                    <li>Not all pseudo-classes have full browser support (e.g., <code>:local-link</code> is experimental).</li>
+                    
+                    <li><code>:has()</code> is powerful but can be performance-heavy on large DOMs.</li>
+                </ul>
+            </article>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2023 CSS Pseudo-classes & Pseudo-elements Reference</p>
+        <p>For educational purposes only.</p>
+        <a href="#">Back to top</a>
+    </footer>
+</body>
+</html>
