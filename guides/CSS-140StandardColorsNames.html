@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Standard Color Names</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        /* Additional styles specific to this page */
+        .color-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .color-item {
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            border-radius: 4px;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+        }
+        
+        .color-item:hover {
+            transform: translateY(-2px);
+        }
+        
+        .color-sample {
+            width: 40px;
+            height: 40px;
+            border-radius: 4px;
+            margin-right: 10px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .color-name {
+            font-size: 14px;
+            color: var(--text-color);
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-note {
+            text-align: center;
+            margin-top: 30px;
+            color: var(--gray-dark);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .color-container {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CSS Standard Color Names</h1>
+    </header>
+    
+    <main>
+        <div class="page-header">
+            <p>140 standard CSS color names as defined in the CSS Color Module Level 4</p>
+        </div>
+        
+        <div class="color-container">
+            <!-- Color items will be inserted here by JavaScript -->
+        </div>
+        
+        <div class="footer-note">
+            <p>Hover over color boxes to see a slight elevation effect</p>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; <span id="year"></span> CSS Color Reference</p>
+    </footer>
+
+    <script>
+        const colorNames = [
+            "AliceBlue", "AntiqueWhite", "Aqua", "Aquamarine", "Azure",
+            "Beige", "Bisque", "Black", "BlanchedAlmond", "Blue",
+            "BlueViolet", "Brown", "BurlyWood", "CadetBlue", "Chartreuse",
+            "Chocolate", "Coral", "CornflowerBlue", "Cornsilk", "Crimson",
+            "Cyan", "DarkBlue", "DarkCyan", "DarkGoldenRod", "DarkGray",
+            "DarkGreen", "DarkGrey", "DarkKhaki", "DarkMagenta", "DarkOliveGreen",
+            "DarkOrange", "DarkOrchid", "DarkRed", "DarkSalmon", "DarkSeaGreen",
+            "DarkSlateBlue", "DarkSlateGray", "DarkSlateGrey", "DarkTurquoise", "DarkViolet",
+            "DeepPink", "DeepSkyBlue", "DimGray", "DimGrey", "DodgerBlue",
+            "FireBrick", "FloralWhite", "ForestGreen", "Fuchsia", "Gainsboro",
+            "GhostWhite", "Gold", "GoldenRod", "Gray", "Green",
+            "GreenYellow", "Grey", "HoneyDew", "HotPink", "IndianRed",
+            "Indigo", "Ivory", "Khaki", "Lavender", "LavenderBlush",
+            "LawnGreen", "LemonChiffon", "LightBlue", "LightCoral", "LightCyan",
+            "LightGoldenRodYellow", "LightGray", "LightGreen", "LightGrey", "LightPink",
+            "LightSalmon", "LightSeaGreen", "LightSkyBlue", "LightSlateGray", "LightSlateGrey",
+            "LightSteelBlue", "LightYellow", "Lime", "LimeGreen", "Linen",
+            "Magenta", "Maroon", "MediumAquaMarine", "MediumBlue", "MediumOrchid",
+            "MediumPurple", "MediumSeaGreen", "MediumSlateBlue", "MediumSpringGreen", "MediumTurquoise",
+            "MediumVioletRed", "MidnightBlue", "MintCream", "MistyRose", "Moccasin",
+            "NavajoWhite", "Navy", "OldLace", "Olive", "OliveDrab",
+            "Orange", "OrangeRed", "Orchid", "PaleGoldenRod", "PaleGreen",
+            "PaleTurquoise", "PaleVioletRed", "PapayaWhip", "PeachPuff", "Peru",
+            "Pink", "Plum", "PowderBlue", "Purple", "RebeccaPurple",
+            "Red", "RosyBrown", "RoyalBlue", "SaddleBrown", "Salmon",
+            "SandyBrown", "SeaGreen", "SeaShell", "Sienna", "Silver",
+            "SkyBlue", "SlateBlue", "SlateGray", "SlateGrey", "Snow",
+            "SpringGreen", "SteelBlue", "Tan", "Teal", "Thistle",
+            "Tomato", "Turquoise", "Violet", "Wheat", "White",
+            "WhiteSmoke", "Yellow", "YellowGreen"
+        ];
+
+        const container = document.querySelector('.color-container');
+
+        colorNames.forEach(color => {
+            const colorItem = document.createElement('div');
+            colorItem.className = 'color-item';
+            
+            const colorSample = document.createElement('div');
+            colorSample.className = 'color-sample';
+            colorSample.style.backgroundColor = color;
+            
+            const colorName = document.createElement('div');
+            colorName.className = 'color-name';
+            colorName.textContent = color;
+            
+            colorItem.appendChild(colorSample);
+            colorItem.appendChild(colorName);
+            container.appendChild(colorItem);
+        });
+
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
