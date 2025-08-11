@@ -7,11 +7,31 @@
     <link rel="stylesheet" href="../styles.css">
     <style>
         /* Additional styles specific to this page */
+        .color-categories {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 20px;
+        }
+        
+        .color-category {
+            background-color: white;
+            border-radius: 5px;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .category-title {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--gray-light);
+        }
+        
         .color-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 10px;
-            margin-top: 20px;
         }
         
         .color-item {
@@ -67,11 +87,11 @@
     
     <main>
         <div class="page-header">
-            <p>140 standard CSS color names as defined in the CSS Color Module Level 4</p>
+            <p>140 standard CSS color names organized by color families</p>
         </div>
         
-        <div class="color-container">
-            <!-- Color items will be inserted here by JavaScript -->
+        <div class="color-categories" id="colorCategories">
+            <!-- Color categories will be inserted here by JavaScript -->
         </div>
         
         <div class="footer-note">
@@ -84,56 +104,129 @@
     </footer>
 
     <script>
-        const colorNames = [
-            "AliceBlue", "AntiqueWhite", "Aqua", "Aquamarine", "Azure",
-            "Beige", "Bisque", "Black", "BlanchedAlmond", "Blue",
-            "BlueViolet", "Brown", "BurlyWood", "CadetBlue", "Chartreuse",
-            "Chocolate", "Coral", "CornflowerBlue", "Cornsilk", "Crimson",
-            "Cyan", "DarkBlue", "DarkCyan", "DarkGoldenRod", "DarkGray",
-            "DarkGreen", "DarkGrey", "DarkKhaki", "DarkMagenta", "DarkOliveGreen",
-            "DarkOrange", "DarkOrchid", "DarkRed", "DarkSalmon", "DarkSeaGreen",
-            "DarkSlateBlue", "DarkSlateGray", "DarkSlateGrey", "DarkTurquoise", "DarkViolet",
-            "DeepPink", "DeepSkyBlue", "DimGray", "DimGrey", "DodgerBlue",
-            "FireBrick", "FloralWhite", "ForestGreen", "Fuchsia", "Gainsboro",
-            "GhostWhite", "Gold", "GoldenRod", "Gray", "Green",
-            "GreenYellow", "Grey", "HoneyDew", "HotPink", "IndianRed",
-            "Indigo", "Ivory", "Khaki", "Lavender", "LavenderBlush",
-            "LawnGreen", "LemonChiffon", "LightBlue", "LightCoral", "LightCyan",
-            "LightGoldenRodYellow", "LightGray", "LightGreen", "LightGrey", "LightPink",
-            "LightSalmon", "LightSeaGreen", "LightSkyBlue", "LightSlateGray", "LightSlateGrey",
-            "LightSteelBlue", "LightYellow", "Lime", "LimeGreen", "Linen",
-            "Magenta", "Maroon", "MediumAquaMarine", "MediumBlue", "MediumOrchid",
-            "MediumPurple", "MediumSeaGreen", "MediumSlateBlue", "MediumSpringGreen", "MediumTurquoise",
-            "MediumVioletRed", "MidnightBlue", "MintCream", "MistyRose", "Moccasin",
-            "NavajoWhite", "Navy", "OldLace", "Olive", "OliveDrab",
-            "Orange", "OrangeRed", "Orchid", "PaleGoldenRod", "PaleGreen",
-            "PaleTurquoise", "PaleVioletRed", "PapayaWhip", "PeachPuff", "Peru",
-            "Pink", "Plum", "PowderBlue", "Purple", "RebeccaPurple",
-            "Red", "RosyBrown", "RoyalBlue", "SaddleBrown", "Salmon",
-            "SandyBrown", "SeaGreen", "SeaShell", "Sienna", "Silver",
-            "SkyBlue", "SlateBlue", "SlateGray", "SlateGrey", "Snow",
-            "SpringGreen", "SteelBlue", "Tan", "Teal", "Thistle",
-            "Tomato", "Turquoise", "Violet", "Wheat", "White",
-            "WhiteSmoke", "Yellow", "YellowGreen"
+        // Colors organized by hue categories
+        const colorCategories = [
+            {
+                name: "Reds",
+                colors: [
+                    "IndianRed", "LightCoral", "Salmon", "DarkSalmon", "LightSalmon",
+                    "Crimson", "Red", "FireBrick", "DarkRed"
+                ]
+            },
+            {
+                name: "Pinks",
+                colors: [
+                    "Pink", "LightPink", "HotPink", "DeepPink", "MediumVioletRed",
+                    "PaleVioletRed"
+                ]
+            },
+            {
+                name: "Oranges",
+                colors: [
+                    "Coral", "Tomato", "OrangeRed", "DarkOrange", "Orange"
+                ]
+            },
+            {
+                name: "Yellows",
+                colors: [
+                    "Gold", "Yellow", "LightYellow", "LemonChiffon", "LightGoldenRodYellow",
+                    "PapayaWhip", "Moccasin", "PeachPuff", "PaleGoldenRod", "Khaki",
+                    "DarkKhaki"
+                ]
+            },
+            {
+                name: "Purples",
+                colors: [
+                    "Lavender", "Thistle", "Plum", "Violet", "Orchid",
+                    "Fuchsia", "Magenta", "MediumOrchid", "MediumPurple", "RebeccaPurple",
+                    "BlueViolet", "DarkViolet", "DarkOrchid", "DarkMagenta", "Purple",
+                    "Indigo", "DarkSlateBlue", "SlateBlue", "MediumSlateBlue"
+                ]
+            },
+            {
+                name: "Greens",
+                colors: [
+                    "GreenYellow", "Chartreuse", "LawnGreen", "Lime", "LimeGreen",
+                    "PaleGreen", "LightGreen", "MediumSpringGreen", "SpringGreen", "MediumSeaGreen",
+                    "SeaGreen", "ForestGreen", "Green", "DarkGreen", "YellowGreen",
+                    "OliveDrab", "Olive", "DarkOliveGreen", "MediumAquaMarine", "DarkSeaGreen",
+                    "LightSeaGreen", "DarkCyan", "Teal"
+                ]
+            },
+            {
+                name: "Blues",
+                colors: [
+                    "Aqua", "Cyan", "LightCyan", "PaleTurquoise", "Aquamarine",
+                    "Turquoise", "MediumTurquoise", "DarkTurquoise", "CadetBlue", "SteelBlue",
+                    "LightSteelBlue", "PowderBlue", "LightBlue", "SkyBlue", "LightSkyBlue",
+                    "DeepSkyBlue", "DodgerBlue", "CornflowerBlue", "RoyalBlue", "Blue",
+                    "MediumBlue", "DarkBlue", "Navy", "MidnightBlue"
+                ]
+            },
+            {
+                name: "Browns",
+                colors: [
+                    "Cornsilk", "BlanchedAlmond", "Bisque", "NavajoWhite", "Wheat",
+                    "BurlyWood", "Tan", "RosyBrown", "SandyBrown", "GoldenRod",
+                    "DarkGoldenRod", "Peru", "Chocolate", "SaddleBrown", "Brown",
+                    "Maroon"
+                ]
+            },
+            {
+                name: "Whites",
+                colors: [
+                    "White", "Snow", "HoneyDew", "MintCream", "Azure",
+                    "AliceBlue", "GhostWhite", "WhiteSmoke", "SeaShell", "Beige",
+                    "OldLace", "FloralWhite", "Ivory", "AntiqueWhite", "Linen",
+                    "LavenderBlush", "MistyRose"
+                ]
+            },
+            {
+                name: "Grays",
+                colors: [
+                    "Gainsboro", "LightGray", "Silver", "DarkGray", "Gray",
+                    "DimGray", "LightSlateGray", "SlateGray", "DarkSlateGray", "Black"
+                ]
+            }
         ];
 
-        const container = document.querySelector('.color-container');
+        const container = document.getElementById('colorCategories');
 
-        colorNames.forEach(color => {
-            const colorItem = document.createElement('div');
-            colorItem.className = 'color-item';
+        colorCategories.forEach(category => {
+            // Create category container
+            const categoryDiv = document.createElement('div');
+            categoryDiv.className = 'color-category';
             
-            const colorSample = document.createElement('div');
-            colorSample.className = 'color-sample';
-            colorSample.style.backgroundColor = color;
+            // Add category title
+            const title = document.createElement('h2');
+            title.className = 'category-title';
+            title.textContent = category.name;
+            categoryDiv.appendChild(title);
             
-            const colorName = document.createElement('div');
-            colorName.className = 'color-name';
-            colorName.textContent = color;
+            // Create color container
+            const colorContainer = document.createElement('div');
+            colorContainer.className = 'color-container';
             
-            colorItem.appendChild(colorSample);
-            colorItem.appendChild(colorName);
-            container.appendChild(colorItem);
+            // Add colors to this category
+            category.colors.forEach(color => {
+                const colorItem = document.createElement('div');
+                colorItem.className = 'color-item';
+                
+                const colorSample = document.createElement('div');
+                colorSample.className = 'color-sample';
+                colorSample.style.backgroundColor = color;
+                
+                const colorName = document.createElement('div');
+                colorName.className = 'color-name';
+                colorName.textContent = color;
+                
+                colorItem.appendChild(colorSample);
+                colorItem.appendChild(colorName);
+                colorContainer.appendChild(colorItem);
+            });
+            
+            categoryDiv.appendChild(colorContainer);
+            container.appendChild(categoryDiv);
         });
 
         // Set current year in footer
