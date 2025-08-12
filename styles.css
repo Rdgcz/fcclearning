@@ -178,14 +178,14 @@ button:hover {
 
 /* Utility Classes - From HTML Guide */
 .note {
-  background-color: #e7f3fe;
+  background-color: royalblue;
   border-left: 6px solid var(--info-color);
   padding: 10px 15px;
   margin: 15px 0;
 }
 
 .warning {
-  background-color: #ffebee;
+  background-color: royalblue;
   border-left: 6px solid var(--danger-color);
   padding: 10px 15px;
   margin: 15px 0;
