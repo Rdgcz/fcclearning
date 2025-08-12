@@ -10,6 +10,7 @@
         display: flex;
         height: 100vh;
         background-color: var(--background-color);
+        overflow: hidden;
     }
     .panel {
         flex: 1;
@@ -17,14 +18,13 @@
         flex-direction: column;
         border-right: 1px solid var(--border-color);
     }
-    .panel:last-child {
-        border-right: none;
-    }
+
     .panel label {
         background: var(--primary-color);
         color: white;
         padding: 8px;
         font-weight: bold;
+        user-select: none;
     }
     textarea {
         flex: 1;
@@ -40,32 +40,40 @@
         flex: 1;
         border: none;
         background: white;
-        width: auto;
     }
+
+    .resizer {
+        width: 5px;
+        cursor: col-resize;
+        background: var(--gray-medium);
+    }
+    .resizer:hover {
+        background: var(--accent-color);
+    }
+
 </style>
 </head>
 <body>
 
-<!-- Painel HTML -->
-<div class="panel">
+<div class="panel" id="htmlPanel" style="width: 25%;">
     <label>HTML</label>
-    <textarea id="htmlCode" placeholder="Type your HTML code here..."></textarea>
+    <textarea id="htmlCode" placeholder="Digite seu código HTML aqui..."></textarea>
 </div>
+<div class="resizer"></div>
 
-<!-- Painel CSS -->
-<div class="panel">
+<div class="panel" id="cssPanel" style="width: 25%;">
     <label>CSS</label>
-    <textarea id="cssCode" placeholder="Type your CSS here..."></textarea>
+    <textarea id="cssCode" placeholder="Digite seu CSS aqui..."></textarea>
 </div>
+<div class="resizer"></div>
 
-<!-- Painel JavaScript -->
-<div class="panel">
+<div class="panel" id="jsPanel" style="width: 25%;">
     <label>JavaScript</label>
-    <textarea id="jsCode" placeholder="Type your JavaScript here..."></textarea>
+    <textarea id="jsCode" placeholder="Digite seu JavaScript aqui..."></textarea>
 </div>
+<div class="resizer"></div>
 
-<!-- Painel Preview -->
-<div class="panel">
+<div class="panel" id="previewPanel" style="flex: 1;">
     <label>Preview</label>
     <iframe id="preview"></iframe>
 </div>
@@ -79,7 +87,6 @@ function updatePreview() {
     const iframe = document.getElementById("preview");
     const doc = iframe.contentDocument || iframe.contentWindow.document;
 
-    // Inclui a stylesheet externa + CSS digitado
     const fullContent = `
         <!DOCTYPE html>
         <html lang="pt-BR">
@@ -104,6 +111,32 @@ function updatePreview() {
 ["htmlCode", "cssCode", "jsCode"].forEach(id => {
     document.getElementById(id).addEventListener("input", updatePreview);
 });
+
+// Função de redimensionamento
+const resizers = document.querySelectorAll(".resizer");
+let currentPanel, startX, startWidth;
+
+resizers.forEach(resizer => {
+    resizer.addEventListener("mousedown", e => {
+        e.preventDefault();
+        currentPanel = resizer.previousElementSibling;
+        startX = e.clientX;
+        startWidth = currentPanel.offsetWidth;
+
+        document.addEventListener("mousemove", resizePanel);
+        document.addEventListener("mouseup", stopResize);
+    });
+});
+
+function resizePanel(e) {
+    const dx = e.clientX - startX;
+    currentPanel.style.width = `${startWidth + dx}px`;
+}
+
+function stopResize() {
+    document.removeEventListener("mousemove", resizePanel);
+    document.removeEventListener("mouseup", stopResize);
+}
 </script>
 
 </body>
