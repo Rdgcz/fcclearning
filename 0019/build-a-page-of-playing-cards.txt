@@ -1,0 +1,99 @@
+** start of index.html **
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playing Cards</title>
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+<main id="playing-cards">
+
+  <div class="card" id="black">
+    <div class="left">♠</div>
+    <div class="middle">♠</div>
+    <div class="right">♠</div>
+  </div>
+  
+  <div class="card" id="red">
+    <div class="left">♥</div>
+    <div class="middle">♥</div>
+    <div class="right">♥</div>
+  </div>
+
+  <div class="card" id="black">
+    <div class="left">♣</div>
+    <div class="middle">♣</div>
+    <div class="right">♣</div>
+  </div>
+
+  <div class="card" id="red">
+    <div class="left">♥</div>
+    <div class="middle">♥</div>
+    <div class="right">♥</div>
+  </div>
+
+  <div class="card" id="red">
+    <div class="left">♦</div>
+    <div class="middle">♦</div>
+    <div class="right">♦</div>
+  </div>
+
+  </main>
+</body>
+
+</html>
+
+** end of index.html **
+
+** start of styles.css **
+
+
+#playing-cards{
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: center;
+gap: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100px;
+  height: 150px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.left {
+  align-self: flex-start;
+}
+
+.middle {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+.right {
+  align-self: flex-end;
+}
+
+#black {
+  color: black;
+}
+
+#red {
+  color: red;
+}
+
+** end of styles.css **
+
