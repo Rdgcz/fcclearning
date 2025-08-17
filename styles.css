@@ -185,7 +185,7 @@ button:hover {
 }
 
 .warning {
-  background-color: royalblue;
+  background-color: red;
   border-left: 6px solid var(--danger-color);
   padding: 10px 15px;
   margin: 15px 0;
