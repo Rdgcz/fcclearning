@@ -200,7 +200,7 @@ button:hover {
 }
 
 /* Back to top link - index.html */
-.back-to-top {
+.top {
   display: block;
   text-align: center;
   margin: 1rem auto;
@@ -211,7 +211,7 @@ button:hover {
   width: fit-content;
 }
 
-.back-to-top:hover {
+.top:hover {
   background-color: var(--accent-color);
   color: white;
 }
