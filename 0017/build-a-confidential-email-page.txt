@@ -1,0 +1,63 @@
+** start of index.html **
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confidential Email</title>
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+  <main id="email">
+    <div id="confidential">CONFIDENTIAL</div>
+    <h2>Dear Agent Glitterbomb,</h2>
+    <p>We have an emergency. The secret blueprint for our <span class="blurred">Intergalactic Pizza Engine</span> has been intercepted. This device is what allows our pizzas to stay hot and cheesy, even in zero gravity.</p>
+    <p>We suspect that Commander <span class="blurred">Zog of Planet Cruston </span>is behind this. He has transported the blueprint to his <span class="blurred">hidden asteroid base</span>. Your mission is to breach the base and secure the blueprint before it is launched into orbit.</p>
+    <p>Be sure to keep the base’s location absolutely confidential. Any leak of this information could spark an interstellar food crisis.</p>
+    <div id="top-secret">TOP SECRET</div>
+    </main>
+
+</body>
+
+</html>
+
+** end of index.html **
+
+** start of styles.css **
+
+
+
+#email {
+  padding: 50px;
+  margin: 50px auto;
+width: 500px;
+max-width: 500px;
+border: 2px;
+box-sizing: border-box;
+}
+
+#confidential, #top-secret {
+  padding: 30px;
+  margin: 0 0 0  10px;
+  border: 2px dotted red;
+  display: inline-block;
+}
+
+#confidential {
+transform: rotate(15deg);
+}
+
+#top-secret {
+  transform: rotate(-15deg);
+}
+
+.blurred {
+  filter: blur(3px);
+}
+
+** end of styles.css **
+
