@@ -1,9 +1,9 @@
-#playing-cards{
-display: flex;
-flex-direction: row;
-flex-wrap: wrap;
-justify-content: center;
-gap: 20px;
+#playing-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
 .card {
