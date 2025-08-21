@@ -1,0 +1,74 @@
+** start of index.html **
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Newspaper Article</title>
+  </head>
+  <body>
+    <main class="newspaper">
+      <div class="name">The Daily Quirk</div>
+      <div class="date">August 21, 2025</div>
+      <div class="headline">Breaking: Local Cat Elected Mayor</div>
+      <div class="sub-headline">Whiskers Wins Landslide Victory on Nap-Time and Snack Platform</div>
+      <div class="author">By John Smith</div>
+
+        <p class="text">In a stunning political upset, the town of Sleepy Hollow has elected a ginger tabby named Whiskers as its new mayor. The feline candidate, running on a powerful platform of mandatory afternoon naps and a dramatic increase in tuna distribution, won by a landslide, capturing 98% of the vote from both human and local wildlife constituents.</p>
+        <p class="text">Campaign manager and owner, Mr. Higgins, stated that Whiskers's straightforward, no-nonsense approach to solving complex issues—primarily by sitting on important documents—resonated with a weary electorate. His first official act is expected to be the declaration of a national bird-watching holiday.</p>
+
+      </main>
+
+  </body>
+</html>
+
+** end of index.html **
+
+** start of styles.css **
+
+html {
+  font-size: 24px;
+}
+
+.newspaper {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+}
+
+.name {
+  font-family: 'Times New Roman', serif;
+  font-size: 2rem;
+}
+
+.name, .author {
+  text-transform: uppercase;
+}
+
+.author {
+  font-weight: bold;
+}
+
+.headline {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.text {
+  text-indent: 20px;
+  line-height: 2em;
+}
+ .text::first-letter {
+   font-size: 2em;
+   font-weight: bold;
+ }
+
+.sub-headline {
+  font-size: 1.5em;
+  font-weight: 100;
+  font-style: italic;
+}
+
+** end of styles.css **
+
