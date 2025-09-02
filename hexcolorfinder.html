@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interactive Color Picker - Tool to identify and manipulate HEX and RGB colors">
+  <meta name="keywords" content="color picker, HEX, RGB, web tools, RDGCZ">
+  <meta name="author" content="Rodrigo Cezar da Silva">
+  <title>Interactive Color Picker | RDGCZ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Specific styles for this page */
+    :root {
+      --accent-color: #00f0ff;
+      --accent-secondary: #0066ff;
+      --card-bg: rgba(0, 48, 73, 0.3);
+      --separator-color: #003d66;
+      --search-border: #0066ff;
+      --glow-effect: 0 0 8px rgba(0, 240, 255, 0.7);
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2rem;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --shadow-md: 0 5px 15px rgba(0,0,0,0.3);
+      --transition-normal: 0.3s ease;
+    }
+    
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: var(--space-md);
+      padding-top: 180px;
+      line-height: 1.6;
+    }
+
+    /* === SCANLINE EFFECT === */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        transparent 95%, 
+        rgba(0, 240, 255, 0.03) 95.5%,
+        transparent 96%
+      );
+      background-size: 100% 8px;
+      animation: scanline 8s linear infinite;
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0.5;
+    }
+    
+    @keyframes scanline {
+      0% { top: 0; }
+      100% { top: 100%; }
+    }
+
+    /* === HEADER TOP === */
+    .header-top {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      padding: var(--space-md) var(--space-lg);
+      width: 100%;
+      background-color: rgba(13, 13, 26, 0.95);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.4);
+      gap: var(--space-sm);
+    }
+
+    .header-brand {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .header-title {
+      color: var(--accent-color);
+      text-shadow: var(--glow-effect);
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      background: linear-gradient(90deg, rgba(255,255,255,0.8), rgba(255,255,255,0.2), rgba(255,255,255,0.8));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      background-size: 200% 100%;
+      animation: metallicShine 8s linear infinite;
+      margin: 0;
+    }
+
+    .digital-clock {
+      text-align: right;
+      color: var(--accent-color);
+      text-shadow: var(--glow-effect);
+      font-size: 0.9rem;
+    }
+
+    .time {
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+    }
+
+    .date {
+      opacity: 0.8;
+      font-size: 0.8rem;
+    }
+
+    /* === BREADCRUMB === */
+    .breadcrumb {
+      font-family: 'Orbitron', sans-serif;
+      width: 100%;
+      margin: 0;
+      padding: var(--space-xs) 0;
+      font-size: 0.8rem;
+      color: var(--text-color);
+    }
+
+    .breadcrumb ol {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .breadcrumb li {
+      display: flex;
+      align-items: center;
+    }
+
+    .breadcrumb a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: var(--transition-normal);
+    }
+
+    .breadcrumb a:hover,
+    .breadcrumb a:focus {
+      text-shadow: 0 0 5px var(--accent-color);
+      outline: none;
+    }
+
+    .breadcrumb li:not(:last-child)::after {
+      content: ">";
+      margin: 0 var(--space-xs);
+      color: var(--accent-secondary);
+    }
+
+    .breadcrumb li:last-child span {
+      opacity: 0.7;
+    }
+
+    .separator {
+      height: 1px;
+      background-color: var(--separator-color);
+      margin: 0 auto var(--space-lg);
+      width: 100%;
+      max-width: 1200px;
+      opacity: 0.5;
+    }
+
+    /* === MAIN CONTENT === */
+    .container { 
+      max-width: 600px; 
+      width: 100%;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      color: var(--accent-color);
+      text-align: center;
+      margin-bottom: var(--space-md);
+      text-shadow: var(--glow-effect);
+      font-size: clamp(1.5rem, 4vw, 2.25rem);
+      background: linear-gradient(90deg, rgba(255,255,255,0.8), rgba(255,255,255,0.2), rgba(255,255,255,0.8));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      background-size: 200% 100%;
+      animation: metallicShine 8s linear infinite;
+    }
+
+    h2 {
+      color: var(--accent-color);
+      text-shadow: var(--glow-effect);
+      font-size: clamp(1.25rem, 3.5vw, 1.75rem);
+      margin: 0 0 var(--space-lg);
+      text-align: center;
+      padding-bottom: var(--space-sm);
+      border-bottom: 1px solid var(--separator-color);
+    }
+    
+    @keyframes metallicShine {
+      0% { background-position: 0% center; }
+      100% { background-position: -200% center; }
+    }
+    
+    /* === MAIN CARD === */
+    .color-picker-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      border: 1px solid rgba(0, 150, 255, 0.2);
+      box-shadow: var(--shadow-md);
+      transition: var(--transition-normal);
+    }
+    
+    .color-picker-card:hover {
+      border-color: var(--accent-color);
+      box-shadow: var(--glow-effect);
+    }
+    
+    /* === COLOR SELECTION AREA === */
+    .color-picker-area {
+      width: 100%; 
+      height: 150px; 
+      border-radius: var(--radius-md);
+      margin-bottom: var(--space-md); 
+      cursor: crosshair; 
+      position: relative;
+      overflow: hidden; 
+      border: 2px solid var(--separator-color);
+      background: linear-gradient(to right, #ff0000, #ff00ff, #0000ff, #00ffff, #00ff00, #ffff00, #ff0000);
+      transition: var(--transition-normal);
+    }
+    
+    .color-picker-area:hover {
+      border-color: var(--accent-color);
+    }
+    
+    .color-picker-selector {
+      position: absolute; 
+      width: 16px; 
+      height: 16px;
+      border: 2px solid white; 
+      border-radius: 50%; 
+      box-shadow: 0 0 3px rgba(0,0,0,0.8), 0 0 6px var(--accent-color);
+      pointer-events: none; 
+      transform: translate(-8px, -8px);
+    }
+    
+    /* === COLOR PREVIEW === */
+    .color-preview {
+      width: 100%; 
+      height: 40px; 
+      border-radius: var(--radius-md);
+      margin: var(--space-md) 0; 
+      border: 2px solid var(--separator-color);
+      transition: var(--transition-normal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-shadow: 0 0 4px rgba(0,0,0,0.7);
+    }
+    
+    .color-preview:hover {
+      border-color: var(--accent-color);
+      box-shadow: var(--glow-effect);
+    }
+    
+    /* === CONTROLS === */
+    .controls { 
+      margin-top: var(--space-md); 
+    }
+    
+    .slider-container {
+      display: flex; 
+      align-items: center; 
+      margin-bottom: var(--space-sm);
+    }
+    
+    .slider-container label {
+      width: 80px; 
+      color: var(--accent-color); 
+      font-size: 0.9rem;
+      text-shadow: 0 0 4px rgba(0, 240, 255, 0.3);
+    }
+    
+    input[type="range"] {
+      flex: 1; 
+      height: 6px; 
+      -webkit-appearance: none;
+      background: linear-gradient(90deg, var(--background-color), var(--separator-color));
+      border-radius: var(--radius-sm); 
+      margin: 0 var(--space-sm);
+      cursor: pointer;
+    }
+    
+    input[type="range"]:hover {
+      background: linear-gradient(90deg, var(--background-color), var(--accent-secondary));
+    }
+    
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none; 
+      width: 18px; 
+      height: 18px;
+      border-radius: 50%; 
+      background: var(--accent-color);
+      cursor: pointer; 
+      box-shadow: var(--glow-effect);
+      transition: var(--transition-normal);
+    }
+    
+    input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.1);
+    }
+    
+    .value-display {
+      width: 60px; 
+      text-align: center; 
+      background: var(--card-bg);
+      border: 1px solid var(--separator-color);
+      border-radius: var(--radius-sm); 
+      padding: var(--space-xs);
+      color: var(--accent-color);
+      font-family: 'Orbitron', sans-serif;
+      transition: var(--transition-normal);
+    }
+    
+    .value-display:hover {
+      border-color: var(--accent-color);
+      box-shadow: var(--glow-effect);
+    }
+    
+    /* === HEX INPUT === */
+    .hex-container {
+      display: flex; 
+      align-items: center; 
+      margin-top: var(--space-lg);
+    }
+    
+    .hex-container label {
+      color: var(--accent-color); 
+      margin-right: var(--space-sm);
+      text-shadow: 0 0 4px rgba(0, 240, 255, 0.3);
+    }
+    
+    .hex-input {
+      flex: 1; 
+      background: var(--card-bg);
+      border: 1px solid var(--separator-color); 
+      border-radius: var(--radius-sm);
+      padding: var(--space-sm); 
+      color: var(--accent-color);
+      font-family: 'Orbitron', sans-serif;
+      transition: var(--transition-normal);
+    }
+    
+    .hex-input:focus {
+      outline: none;
+      border-color: var(--accent-color);
+      box-shadow: var(--glow-effect);
+    }
+    
+    .copy-btn {
+      background: rgba(0, 102, 255, 0.2);
+      border: 1px solid var(--accent-secondary);
+      color: var(--accent-color);
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--radius-sm);
+      margin-left: var(--space-sm);
+      cursor: pointer;
+      transition: var(--transition-normal);
+      font-family: 'Orbitron', sans-serif;
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+    
+    .copy-btn:hover {
+      background: rgba(0, 102, 255, 0.4);
+      border-color: var(--accent-color);
+      box-shadow: var(--glow-effect);
+    }
+    
+    /* === ACCESSIBILITY === */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+      
+      body::after {
+        display: none;
+      }
+    }
+    
+    /* === RESPONSIVENESS === */
+    @media (max-width: 768px) {
+      body {
+        padding-top: 160px;
+      }      
+      
+      .header-top {
+        padding: var(--space-sm);
+      }
+
+      .header-title {
+        font-size: 1.5rem;
+      }
+      
+      .digital-clock {
+        font-size: 0.8rem;
+      }
+      
+      .container {
+        padding: 0 var(--space-sm);
+        margin-top: 100px;
+      }
+      
+      .color-picker-card {
+        padding: var(--space-md);
+      }
+      
+      .hex-container {
+        flex-direction: column;
+        gap: var(--space-sm);
+        align-items: flex-start;
+      }
+      
+      .copy-btn {
+        margin-left: 0;
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-top">
+        <div class="header-brand">
+            <h1 class="header-title">RDGCZ</h1>
+            <div class="digital-clock" aria-live="polite">
+                <div class="time" id="time">HH:MM:SS</div>
+                <div class="date" id="date">MM/DD/YYYY</div>
+            </div>
+        </div>
+    </div>
+    
+    <nav class="breadcrumb" aria-label="Structural navigation">
+        <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <a href="index.html" itemprop="item"><span itemprop="name">Home</span></a>
+                <meta itemprop="position" content="1">
+            </li>
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <a href="tools.html" itemprop="item"><span itemprop="name">Tools</span></a>
+                <meta itemprop="position" content="2">
+            </li>
+            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <span itemprop="name">Color Picker</span>
+                <meta itemprop="position" content="3">
+            </li>
+        </ol>
+    </nav>
+    
+    <div class="separator" role="separator"></div>
+  </header>
+  
+  <div class="container">
+    <h2>Interactive Color Picker</h2>
+    
+    <div class="color-picker-card">
+      <div class="color-picker-area" id="colorPickerArea">
+        <div class="color-picker-selector" id="colorSelector"></div>
+      </div>
+      
+      <div class="color-preview" id="colorPreview"></div>
+      
+      <div class="controls">
+        <div class="slider-container">
+          <label>Red</label>
+          <input type="range" id="redSlider" min="0" max="255" value="255">
+          <span class="value-display" id="redValue">255</span>
+        </div>
+        <div class="slider-container">
+          <label>Green</label>
+          <input type="range" id="greenSlider" min="0" max="255" value="0">
+          <span class="value-display" id="greenValue">0</span>
+        </div>
+        <div class="slider-container">
+          <label>Blue</label>
+          <input type="range" id="blueSlider" min="0" max="255" value="0">
+          <span class="value-display" id="blueValue">0</span>
+        </div>
+        
+        <div class="hex-container">
+          <label>HEX:</label>
+          <input type="text" id="hexInput" class="hex-input" value="#ff0000" spellcheck="false">
+          <button id="copyBtn" class="copy-btn">
+            <i class="far fa-copy" aria-hidden="true"></i> Copy
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    © <span id="current-year"></span> - RDGCZ - All rights reserved.
+  </footer>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // DOM Elements
+      const area = document.getElementById('colorPickerArea');
+      const selector = document.getElementById('colorSelector');
+      const preview = document.getElementById('colorPreview');
+      const redSlider = document.getElementById('redSlider');
+      const greenSlider = document.getElementById('greenSlider');
+      const blueSlider = document.getElementById('blueSlider');
+      const redValue = document.getElementById('redValue');
+      const greenValue = document.getElementById('greenValue');
+      const blueValue = document.getElementById('blueValue');
+      const hexInput = document.getElementById('hexInput');
+      const copyBtn = document.getElementById('copyBtn');
+
+      // Digital clock function
+      function updateClock() {
+          const now = new Date();
+          
+          // Format time
+          timeElement.textContent = now.toLocaleTimeString('en-US', { 
+              hour12: false,
+              hour: '2-digit',
+              minute: '2-digit',
+              second: '2-digit'
+          });
+          
+          // Format date
+          dateElement.textContent = now.toLocaleDateString('en-US', {
+              weekday: 'long',
+              day: 'numeric',
+              month: 'long',
+              year: 'numeric'
+          });
+      }
+
+      // Initialize clock
+      const timeElement = document.getElementById('time');
+      const dateElement = document.getElementById('date');
+
+      // Update immediately and every second
+      if (timeElement && dateElement) {
+          updateClock();
+          setInterval(updateClock, 1000);
+      }
+      
+      // Update year in footer
+      document.getElementById('current-year').textContent = new Date().getFullYear();
+      
+      // Current color state
+      let currentColor = { r: 255, g: 0, b: 0 };
+      
+      // Function to update the interface
+      function updateUI() {
+        const rgbString = `rgb(${currentColor.r}, ${currentColor.g}, ${currentColor.b})`;
+        const hexString = rgbToHex(currentColor.r, currentColor.g, currentColor.b);
+        
+        preview.style.backgroundColor = rgbString;
+        preview.textContent = `${rgbString} | ${hexString}`;
+        
+        redSlider.value = currentColor.r;
+        greenSlider.value = currentColor.g;
+        blueSlider.value = currentColor.b;
+        
+        redValue.textContent = currentColor.r;
+        greenValue.textContent = currentColor.g;
+        blueValue.textContent = currentColor.b;
+        
+        hexInput.value = hexString;
+      }
+      
+      // Convert RGB to HEX
+      function rgbToHex(r, g, b) {
+        return "#" + [r, g, b].map(x => {
+          const hex = x.toString(16);
+          return hex.length === 1 ? "0" + hex : hex;
+        }).join('');
+      }
+      
+      // Convert HEX to RGB
+      function hexToRgb(hex) {
+        hex = hex.replace('#', '');
+        
+        // Expand short format (3 digits) to full format (6 digits)
+        if (hex.length === 3) {
+          hex = hex.split('').map(c => c + c).join('');
+        }
+        
+        const r = parseInt(hex.substring(0, 2), 16);
+        const g = parseInt(hex.substring(2, 4), 16);
+        const b = parseInt(hex.substring(4, 6), 16);
+        
+        return { r, g, b };
+      }
+      
+      // Get color at selector position
+      function getColorAtPosition(x, y) {
+        const rect = area.getBoundingClientRect();
+        const relX = x - rect.left;
+        const relY = y - rect.top;
+        
+        // Create temporary canvas to extract color
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = rect.width;
+        canvas.height = rect.height;
+        
+        // Horizontal gradient (rainbow)
+        const grad = ctx.createLinearGradient(0, 0, canvas.width, 0);
+        grad.addColorStop(0, '#ff0000');
+        grad.addColorStop(0.16, '#ff00ff');
+        grad.addColorStop(0.32, '#0000ff');
+        grad.addColorStop(0.48, '#00ffff');
+        grad.addColorStop(0.64, '#00ff00');
+        grad.addColorStop(0.80, '#ffff00');
+        grad.addColorStop(1, '#ff0000');
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        
+        // Vertical gradient (brightness/shadow)
+        const brightGrad = ctx.createLinearGradient(0, 0, 0, canvas.height);
+        brightGrad.addColorStop(0, 'rgba(255,255,255,1)');
+        brightGrad.addColorStop(0.5, 'rgba(255,255,255,0)');
+        brightGrad.addColorStop(0.5, 'rgba(0,0,0,0)');
+        brightGrad.addColorStop(1, 'rgba(0,0,0,1)');
+        ctx.fillStyle = brightGrad;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        
+        // Extract pixel data
+        const pixel = ctx.getImageData(relX, relY, 1, 1).data;
+        return { r: pixel[0], g: pixel[1], b: pixel[2] };
+      }
+      
+      // Click event on selection area
+      area.addEventListener('click', function(e) {
+        const color = getColorAtPosition(e.clientX, e.clientY);
+        currentColor = color;
+        updateUI();
+        
+        // Position the selector
+        const rect = area.getBoundingClientRect();
+        selector.style.left = (e.clientX - rect.left) + 'px';
+        selector.style.top = (e.clientY - rect.top) + 'px';
+      });
+      
+      // Slider events
+      redSlider.addEventListener('input', () => {
+        currentColor.r = +redSlider.value;
+        updateUI();
+      });
+      
+      greenSlider.addEventListener('input', () => {
+        currentColor.g = +greenSlider.value;
+        updateUI();
+      });
+      
+      blueSlider.addEventListener('input', () => {
+        currentColor.b = +blueSlider.value;
+        updateUI();
+      });
+      
+      // HEX input event
+      hexInput.addEventListener('input', () => {
+        const hex = hexInput.value;
+        if (/^#?([0-9A-F]{3}){1,2}$/i.test(hex)) {
+          try {
+            currentColor = hexToRgb(hex);
+            updateUI();
+          } catch (e) {
+            console.error("Invalid HEX format");
+          }
+        }
+      });
+      
+      // Copy button event
+      copyBtn.addEventListener('click', () => {
+        hexInput.select();
+        document.execCommand('copy');
+        
+        // Visual feedback
+        const originalText = copyBtn.innerHTML;
+        copyBtn.innerHTML = '<i class="fas fa-check" aria-hidden="true"></i> Copied!';
+        
+        setTimeout(() => {
+          copyBtn.innerHTML = originalText;
+        }, 2000);
+      });
+      
+      // Initialization
+      updateUI();
+      
+      // Position selector in the center initially
+      const rect = area.getBoundingClientRect();
+      selector.style.left = (rect.width / 2) + 'px';
+      selector.style.top = (rect.height / 2) + 'px';
+    });
+  </script>
+</body>
+</html>
