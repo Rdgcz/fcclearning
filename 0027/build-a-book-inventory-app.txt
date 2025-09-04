@@ -1,0 +1,276 @@
+** start of index.html **
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Book Inventory</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <h1>Book Inventory</h1>
+    
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Category</th>
+                    <th>Status</th>
+                    <th>Rate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="read">
+                    <td>To Kill a Mockingbird</td>
+                    <td>Harper Lee</td>
+                    <td>Classic Fiction</td>
+                    <td><span class="status">Read</span></td>
+                    <td>
+                        <span class="rate three">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                    </td>
+                </tr>
+                <tr class="to-read">
+                    <td>Dune</td>
+                    <td>Frank Herbert</td>
+                    <td>Science Fiction</td>
+                    <td><span class="status">To Read</span></td>
+                    <td>
+                        <span class="rate two">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                    </td>
+                </tr>
+                <tr class="in-progress">
+                    <td>Atomic Habits</td>
+                    <td>James Clear</td>
+                    <td>Self-Improvement</td>
+                    <td><span class="status">In Progress</span></td>
+                    <td>
+                        <span class="rate one">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                    </td>
+                </tr>
+                <tr class="read">
+                    <td>The Hobbit</td>
+                    <td>J.R.R. Tolkien</td>
+                    <td>Fantasy</td>
+                    <td><span class="status">Read</span></td>
+                    <td>
+                        <span class="rate three">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                    </td>
+                </tr>
+                <tr class="to-read">
+                    <td>The Midnight Library</td>
+                    <td>Matt Haig</td>
+                    <td>Fiction / Fantasy</td>
+                    <td><span class="status">To Read</span></td>
+                    <td>
+                        <span class="rate two">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                    </td>
+                </tr>
+                <tr class="in-progress">
+                    <td>Educated</td>
+                    <td>Tara Westover</td>
+                    <td>Memoir</td>
+                    <td><span class="status">In Progress</span></td>
+                    <td>
+                        <span class="rate one">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+</body>
+
+</html>
+
+** end of index.html **
+
+** start of styles.css **
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+  color: #333;
+  min-height: 100vh;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  max-width: 1000px;
+  width: 100%;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-size: 2.5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 1rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+thead tr {
+  background-image: linear-gradient(0deg, steelblue 10%, white 50%, steelblue 100%);
+  color: black;
+  text-align: center;
+  font-weight: bold;
+}
+
+th, td {
+  padding: 5px 5px;
+  text-align: center;
+  border-bottom: 3px double steelblue;
+}
+
+tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+tbody tr:nth-of-type(even) {
+  background-color: #f8f9fa;
+}
+
+tbody tr:last-of-type {
+  border-bottom: 2px solid steelblue;
+}
+
+
+tr[class="read"] {
+  background-image: linear-gradient(45deg, green 20%, white 60%);
+  color: black;
+}
+
+tr[class="to-read"] {
+  background-image: linear-gradient(45deg, red 20%, white 60%);
+  color: black;
+}
+      
+tr[class="in-progress"] {
+  background-image: linear-gradient(45deg, orange 20%, white 60%);
+  color: black;
+}
+
+tr[class="read"] span[class="status"] {
+  border: 2px solid green;
+  border-radius: 10px;
+  width: 7rem;
+  height: 2rem;
+  text-align: center;
+  background-image: linear-gradient(0deg,darkslategray 10%, slategray 30%, lawngreen 50%, gray 70%, white 100%);
+  margin: 0 auto;
+  padding: 2px;
+  font-weight: bold;
+  color: black;
+}
+        
+tr[class="to-read"] span[class="status"] {
+  border: 2px solid red;
+  border-radius: 10px;
+  width: 7rem;
+  height: 2rem;
+  text-align: center;
+  background-image: linear-gradient(0deg,darkslategray 10%, slategray 30%, red 50%, gray 70%, white 100%);
+  margin: 0 auto;
+  padding: 2px;
+  font-weight: bold;
+  color: black;
+}
+        
+tr[class="in-progress"] span[class="status"] {
+  border: 2px solid orange;
+  border-radius: 10px;
+  width: 7rem;
+  height: 2rem;
+  text-align: center;
+  background-image: linear-gradient(0deg,darkslategray 10%, slategray 30%, yellow 50%, gray 70%, white 100%);
+  margin: 0 auto;
+  padding: 2px;
+  font-weight: bold;
+  color: black;
+}
+
+span {
+  display: inline-block;
+}
+
+span[class="status"], span[class^="rate"] {
+  height: 20px;
+  width: 100px;
+  padding: 5px;
+  display: inline-block;
+}
+
+span[class^="rate"] > span {
+  height: 20px;
+  width: 20px;
+  border: 1px solid gray;
+  border-radius: 50%;
+  margin: 1px;
+  background-color: #f0f0f0;
+  display: inline-block;
+}
+
+span[class~="one"] span:nth-child(1) {
+  background-image: linear-gradient(90deg, red, white);
+}
+
+span[class~="two"] span:nth-child(-n+2) {
+  background-image: linear-gradient(90deg, orange, white);
+}
+
+span[class~="three"] span {
+  background-image: linear-gradient(90deg, green, white);
+}
+ 
+
+** end of styles.css **
+
