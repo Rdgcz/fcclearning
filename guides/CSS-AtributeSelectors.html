@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Attribute Selectors Review</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: #333;
+            min-height: 100vh;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            margin-top: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            color: white;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            color: #4a69bd;
+            margin: 25px 0 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #4a69bd;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .code-block {
+            background: #2d3436;
+            color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            margin: 15px 0;
+            line-height: 1.5;
+        }
+
+        .example {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #4a69bd;
+        }
+
+        /* Attribute selector examples */
+        a[href] {
+            color: blue;
+            text-decoration: underline;
+            margin: 5px 0;
+            display: inline-block;
+        }
+
+        a[title] {
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        p[lang="en"] {
+            font-style: italic;
+            background-color: #f0f8ff;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        div[data-lang="fr"] {
+            color: blue;
+            background-color: #f0f0ff;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        ol[type="A"] {
+            color: purple;
+            font-weight: bold;
+            margin: 15px 0 15px 30px;
+        }
+
+        ol[type="i"] {
+            color: green;
+            margin: 15px 0 15px 30px;
+        }
+
+        .note {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 5px solid #ffc107;
+            margin: 15px 0;
+        }
+
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            color: white;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>CSS Attribute Selectors Review</h1>
+        <p>Working with Different Attribute Selectors and Links</p>
+    </header>
+
+    <div class="container">
+        <section>
+            <h2>Attribute Selectors for Links</h2>
+            <p><strong>Definition:</strong> The attribute selector allows you to target HTML elements based on their
+                attributes like the href or title attributes.</p>
+
+            <div class="code-block">
+                a[href] {<br>
+                &nbsp;&nbsp;color: blue;<br>
+                &nbsp;&nbsp;text-decoration: underline;<br>
+                }
+            </div>
+
+            <div class="example">
+                <p>Example links with href attribute (will be blue and underlined):</p>
+                <a href="https://example.com">Regular Link</a><br>
+                <a href="https://example.com/about">About Page</a>
+            </div>
+
+            <p><strong>title Attribute:</strong> This attribute provides additional information about an element. Here
+                is how you can target links with the title attribute:</p>
+
+            <div class="code-block">
+                a[title] {<br>
+                &nbsp;&nbsp;font-weight: bold;<br>
+                &nbsp;&nbsp;text-decoration: none;<br>
+                }
+            </div>
+
+            <div class="example">
+                <p>Example links with title attribute (will be bold with no underline):</p>
+                <a href="https://example.com" title="Home Page">Home Link</a><br>
+                <a href="https://example.com/contact" title="Contact Us">Contact Link</a>
+            </div>
+        </section>
+
+        <section>
+            <h2>Targeting Elements with the lang and data-lang Attribute</h2>
+
+            <p><strong>lang Attribute:</strong> This attribute is used in HTML to specify the language of the content
+                within an element. You might want to style elements differently based on the language they are written
+                in, especially on a multilingual website.</p>
+
+            <div class="code-block">
+                p[lang="en"] {<br>
+                &nbsp;&nbsp;font-style: italic;<br>
+                }
+            </div>
+
+            <div class="example">
+                <p>Example paragraphs with lang attribute:</p>
+                <p lang="en">This paragraph is in English and will be italicized.</p>
+                <p lang="es">Este párrafo está en español y no tendrá ningún estilo especial.</p>
+            </div>
+
+            <p><strong>data-lang Attribute:</strong> Custom data attributes like the data-lang attribute are commonly
+                used to store additional information in elements, such as specifying the language used within a specific
+                section of text. Here is how you can style elements based on the data-lang attribute:</p>
+
+            <div class="code-block">
+                div[data-lang="fr"] {<br>
+                &nbsp;&nbsp;color: blue;<br>
+                }
+            </div>
+
+            <div class="example">
+                <p>Example divs with data-lang attribute:</p>
+                <div data-lang="fr">Ce div est en français et sera bleu.</div>
+                <div data-lang="de">Dieser div ist auf Deutsch und hat keine besondere Formatierung.</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Working with the Attribute Selector, Ordered List Elements and the type Attribute</h2>
+
+            <p><strong>type Attribute:</strong> When working with ordered lists in HTML, the type attribute allows you
+                to specify the style of numbering used, such as numerical, alphabetical, or Roman numerals.</p>
+
+            <div class="code-block">
+                /*Example targeting uppercase alphabetical numbering*/<br>
+                ol[type="A"] {<br>
+                &nbsp;&nbsp;color: purple;<br>
+                &nbsp;&nbsp;font-weight: bold;<br>
+                }<br><br>
+
+                /*Example targeting lowercase Roman numerals*/<br>
+                ol[type="i"] {<br>
+                &nbsp;&nbsp;color: green;<br>
+                }
+            </div>
+
+            <div class="example">
+                <p>Example ordered lists with different type attributes:</p>
+
+                <p>Uppercase alphabetical (will be purple and bold):</p>
+                <ol type="A">
+                    <li>First item</li>
+                    <li>Second item</li>
+                    <li>Third item</li>
+                </ol>
+
+                <p>Lowercase Roman numerals (will be green):</p>
+                <ol type="i">
+                    <li>Primary</li>
+                    <li>Secondary</li>
+                    <li>Tertiary</li>
+                </ol>
+
+                <p>Regular numbered list (no special styling):</p>
+                <ol>
+                    <li>Item one</li>
+                    <li>Item two</li>
+                    <li>Item three</li>
+                </ol>
+            </div>
+        </section>
+
+        <div class="note">
+            <p><strong>Note:</strong> Attribute selectors are powerful CSS tools that allow you to target elements based
+                on the presence or value of their attributes. This can be especially useful for styling form elements,
+                links, and custom data attributes without needing to add extra classes to your HTML.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>Created for educational purposes - CSS Attribute Selectors Review</p>
+    </footer>
+</body>
+
+</html>
