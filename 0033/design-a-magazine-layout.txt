@@ -1,0 +1,114 @@
+** start of index.html **
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Magazine Layout</title>
+<link href="styles.css" rel="stylesheet">
+</head>
+
+<body>
+  <main class="magazine-cover">
+    <header class="title">Travel Fails Monthly</header>
+      <section class="feature-article">
+        <h1>When Good Trips Go Bad: A Survival Guide</h1>
+            <p>We've all been there: you planned the perfect vacation, but then everything went hilariously wrong. From booking a "beachfront" hotel that's actually 5 miles inland to accidentally attending a funeral instead of a festival, our readers share their most epic travel fails.</p>
+            <p>Learn how one couple ended up on the wrong continent entirely (thank you, autocorrect!) and how a family's dream safari turned into a comedy of errors when their toddler became best friends with a mischievous monkey who stole their car keys.</p>
+            <p>Plus: expert tips on how to avoid these disasters yourself - or at least get a good story out of them!</p>
+
+      </section>
+      <section class="small-article1">
+        <h2>Lost in Translation</h2>
+        <p>When "I'm hot" accidentally becomes "I'm sexy" in the local language, things can get awkward fast. We've compiled the most hilarious translation fails from travelers who learned the hard way that Google Translate isn't always your friend.</p>
+                
+      </section>
+      <section class="small-article2">
+        <h2>Questionable Cuisine</h2>
+        <p>From accidentally eating century eggs to discovering that "spicy" means something entirely different in other countries, our food-focused fails will make you both cringe and laugh.</p>
+      </section>
+      <section class="cover-image">
+        <img src="https://www.earthtrekkers.com/wp-content/uploads/2024/03/Eiffel-Tower-Paris.jpg.optimal.jpg">
+      </section>
+    </main>
+
+</body>
+
+</html>
+
+** end of index.html **
+
+** start of styles.css **
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #2c3e99 0%, #4ca1af 100%);
+  color: #333;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+img {
+  max-width: 100%;
+}
+
+.magazine-cover {
+  display: grid;
+  grid-template-areas: 
+    "title title title"
+    "feature-article feature-article cover-image"
+    "small-article1 small-article2 cover-image";
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto 1fr 1fr;
+  gap: 10px;
+  padding: 20px;
+  background: linear-gradient(to bottom, #8e9ebb, #eef2f3);
+}
+
+.title {
+  grid-area: title;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 20px;
+  background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+}
+
+.feature-article {
+  grid-area: feature-article;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cover-image {
+  grid-area: cover-image;
+  background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+** end of styles.css **
+
