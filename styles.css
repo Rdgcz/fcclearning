@@ -1,25 +1,42 @@
-/* Base Styles - Applies to all pages */
 :root {
-  --primary-color: #1e3a5f;       /* Deep navy blue for headers and accents */
-  --secondary-color: #3a7bd5;     /* Softer blue highlight */
-  --accent-color: #4fa3d1;        /* Lighter accent blue */
-  --text-color: #e0e0e0;          /* Light gray for main text */
-  --light-text: #f5f5f5;          /* Almost white text */
-  --background-color: #121212;    /* Very dark gray background */
-  --border-color: #2a2a2a;        /* Subtle dark border */
-  --success-color: #27ae60;       /* Emerald green */
-  --warning-color: #f1c40f;       /* Soft golden yellow */
-  --danger-color: #e74c3c;        /* Coral red */
-  --info-color: #99ccee;          /* Classic info blue */
-  --gray-light: #2c2c2c;          /* Lightest dark tone for panels */
-  --gray-medium: #555555;         /* Medium gray */
-  --gray-dark: #a0a0a0;           /* Muted light gray for headings */
+  /* Softer blue highlight */
+  --accent-color: #4fa3d1;
+
+  --info-color: #99ccee;
+  /* Classic info blue */
+  --gray-light: #2c2c2c;
+  /* Lightest dark tone for panels */
+  --gray-medium: #555555;
+  /* Medium gray */
+  --gray-dark: #a0a0a0;
+  /* Muted light gray for headings */
+
+  /*Gunmetal*/
+  --primary-color: #143844ff;
+  /*Midnight-green*/
+  --terciary-color: #143942ff;
+  /*Midnight-green-3*/
+  --not-used2: #143A42ff;
+  /*Brunswick-green*/
+  --background-color: rgb(1, 49, 42);
+  /* Light gray for main text */
+  --light-text: #f0f0f5;
+  /*Jade*/
+  --border-color: #38a373;
+  /*shamrock-green*/
+  --secondary-color: rgb(179, 250, 223);
+  /*Emerald*/
+  --text-color: rgb(236, 250, 242);
+  /* Success green */
+  --success-color: #27ae60;
+  /* Soft golden yellow */
+  --warning-color: #f1c40f;
+  /* Coral red */
+  --danger-color: #e74c3c;
 }
 
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 html {
@@ -27,32 +44,85 @@ html {
 }
 
 body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
+  font-family: monospace, Arial, Helvetica, sans-serif;
   color: var(--text-color);
   background-color: var(--background-color);
-  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding-top: 25vh;  
+}
+
+nav a {
+  padding-left: 40px;
+  font-size: small;
+  color: #f0f0f5;
+  text-decoration: underline;
+}
+
+nav a:hover {
+  color: #f0f0f5;
+  text-shadow: 1px 1px 2px yellowgreen;
 }
 
 /* Typography - Shared styles */
-h1, h2, h3, h4, h5, h6 {
-  font-family: Arial, Helvetica, sans-serif;
-  color: var(--gray-dark);
-  margin-bottom: 1rem;
+h1 {
+  color: var(--light-text);
+  margin-left: 1em;
+  padding-left: 1em;
+
 }
 
-h1 { font-size: 2.2rem; }
-h2 { font-size: 1.8rem; }
-h3 { font-size: 1.5rem; }
-h4 { font-size: 1.3rem; }
-h5 { font-size: 1.1rem; }
-h6 { font-size: 1rem; }
+#hello-world {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+#hello-world:hover {
+  color: chartreuse;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--light-text);
+  margin-left: 1em;
+  margin-right: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.3rem;
+}
+
+h5 {
+  font-size: 1.1rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
 
 p {
-  margin-bottom: 1.5rem;
+  margin-right: 2rem;
+  padding-left: 4rem;
+  max-width: 90%;
   font-size: 1.1rem;
+  text-align: justify;
 }
 
 a {
@@ -62,20 +132,59 @@ a {
 }
 
 a:hover {
-  color: var(--accent-color);
+  color: var(--warning-color);
 }
 
 /* Layout Components - Shared */
 header {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: auto;
+  width: 100%;
   background-color: var(--primary-color);
   color: white;
-  padding: 2rem;
+
   text-align: center;
-  margin-bottom: 2rem;
+  border-bottom: 5px solid var(--border-color);
 }
+
+#header-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  margin: 0 auto;
+  
+}
+
+ .logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 150px;
+    height: auto;
+    display: flex;
+ }
 
 main {
   padding: 1rem 0;
+}
+
+#purpouse {
+  
+  font-size: 1rem;
+  font-weight: 100;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--light-text);
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-bottom: 1rem;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 footer {
@@ -83,24 +192,27 @@ footer {
   color: var(--light-text);
   text-align: center;
   padding: 1.5rem;
-  margin-top: 2rem;
+  margin-top: 0.5rem;
 }
 
 hr {
   border: 0;
   height: 1px;
   background-color: var(--border-color);
-  margin: 2rem 0;
+  width: 95vw;
+
 }
 
 /* Lists - Shared */
-ul, ol {
+ul,
+ol {
   margin-bottom: 1.5rem;
-  padding-left: 2rem;
-}
+  padding-left: 5vw;
+ }
 
 li {
-  margin-bottom: 0.5rem;
+  line-height: 1.5rem;
+  padding-left: 10px;
 }
 
 /* Code Blocks - From HTML Guide */
@@ -131,7 +243,8 @@ table {
   margin: 20px 0;
 }
 
-th, td {
+th,
+td {
   border: 1px solid var(--border-color);
   padding: 8px;
   text-align: left;
@@ -154,7 +267,9 @@ label {
   margin-bottom: 8px;
 }
 
-input, textarea, select {
+input,
+textarea,
+select {
   width: 100%;
   padding: 8px;
   margin-bottom: 15px;
@@ -191,28 +306,23 @@ button:hover {
   margin: 15px 0;
 }
 
-/* Specific to index.html */
-.date {
-  font-family: 'Orbitron', sans-serif;
-  color: var(--gray-dark);
-  font-size: 0.9rem;
-  margin-right: 0.5rem;
-}
+
 
 /* Back to top link - index.html */
 .top {
   display: block;
   text-align: center;
-  margin: 1rem auto;
-  padding: 0.5rem 1rem;
-  background-color: var(--secondary-color);
+  margin: 0 auto;
+  padding: 0.5rem;
+  background-color: var(--terciary-color);
   color: white;
-  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
   width: fit-content;
 }
 
 .top:hover {
-  background-color: var(--accent-color);
+  background-color: var(--border-color);
   color: white;
 }
 
@@ -221,15 +331,15 @@ button:hover {
   body {
     padding: 0 15px;
   }
-  
+
   h1 {
     font-size: 1.8rem;
   }
-  
+
   h2 {
     font-size: 1.5rem;
   }
-  
+
   header {
     padding: 1.5rem;
   }
@@ -242,17 +352,18 @@ button:hover {
     color: black;
     font-size: 12pt;
   }
-  
+
   a {
     color: black;
     text-decoration: underline;
   }
-  
-  header, footer {
+
+  header,
+  footer {
     background-color: white;
     color: black;
   }
-  
+
   .no-print {
     display: none;
   }
