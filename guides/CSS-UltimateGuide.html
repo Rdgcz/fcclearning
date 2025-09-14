@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete CSS Guide</title>
+    <style>
+        :root {
+            --primary-color: rgb(8, 80, 58);
+            --secondary-color: rgb(6, 168, 20);
+            --accent-color: #e74c3c;
+            --dark-color: #0b615a;
+            --light-color: #8facaa;
+            --text-color: #333;
+            --light-text: #eee;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --border-radius: 8px;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #031d0e;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .container {
+            max-width: 100vw;
+            margin: 0 auto;
+            padding: 30px;
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #031d0e, rgb(8, 80, 58),  );
+            color: var(--light-text);
+            padding: 1rem 2rem;
+            box-shadow: var(--shadow);
+            border-bottom: whitesmoke 1px solid;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            color: whitesmoke;
+        }
+        
+        header p {
+            margin: 0.5rem 0 0;
+            font-size: 1.5rem;
+            opacity: 0.9;
+            color: whitesmoke;
+        }
+        
+        .sidebar {
+            background-color: #031d0e;
+            color: var(--light-text);
+            padding: 10px;
+            border-radius: var(--border-radius);
+            max-height: 90vh;
+            position: sticky;
+            top: 30px;
+        }
+        
+        .sidebar h3 {
+            margin-top: 0;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 5px;
+        }
+        
+        .sidebar ul {
+            list-style-type: none;
+            padding-left: 5px;
+        }
+        
+        .sidebar li {
+            margin: 2px 0;
+        }
+        
+        .sidebar a {
+            color: var(--light-text);
+            text-decoration: none;
+            transition: color 0.3s;
+            display: block;
+            padding: 5px;
+            border-radius: 4px;
+        }
+        
+        .sidebar a:hover {
+            color: var(--secondary-color);
+            background-color: #2e2c2c;
+        }
+        
+        .content {
+            background-color: rgb(227, 228, 227);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .content h2 {
+            color: var(--primary-color);
+            margin-top: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light-color);
+        }
+        
+        .content h3 {
+            color: var(--dark-color);
+            margin-top: 25px;
+        }
+        
+        .content p {
+            margin: 15px 0;
+        }
+
+        .content ul {
+            padding-left: 30px;
+            margin: 5px 0;
+        }
+
+        code {
+            background-color: #c9c7c7;
+            font-weight: 900;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95em;
+        }
+        
+        .code-example {
+            background-color: #3f3d3d;
+            color: #00ff00;
+            border-left: 4px solid var(--dark-color);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            overflow-x: auto;
+        }
+        
+        .visual-example {
+            background-color: var(--light-color);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin: 20px 0;
+        }
+        
+        .box-model {
+            width: 200px;
+            height: 100px;
+            padding: 20px;
+            border: 5px solid var(--primary-color);
+            margin: 30px;
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .flex-container {
+            display: flex;
+            gap: 10px;
+            padding: 15px;
+            background-color: #eee;
+            border-radius: var(--border-radius);
+            margin: 15px 0;
+        }
+        
+        .flex-item {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px;
+            border-radius: 4px;
+            text-align: center;
+            flex: 1;
+        }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            padding: 15px;
+            background-color: #eee;
+            border-radius: var(--border-radius);
+            margin: 15px 0;
+        }
+        
+        .grid-item {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 15px;
+            border-radius: 4px;
+            text-align: center;
+        }
+        
+        .color-box {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            margin-right: 5px;
+            border: 1px solid #ccc;
+            vertical-align: middle;
+        }
+        
+        .primary { background-color: #ff0000; }
+        .secondary { background-color: #00ff00; }
+        .tertiary { background-color: #0000ff; }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        table, th, td {
+            border: 1px solid #189766;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f3f3f3;
+        }
+        
+        .tip {
+            background-color: #e7f4ff;
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            background-color: darkslategray ;
+            color: goldenrod;
+            border-top: #189766 4px solid;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                position: static;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Complete CSS Guide</h1>
+        <p>Everything you need to know about Cascading Style Sheets</p>
+    </header>
+    
+    <div class="container">
+        <aside class="sidebar">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#css-basics">CSS Basics</a></li>
+                <li><a href="#applying-css">Applying CSS</a></li>
+                <li><a href="#box-model">Box Model</a></li>
+                <li><a href="#layout">Layout & Positioning</a></li>
+                <li><a href="#typography">Typography</a></li>
+                <li><a href="#color-theory">Color Theory</a></li>
+                <li><a href="#responsive">Responsive Design</a></li>
+                <li><a href="#flexbox">Flexbox</a></li>
+                <li><a href="#grid">CSS Grid</a></li>
+                <li><a href="#animations">Animations</a></li>
+                <li><a href="#accessibility">Accessibility</a></li>
+                <li><a href="#best-practices">Best Practices</a></li>
+            </ul>
+        </aside>
+        
+        <main class="content">
+            <section id="css-basics">
+                <h2>CSS Basics</h2>
+                <p><strong>Cascading Style Sheets (CSS)</strong> is a stylesheet language used to describe the presentation of HTML documents. CSS controls how elements are displayed on web pages, including colors, layout, fonts, and responsive behavior across different devices.</p>
+                
+                <h3>Basic Anatomy of a CSS Rule</h3>
+                <div class="code-example">
+                    <pre>selector {
+  property: value;
+  another-property: value;
+}</pre>
+                </div>
+                <p>A CSS rule consists of a selector and a declaration block containing property-value pairs.</p>
+                
+                <h3>Viewport Meta Element</h3>
+                <div class="code-example">
+                    <pre>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</pre>
+                </div>
+                <p>This meta tag controls how a page is displayed on mobile devices, ensuring proper scaling across different screen sizes.</p>
+                
+                <h3>Default Browser Styles</h3>
+                <p>Every browser applies default styles to HTML elements (margins, paddings, font sizes). These vary between browsers, which is why CSS resets or normalizations are often used.</p>
+            </section>
+            
+            <section id="applying-css">
+                <h2>Applying CSS</h2>
+                
+                <h3>Inline CSS</h3>
+                <div class="code-example">
+                    <pre>&lt;p style="color: blue; font-size: 16px;"&gt;This is a paragraph.&lt;/p&gt;</pre>
+                </div>
+                <p>Styles applied directly to HTML elements using the <code>style</code> attribute. Not recommended for production due to maintenance challenges.</p>
+                
+                <h3>Internal CSS</h3>
+                <div class="code-example">
+                    <pre>&lt;head&gt;
+  &lt;style&gt;
+    p {
+      color: blue;
+      font-size: 16px;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;</pre>
+                </div>
+                <p>Styles placed within <code>&lt;style&gt;</code> tags in the HTML document head. Useful for small projects but not ideal for larger applications.</p>
+                
+                <h3>External CSS</h3>
+                <div class="code-example">
+                    <pre>&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;</pre>
+                </div>
+                <p>Styles written in separate <code>.css</code> files and linked to HTML documents. Recommended approach for maintainability, reusability, and performance.</p>
+            </section>
+            
+            <section id="box-model">
+                <h2>Box Model & Layout</h2>
+                
+                <h3>The CSS Box Model</h3>
+                <p>Every element is represented as a rectangular box with:</p>
+                <ul>
+                    <li><strong>Content</strong>: Actual content (text, images)</li>
+                    <li><strong>Padding</strong>: Space between content and border</li>
+                    <li><strong>Border</strong>: Edge around padding</li>
+                    <li><strong>Margin</strong>: Space outside border</li>
+                </ul>
+                
+                <div class="visual-example">
+                    <div class="box-model">
+                        Content Box
+                    </div>
+                    <p>This element demonstrates the box model with padding, border, and margin.</p>
+                </div>
+                
+                <h3>box-sizing Property</h3>
+                <div class="code-example">
+                    <pre>/* Default */
+box-sizing: content-box;
+
+/* Recommended for easier sizing */
+box-sizing: border-box;</pre>
+                </div>
+                <p>With <code>border-box</code>, width and height include content, padding, and border but not margin.</p>
+                
+                <h3>Margin Collapse</h3>
+                <p>Vertical margins between adjacent elements collapse into a single margin (the larger value). This does not apply to horizontal margins.</p>
+                
+                <h3>Display Types</h3>
+                <table>
+                    <tr>
+                        <th>Type</th>
+                        <th>Behavior</th>
+                        <th>Examples</th>
+                    </tr>
+                    <tr>
+                        <td>Inline</td>
+                        <td>Flow within content, don't start on new lines, can't set width/height</td>
+                        <td>span, a, img, strong</td>
+                    </tr>
+                    <tr>
+                        <td>Block</td>
+                        <td>Take full available width, start on new lines, can set width/height</td>
+                        <td>div, p, section, h1-h6</td>
+                    </tr>
+                    <tr>
+                        <td>Inline-Block</td>
+                        <td>Flow like inline but can set width/height</td>
+                        <td>button, input, select</td>
+                    </tr>
+                </table>
+            </section>
+            
+            <section id="layout">
+                <h2>Layout & Positioning</h2>
+                
+                <h3>Position Property</h3>
+                <table>
+                    <tr>
+                        <th>Value</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>static</td>
+                        <td>Default position in normal document flow</td>
+                    </tr>
+                    <tr>
+                        <td>relative</td>
+                        <td>Positioned relative to its normal position</td>
+                    </tr>
+                    <tr>
+                        <td>absolute</td>
+                        <td>Positioned relative to nearest positioned ancestor</td>
+                    </tr>
+                    <tr>
+                        <td>fixed</td>
+                        <td>Positioned relative to viewport (stays on scroll)</td>
+                    </tr>
+                    <tr>
+                        <td>sticky</td>
+                        <td>Toggles between relative and fixed based on scroll position</td>
+                    </tr>
+                </table>
+                
+                <h3>Floats</h3>
+                <div class="code-example">
+                    <pre>img {
+  float: left;
+  margin-right: 15px;
+}</pre>
+                </div>
+                <p>Floats remove an element from normal flow, positioning it to the left or right of its container with content wrapping around it.</p>
+                
+                <h3>z-index Property</h3>
+                <p>Controls the vertical stacking order of positioned elements that overlap. Higher values appear in front of lower values.</p>
+            </section>
+            
+            <section id="typography">
+                <h2>Typography</h2>
+                
+                <h3>Font Properties</h3>
+                <div class="code-example">
+                    <pre>body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #333;
+}</pre>
+                </div>
+                
+                <h3>Web Safe Fonts</h3>
+                <ul>
+                    <li><strong>Sans-serif</strong>: Arial, Verdana, Trebuchet MS (good for screens)</li>
+                    <li><strong>Serif</strong>: Times New Roman, Georgia (good for print)</li>
+                </ul>
+                
+                <h3>Custom Fonts with @font-face</h3>
+                <div class="code-example">
+                    <pre>@font-face {
+  font-family: 'MyFont';
+  src: url('myfont.woff2') format('woff2'),
+       url('myfont.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}</pre>
+                </div>
+                
+                <h3>Text Shadow</h3>
+                <div class="code-example">
+                    <pre>h1 {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}</pre>
+                </div>
+            </section>
+            
+            <section id="color-theory">
+                <h2>Color Theory</h2>
+                
+                <h3>Color Relationships</h3>
+                <ul>
+                    <li><strong>Primary Colors</strong>: <span class="color-box primary"></span> Red, <span class="color-box secondary"></span> Green, <span class="color-box tertiary"></span> Blue (fundamental hues)</li>
+                    <li><strong>Secondary Colors</strong>: Orange, Green, Purple (mixed from primaries)</li>
+                    <li><strong>Tertiary Colors</strong>: Yellow-green, Blue-green, etc. (primary + secondary)</li>
+                </ul>
+                
+                <h3>Color Schemes</h3>
+                <table>
+                    <tr>
+                        <th>Scheme</th>
+                        <th>Description</th>
+                        <th>Effect</th>
+                    </tr>
+                    <tr>
+                        <td>Analogous</td>
+                        <td>Adjacent colors on wheel</td>
+                        <td>Cohesive, soothing</td>
+                    </tr>
+                    <tr>
+                        <td>Complementary</td>
+                        <td>Opposite colors</td>
+                        <td>High contrast, visual impact</td>
+                    </tr>
+                    <tr>
+                        <td>Triadic</td>
+                        <td>Three equidistant colors</td>
+                        <td>Vibrant, balanced</td>
+                    </tr>
+                    <tr>
+                        <td>Monochromatic</td>
+                        <td>Variations of single color</td>
+                        <td>Unity, harmony</td>
+                    </tr>
+                </table>
+                
+                <h3>CSS Color Notation</h3>
+                <div class="code-example">
+                    <pre>color: red;                      /* Named color */
+color: #ff0000;                  /* Hexadecimal */
+color: rgb(255, 0, 0);           /* RGB */
+color: rgba(255, 0, 0, 0.5);     /* RGB with alpha */
+color: hsl(0, 100%, 50%);        /* HSL */
+color: hsla(0, 100%, 50%, 0.5);  /* HSL with alpha */</pre>
+                </div>
+            </section>
+            
+            <section id="responsive">
+                <h2>Responsive Design</h2>
+                
+                <h3>Media Queries</h3>
+                <div class="code-example">
+                    <pre>/* Mobile-first approach */
+.container {
+  width: 100%;
+}
+
+/* Tablet */
+@media (min-width: 641px) {
+  .container {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+  .container {
+    width: 70%;
+  }
+}</pre>
+                </div>
+                
+                <h3>Common Breakpoints</h3>
+                <table>
+                    <tr>
+                        <th>Device Type</th>
+                        <th>Breakpoint Range</th>
+                    </tr>
+                    <tr>
+                        <td>Smartphones</td>
+                        <td>Up to 640px</td>
+                    </tr>
+                    <tr>
+                        <td>Tablets</td>
+                        <td>641px to 1024px</td>
+                    </tr>
+                    <tr>
+                        <td>Desktops</td>
+                        <td>1025px and larger</td>
+                    </tr>
+                </table>
+                
+                <h3>Responsive Images</h3>
+                <div class="code-example">
+                    <pre>img {
+  max-width: 100%;
+  height: auto;
+}</pre>
+                </div>
+            </section>
+            
+            <section id="flexbox">
+                <h2>Flexbox</h2>
+                <p>CSS Flexbox is a one-dimensional layout model for arranging items in rows or columns.</p>
+                
+                <h3>Flex Container Properties</h3>
+                <div class="code-example">
+                    <pre>.container {
+  display: flex;
+  flex-direction: row; /* or column */
+  flex-wrap: nowrap; /* or wrap */
+  justify-content: flex-start; /* alignment along main axis */
+  align-items: stretch; /* alignment along cross axis */
+}</pre>
+                </div>
+                
+                <div class="visual-example">
+                    <h4>Flexbox Example</h4>
+                    <div class="flex-container">
+                        <div class="flex-item">Item 1</div>
+                        <div class="flex-item">Item 2</div>
+                        <div class="flex-item">Item 3</div>
+                    </div>
+                </div>
+                
+                <h3>Flex Item Properties</h3>
+                <div class="code-example">
+                    <pre>.item {
+  flex-grow: 0;    /* ability to grow if necessary */
+  flex-shrink: 1;  /* ability to shrink if necessary */
+  flex-basis: auto; /* default size before remaining space distribution */
+  /* Shorthand: flex: grow shrink basis; */
+  flex: 0 1 auto;
+}</pre>
+                </div>
+            </section>
+            
+            <section id="grid">
+                <h2>CSS Grid</h2>
+                <p>CSS Grid is a two-dimensional layout system for creating complex web page layouts.</p>
+                
+                <h3>Grid Container Properties</h3>
+                <div class="code-example">
+                    <pre>.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* three equal columns */
+  grid-template-rows: 100px auto; /* two rows */
+  gap: 20px; /* space between grid items */
+}</pre>
+                </div>
+                
+                <div class="visual-example">
+                    <h4>Grid Example</h4>
+                    <div class="grid-container">
+                        <div class="grid-item">Item 1</div>
+                        <div class="grid-item">Item 2</div>
+                        <div class="grid-item">Item 3</div>
+                        <div class="grid-item">Item 4</div>
+                        <div class="grid-item">Item 5</div>
+                        <div class="grid-item">Item 6</div>
+                    </div>
+                </div>
+                
+                <h3>Grid Item Properties</h3>
+                <div class="code-example">
+                    <pre>.item {
+  grid-column: 1 / 3; /* item spans from column line 1 to 3 */
+  grid-row: 1; /* item placed in row 1 */
+}</pre>
+                </div>
+                
+                <h3>Grid Areas</h3>
+                <div class="code-example">
+                    <pre>.container {
+  grid-template-areas: 
+    "header header header"
+    "sidebar content content"
+    "footer footer footer";
+}
+
+.header { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.content { grid-area: content; }
+.footer { grid-area: footer; }</pre>
+                </div>
+            </section>
+            
+            <section id="animations">
+                <h2>Animations & Transitions</h2>
+                
+                <h3>Transitions</h3>
+                <div class="code-example">
+                    <pre>.button {
+  transition: all 0.3s ease-in-out;
+}
+
+.button:hover {
+  transform: scale(1.05);
+  background-color: #2ecc71;
+}</pre>
+                </div>
+                
+                <h3>Keyframe Animations</h3>
+                <div class="code-example">
+                    <pre>@keyframes slidein {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.element {
+  animation: slidein 0.5s ease-in-out;
+}</pre>
+                </div>
+                
+                <h3>Animation Properties</h3>
+                <div class="code-example">
+                    <pre>.element {
+  animation-name: slidein;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0.2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-fill-mode: both;
+  /* Shorthand: */
+  animation: slidein 0.5s ease-in-out 0.2s infinite alternate both;
+}</pre>
+                </div>
+            </section>
+            
+            <section id="accessibility">
+                <h2>Accessibility</h2>
+                
+                <h3>Focus Styles</h3>
+                <div class="code-example">
+                    <pre>button:focus {
+  outline: 2px solid #3498db;
+  outline-offset: 2px;
+}</pre>
+                </div>
+                <p>Always provide visible focus indicators for keyboard navigation.</p>
+                
+                <h3>Reduced Motion</h3>
+                <div class="code-example">
+                    <pre>@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}</pre>
+                </div>
+                <p>Respect user preferences for reduced motion to prevent accessibility issues.</p>
+                
+                <h3>Screen Reader Only Content</h3>
+                <div class="code-example">
+                    <pre>.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}</pre>
+                </div>
+            </section>
+            
+            <section id="best-practices">
+                <h2>Best Practices</h2>
+                
+                <h3>CSS Methodology</h3>
+                <ul>
+                    <li>Use consistent naming conventions (BEM, SMACSS, etc.)</li>
+                    <li>Organize CSS in logical sections</li>
+                    <li>Comment your code for maintainability</li>
+                    <li>Use CSS variables for theming and consistency</li>
+                </ul>
+                
+                <h3>Performance</h3>
+                <ul>
+                    <li>Minify CSS for production</li>
+                    <li>Use efficient selectors (avoid overly specific ones)</li>
+                    <li>Reduce use of expensive properties like box-shadow and border-radius when possible</li>
+                    <li>Leverage CSS containment for performance optimization</li>
+                </ul>
+                
+                <h3>CSS Variables (Custom Properties)</h3>
+                <div class="code-example">
+                    <pre>:root {
+  --primary-color: #3498db;
+  --spacing: 1rem;
+  --border-radius: 8px;
+}
+
+.button {
+  background-color: var(--primary-color);
+  padding: var(--spacing);
+  border-radius: var(--border-radius);
+}</pre>
+                </div>
+                
+                <div class="tip">
+                    <p><strong>Pro Tip:</strong> Always test your CSS in multiple browsers and devices to ensure consistent appearance and behavior.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <footer>
+        <p>Complete CSS Guide &copy; 2025 - RDGCZ | Based on freeCodeCamp CSS review</p>
+    </footer>
+</body>
+</html>

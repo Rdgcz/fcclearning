@@ -80,6 +80,12 @@ h1 {
   color: chartreuse;
 }
 
+.out-of-date {
+  color: lightgreen;
+  font-weight: light;
+  text-decoration: line-through;
+} 
+
 h2,
 h3,
 h4,
