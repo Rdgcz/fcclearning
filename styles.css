@@ -81,7 +81,7 @@ h1 {
 }
 
 .out-of-date {
-  color: lightgreen;
+  color: var(--gray-dark);
   font-weight: light;
   text-decoration: line-through;
 } 
