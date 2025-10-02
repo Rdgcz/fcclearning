@@ -1,0 +1,437 @@
+** start of index.html **
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Rodrigo Cezar's Personal Portfolio - Web Development">
+  <meta name="keywords" content="frontend, design, ux, ui, web development, freecodecamp">
+  <meta name="author" content="Rodrigo Cezar da Silva">
+  <meta property="og:title" content="Portfolio - Rodrigo Cezar (RDGCZ) - Web Development">
+  <meta property="og:description" content="Rodrigo Cezar's Personal Portfolio - Web Development">
+  <title>Personal Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <main>
+    <header id="header">
+
+      <nav id="navbar">
+        <ul>
+          <li><a class="nav-link" href="#welcome-section">Welcome</a></li> |
+          <li><a class="nav-link" href="#project-section">Projects</a></li> |
+          <li><a class="nav-link" href="#profile-link" >Profile</a></li>
+        </ul>
+      </nav>
+
+    </header>
+    <section id="welcome-section">
+      <div class="image-container">
+        <img id="hero-image" src="https://avatars.githubusercontent.com/u/214568192?v=4" alt="Rodrigo's Picture"
+          onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'">
+      </div>
+      <div id="hero-text">
+        <h1>Industrial Designer Crafting Digital Experiences</h1>
+        <p>Transforming complex problems into intuitive and beautiful web solutions.</p>
+      </div>
+    </section>
+    <hr class="separator">
+    <h2>Projects</h2>
+    <section id="project-section">
+
+      <div class="project-tile" tabindex="0" role="button" aria-label="Open Project:Website Sitio Sabio Sabia">
+        <img src="" alt="Website Sitio Sabio Sabia" class="project-tile-image" loading="lazy"
+          onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'">
+
+        <div class="project-tile-caption">
+          <a href="https://www.sitiosabiosabia.com.br" target="_blank">Website Sitio Sabio Sabia</a>
+        </div>
+      </div>
+
+      <div class="project-tile" tabindex="0" role="button" aria-label="Open Project:Website Sitio Sabio Sabia">
+        <img src="" alt="" class="project-tile-image" loading="lazy"
+          onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'">
+        <div class="project-tile-caption">
+          <a href="https://rdgcz.github.io/fcclearning/0034/index.html" target="_blank">Fictional Service Landing
+            Page</a>
+        </div>
+      </div>
+
+    </section>
+    <hr class="separator">
+    <a id="profile-link" href="https://github.com/Rdgcz" target="_blank">RDGCZ@GitHub</a>
+      </section>
+    <p>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer">
+        <img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss-blue"
+          alt="Valid CSS!">
+      </a>
+    </p>
+  </main>
+  <footer role="contentinfo">
+    <p>© <span id="current-year">2025</span> - RDGCZ - All rights reserved</p>
+  </footer>
+</body>
+
+</html>
+
+** end of index.html **
+
+** start of styles.css **
+
+:root {
+  --bg-color: #0d0d1a;
+  --text-color: #e0f7fa;
+  --accent-color: #00f0ff;
+  --accent-secondary: #0066ff;
+  --card-bg: rgba(0, 48, 73, 0.3);
+  --glow-effect: 0 0 8px rgba(0, 240, 255, 0.7);
+  --glow-effect-h1: 0 0 5px rgba(0, 240, 255, 0.7);
+
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-circle: 50%;
+
+  --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.4);
+
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 10vh 0 10vh 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  z-index: 1;
+}
+
+header,
+footer {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  background: linear-gradient(0deg, var(--accent-color), var(--bg-color) 15% 85%, var(--accent-color));
+  align-items: center;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  justify-content: space-between;
+  z-index: 3;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5vh;
+  color: var(--accent-color);
+  justify-content: center;
+  z-index: 3;
+}
+
+footer p {
+  font-size: 0.7rem;
+  opacity: 0.5;
+  font-style: italic;
+  font-weight: 400;
+}
+
+
+
+h2 {
+  font-size: 2.2rem;
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center;
+  background: linear-gradient(135deg, var(--text-color), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: var(--glow-effect);
+}
+
+p {
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center;
+}
+
+#navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+
+}
+
+#navbar ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  gap: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  justify-content: center;
+}
+
+#navbar a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 400;
+}
+
+#navbar a:hover,
+.navlink:hover {
+  color: var(--accent-color);
+  text-shadow: var(--glow-effect1);
+}
+
+
+
+#welcome-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+  margin: 40px 0 0 20px;
+  max-width: 250px;
+  height: auto;
+  overflow: hidden;
+  border-radius: 50px 100px;
+}
+
+#hero-image {
+  max-width: 250px;
+  height: auto;
+  border: 2px solid var(--accent-color);
+  border-radius: 50px 100px;
+  box-shadow: var(--glow-effect);
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+.image-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg,
+      transparent 40%,
+      var(--accent-color) 47%,
+      rgba(255, 255, 255, 0.8) 50%,
+      var(--accent-color) 53%,
+      transparent 60%);
+  transform: skewX(-45deg) scaleY(2) scaleX(0.5) rotateX(10deg);
+  z-index: 2;
+  border-radius: 50px 100px;
+  animation: shine 10s infinite;
+  animation-delay: 8s;
+
+}
+
+@keyframes shine {
+  0% { left: -100%; opacity: 0; }
+  50% { opacity: 0.3; }
+  100% { left: 150%; opacity: 0; }
+}
+
+
+#hero-text {
+  text-align: center;
+  padding-right: 20px;
+}
+
+#hero-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  line-height: 1.3;
+  background: linear-gradient(135deg, var(--text-color), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: var(--glow-effect-h1);
+  
+}
+
+#hero-text p {
+  font-size: 1.2rem;
+  font-style: italic;
+  letter-spacing: 0.5px;
+  line-height: 1.6;
+
+
+}
+
+@media (max-width: 768px) {
+  #welcome-section {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .image-container {
+    margin: 20px auto;
+  }
+
+  #hero-text {
+    padding-right: 0;
+  }
+
+  #hero-text h1 {
+    font-size: 1.8rem;
+  }
+
+}
+
+.separator {
+  position: relative;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-secondary) 40%, var(--accent-color), var(--accent-secondary) 60%);
+  width: 90%;
+  margin: 10px;
+  border: 1px solid var(--accent-color);
+  border-radius: 100%;
+  box-shadow: var(--glow-effect1);
+  justify-content: center;
+
+}
+
+#project-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  align-items: center;
+  text-align: center;
+}
+
+.project-tile {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 1 / 1;
+  transition: var(--transition-normal);
+  background: var(--card-bg);
+  border: 1px solid var(--accent-color);
+  margin: 10px 10px;
+}
+
+.project-tile:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--glow-effect);
+  border-color: var(--accent-color);
+}
+
+.project-tile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.project-tile-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--caption-bg);
+  color: var(--accent-color);
+  padding: var(--space-sm);
+  transform: translateY(100%);
+  transition: transform var(--transition-normal);
+  border-top: 2px solid var(--caption-border);
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  backdrop-filter: blur(3px);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.project-tile-caption a {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.project-tile:hover .project-tile-caption,
+.project-tile:focus .project-tile-caption {
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .project-tile-caption {
+    transform: translateY(0) !important;
+  }
+}
+
+#profile-link {
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center;
+  background: linear-gradient(135deg, var(--text-color), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: var(--glow-effect);
+}
+
+** end of styles.css **
+

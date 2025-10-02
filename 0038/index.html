@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Rodrigo Cezar's Personal Portfolio - Web Development">
+  <meta name="keywords" content="frontend, design, ux, ui, web development, freecodecamp">
+  <meta name="author" content="Rodrigo Cezar da Silva">
+  <meta property="og:title" content="Portfolio - Rodrigo Cezar (RDGCZ) - Web Development">
+  <meta property="og:description" content="Rodrigo Cezar's Personal Portfolio - Web Development">
+  <title>Personal Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <main>
+    <header id="header">
+
+      <nav id="navbar">
+        <ul>
+          <li><a class="nav-link" href="#welcome-section">Welcome</a></li> |
+          <li><a class="nav-link" href="#project-section">Projects</a></li> |
+          <li><a class="nav-link" href="#profile-link">Profile</a></li>
+        </ul>
+      </nav>
+
+    </header>
+    <section id="welcome-section">
+      <div class="image-container">
+        <img id="hero-image" src="https://avatars.githubusercontent.com/u/214568192?v=4" alt="Rodrigo's Picture"
+          onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'">
+      </div>
+      <div id="hero-text">
+        <h1>Industrial Designer Crafting Digital Experiences</h1>
+        <p>Transforming complex problems into intuitive and beautiful web solutions.</p>
+      </div>
+    </section>
+    <hr class="separator">
+    <h2>Projects</h2>
+    <section id="project-section">
+
+      <div class="project-tile" tabindex="0" role="button" aria-label="Open Project:Website Sitio Sabio Sabia">
+        <img src="" alt="Website Sitio Sabio Sabia" class="project-tile-image" loading="lazy"
+          onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'">
+
+        <div class="project-tile-caption">
+          <a href="https://www.sitiosabiosabia.com.br" target="_blank">Website Sitio Sabio Sabia</a>
+        </div>
+      </div>
+
+      <div class="project-tile" tabindex="0" role="button" aria-label="Open Project:Website Sitio Sabio Sabia">
+        <img src="" alt="" class="project-tile-image" loading="lazy"
+          onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'">
+        <div class="project-tile-caption">
+          <a href="https://rdgcz.github.io/fcclearning/0034/index.html" target="_blank">Fictional Service Landing
+            Page</a>
+        </div>
+      </div>
+
+    </section>
+    <hr class="separator">
+    <a id="profile-link" href="https://github.com/Rdgcz" target="_blank">RDGCZ@GitHub</a>
+    </section>
+    <p>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer">
+        <img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss-blue"
+          alt="Valid CSS!">
+      </a>
+    </p>
+  </main>
+  <footer role="contentinfo">
+    <p>© <span id="current-year">2025</span> - RDGCZ - All rights reserved</p>
+  </footer>
+</body>
+
+</html>
