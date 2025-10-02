@@ -42,7 +42,7 @@
         }
         
         header {
-            background: linear-gradient(135deg, #031d0e, rgb(8, 80, 58),  );
+            background: linear-gradient(135deg, #031d0e, rgb(8, 80, 58));
             color: var(--light-text);
             padding: 1rem 2rem;
             box-shadow: var(--shadow);
@@ -283,6 +283,7 @@
         <aside class="sidebar">
             <h3>Table of Contents</h3>
             <ul>
+                <li><a href="#css-review">CSS Review</a></li>
                 <li><a href="#css-basics">CSS Basics</a></li>
                 <li><a href="#applying-css">Applying CSS</a></li>
                 <li><a href="#box-model">Box Model</a></li>
@@ -299,6 +300,23 @@
         </aside>
         
         <main class="content">
+            <section id="css-review">
+                <h2>CSS Review</h2>
+                <p>Review the concepts below to prepare for the upcoming exam.</p>
+                
+                <h3>What is CSS?</h3>
+                <p>Cascading Style Sheets (CSS) is a markup language used to apply styles to HTML elements. CSS is used for colors, background images, layouts and more.</p>
+                
+                <h3>Basic Anatomy of a CSS Rule</h3>
+                <p>A CSS rule is made up of two main parts: a selector and a declaration block. A selector is a pattern used in CSS to identify and target specific HTML elements for styling. A declaration block applies a set of styles for a given selector, or selectors.</p>
+                
+                <h3>meta name="viewport" Element</h3>
+                <p>This meta element gives the browser instructions on how to control the page's dimensions and scaling on different devices, particularly on mobile phones and tablets.</p>
+                
+                <h3>Default Browser Styles</h3>
+                <p>Each HTML element will have default browser styles applied to them. This usually includes items like default margins and paddings.</p>
+            </section>
+            
             <section id="css-basics">
                 <h2>CSS Basics</h2>
                 <p><strong>Cascading Style Sheets (CSS)</strong> is a stylesheet language used to describe the presentation of HTML documents. CSS controls how elements are displayed on web pages, including colors, layout, fonts, and responsive behavior across different devices.</p>
@@ -320,6 +338,34 @@
                 
                 <h3>Default Browser Styles</h3>
                 <p>Every browser applies default styles to HTML elements (margins, paddings, font sizes). These vary between browsers, which is why CSS resets or normalizations are often used.</p>
+                
+                <h3>CSS Specificity</h3>
+                <p>CSS specificity determines which styles are applied when multiple rules target the same element:</p>
+                <ul>
+                    <li><strong>Inline CSS</strong>: Highest specificity (1,0,0,0)</li>
+                    <li><strong>ID Selectors</strong>: (0,1,0,0)</li>
+                    <li><strong>Class Selectors</strong>: (0,0,1,0)</li>
+                    <li><strong>Type Selectors</strong>: (0,0,0,1)</li>
+                    <li><strong>Universal Selector</strong>: (0,0,0,0)</li>
+                </ul>
+                
+                <h3>CSS Combinators</h3>
+                <div class="code-example">
+                    <pre>/* Descendant Combinator */
+div p { }
+
+/* Child Combinator */
+div > p { }
+
+/* Next-sibling Combinator */
+h1 + p { }
+
+/* Subsequent-sibling Combinator */
+h1 ~ p { }</pre>
+                </div>
+                
+                <h3>CSS Inheritance</h3>
+                <p>The process by which styles are passed down from parent elements to their children. Inheritance allows you to define styles at a higher level in the document tree and have them apply to multiple elements without explicitly specifying them for each element.</p>
             </section>
             
             <section id="applying-css">
@@ -329,7 +375,7 @@
                 <div class="code-example">
                     <pre>&lt;p style="color: blue; font-size: 16px;"&gt;This is a paragraph.&lt;/p&gt;</pre>
                 </div>
-                <p>Styles applied directly to HTML elements using the <code>style</code> attribute. Not recommended for production due to maintenance challenges.</p>
+                <p>Styles applied directly to HTML elements using the <code>style</code> attribute. Most of the time you will not be using inline CSS due to separation of concerns.</p>
                 
                 <h3>Internal CSS</h3>
                 <div class="code-example">
@@ -342,7 +388,7 @@
   &lt;/style&gt;
 &lt;/head&gt;</pre>
                 </div>
-                <p>Styles placed within <code>&lt;style&gt;</code> tags in the HTML document head. Useful for small projects but not ideal for larger applications.</p>
+                <p>These styles are written within the <code>&lt;style&gt;</code> tags inside the head section of an HTML document. This can be useful for creating short code examples, but usually, you will not use internal CSS.</p>
                 
                 <h3>External CSS</h3>
                 <div class="code-example">
@@ -350,19 +396,19 @@
   &lt;link rel="stylesheet" href="styles.css"&gt;
 &lt;/head&gt;</pre>
                 </div>
-                <p>Styles written in separate <code>.css</code> files and linked to HTML documents. Recommended approach for maintainability, reusability, and performance.</p>
+                <p>These styles are written in a separate CSS file and linked to the HTML document using the link element in the head section. For most projects, you will use an external CSS file over internal or inline CSS.</p>
             </section>
             
             <section id="box-model">
                 <h2>Box Model & Layout</h2>
                 
                 <h3>The CSS Box Model</h3>
-                <p>Every element is represented as a rectangular box with:</p>
+                <p>In the CSS box model, every element is surrounded by a box. This box consists of four components:</p>
                 <ul>
-                    <li><strong>Content</strong>: Actual content (text, images)</li>
+                    <li><strong>Content Area</strong>: The innermost part containing actual content</li>
                     <li><strong>Padding</strong>: Space between content and border</li>
-                    <li><strong>Border</strong>: Edge around padding</li>
-                    <li><strong>Margin</strong>: Space outside border</li>
+                    <li><strong>Border</strong>: Outer edge or outline of the element</li>
+                    <li><strong>Margin</strong>: Space outside border between elements</li>
                 </ul>
                 
                 <div class="visual-example">
@@ -380,10 +426,10 @@ box-sizing: content-box;
 /* Recommended for easier sizing */
 box-sizing: border-box;</pre>
                 </div>
-                <p>With <code>border-box</code>, width and height include content, padding, and border but not margin.</p>
+                <p>With <code>content-box</code>, width and height only include content. With <code>border-box</code>, width and height include content, padding, and border but not margin.</p>
                 
                 <h3>Margin Collapse</h3>
-                <p>Vertical margins between adjacent elements collapse into a single margin (the larger value). This does not apply to horizontal margins.</p>
+                <p>This behavior occurs when the vertical margins of adjacent elements overlap, resulting in a single margin equal to the larger of the two. This behavior applies only to vertical margins (top and bottom), not horizontal margins (left and right).</p>
                 
                 <h3>Display Types</h3>
                 <table>
@@ -408,6 +454,18 @@ box-sizing: border-box;</pre>
                         <td>button, input, select</td>
                     </tr>
                 </table>
+                
+                <h3>Width and Height Properties</h3>
+                <div class="code-example">
+                    <pre>.element {
+  width: 300px;
+  min-width: 200px;
+  max-width: 500px;
+  height: 150px;
+  min-height: 100px;
+  max-height: 300px;
+}</pre>
+                </div>
             </section>
             
             <section id="layout">
@@ -448,10 +506,19 @@ box-sizing: border-box;</pre>
   margin-right: 15px;
 }</pre>
                 </div>
-                <p>Floats remove an element from normal flow, positioning it to the left or right of its container with content wrapping around it.</p>
+                <p>Floats are used to remove an element from its normal flow on the page and position it either on the left or right side of its container. When this happens, text will wrap around that floated content.</p>
                 
                 <h3>z-index Property</h3>
                 <p>Controls the vertical stacking order of positioned elements that overlap. Higher values appear in front of lower values.</p>
+                
+                <h3>CSS Transform Property</h3>
+                <div class="code-example">
+                    <pre>.element {
+  transform: translate(50px, 100px); /* Move element */
+  transform: scale(1.5); /* Scale element */
+  transform: rotate(45deg); /* Rotate element */
+}</pre>
+                </div>
             </section>
             
             <section id="typography">
@@ -467,6 +534,18 @@ box-sizing: border-box;</pre>
   color: #333;
 }</pre>
                 </div>
+                
+                <h3>Typography Terminology</h3>
+                <ul>
+                    <li><strong>Baseline</strong>: Imaginary line on which most characters rest</li>
+                    <li><strong>Cap Height</strong>: Height of uppercase letters</li>
+                    <li><strong>X-height</strong>: Average height of lowercase letters</li>
+                    <li><strong>Ascenders</strong>: Parts of letters extending above x-height</li>
+                    <li><strong>Descenders</strong>: Parts of letters extending below baseline</li>
+                    <li><strong>Kerning</strong>: Space adjustment between specific character pairs</li>
+                    <li><strong>Tracking</strong>: Space adjustment between all characters</li>
+                    <li><strong>Leading</strong>: Vertical space between lines of text</li>
+                </ul>
                 
                 <h3>Web Safe Fonts</h3>
                 <ul>
@@ -491,6 +570,7 @@ box-sizing: border-box;</pre>
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }</pre>
                 </div>
+                <p>The text-shadow property applies shadows to text. You need to specify the X and Y offset, which represent the horizontal and vertical distance of the shadow from the text, respectively.</p>
             </section>
             
             <section id="color-theory">
@@ -540,6 +620,15 @@ color: rgb(255, 0, 0);           /* RGB */
 color: rgba(255, 0, 0, 0.5);     /* RGB with alpha */
 color: hsl(0, 100%, 50%);        /* HSL */
 color: hsla(0, 100%, 50%, 0.5);  /* HSL with alpha */</pre>
+                </div>
+                
+                <h3>Gradients</h3>
+                <div class="code-example">
+                    <pre>/* Linear Gradient */
+background: linear-gradient(135deg, red, blue);
+
+/* Radial Gradient */
+background: radial-gradient(circle, red, blue);</pre>
                 </div>
             </section>
             
@@ -594,6 +683,24 @@ color: hsla(0, 100%, 50%, 0.5);  /* HSL with alpha */</pre>
                     <pre>img {
   max-width: 100%;
   height: auto;
+}</pre>
+                </div>
+                
+                <h3>Relative Units</h3>
+                <div class="code-example">
+                    <pre>.element {
+  width: 50%;        /* Percentage of parent */
+  font-size: 1.5rem; /* Relative to root element */
+  height: 50vh;      /* 50% of viewport height */
+  margin: 2em;       /* Relative to element's font size */
+}</pre>
+                </div>
+                
+                <h3>calc() Function</h3>
+                <div class="code-example">
+                    <pre>.element {
+  width: calc(100% - 40px);
+  height: calc(50vh + 2rem);
 }</pre>
                 </div>
             </section>
@@ -729,6 +836,17 @@ color: hsla(0, 100%, 50%, 0.5);  /* HSL with alpha */</pre>
   animation: slidein 0.5s ease-in-out 0.2s infinite alternate both;
 }</pre>
                 </div>
+                
+                <h3>CSS Filter Property</h3>
+                <div class="code-example">
+                    <pre>.image {
+  filter: blur(5px);
+  filter: brightness(150%);
+  filter: grayscale(100%);
+  filter: sepia(100%);
+  filter: hue-rotate(90deg);
+}</pre>
+                </div>
             </section>
             
             <section id="accessibility">
@@ -769,6 +887,9 @@ color: hsla(0, 100%, 50%, 0.5);  /* HSL with alpha */</pre>
   border: 0;
 }</pre>
                 </div>
+                
+                <h3>Color Contrast</h3>
+                <p>Ensure that the background and foreground colors have good contrast to make the text readable. The Web Content Accessibility Guidelines (WCAG) recommend a minimum contrast ratio of 4.5:1 for normal text and 3:1 for large text.</p>
             </section>
             
             <section id="best-practices">
@@ -804,6 +925,14 @@ color: hsla(0, 100%, 50%, 0.5);  /* HSL with alpha */</pre>
   border-radius: var(--border-radius);
 }</pre>
                 </div>
+                
+                <h3>Design Best Practices</h3>
+                <ul>
+                    <li>Use subtle, intentional effects, honor preferences, and offer user control</li>
+                    <li>Avoid content that flashes more than three times per second</li>
+                    <li>Ensure good visual hierarchy in design</li>
+                    <li>Use progressive enhancement approach</li>
+                </ul>
                 
                 <div class="tip">
                     <p><strong>Pro Tip:</strong> Always test your CSS in multiple browsers and devices to ensure consistent appearance and behavior.</p>
